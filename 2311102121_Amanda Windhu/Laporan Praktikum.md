@@ -1,7 +1,7 @@
 # <h2 align="center">LAPORAN PRAKTIKUM</h2>
 # <h2 align="center">ALGORITMA DAN PEMROGRAMAN 2</h2>
-# <h2 align="center">MODUL 4</h2>
-# <h2 align="center">PROSEDUR</h2>
+# <h2 align="center">MODUL 3</h2>
+# <h2 align="center"> FUNGSI</h2>
 <p align="center">
     <img src="https://github.com/user-attachments/assets/3ccfed0b-72d1-4349-ac08-c4dce379c827" alt="Gambar">
 </p>
@@ -15,4 +15,3 @@
 # <h3 align="center"> FAKULTAS INFORMATIKA </h3>
 # <h3 align="center"> TELKOM UNIVERSITY PURWOKERTO </h3>
 # <h3 align="center"> 2024 </h3>
-
