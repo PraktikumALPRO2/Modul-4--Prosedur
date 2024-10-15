@@ -261,12 +261,22 @@ func main() {
 ![Screenshot 2024-10-15 221813](https://github.com/user-attachments/assets/6ae2f635-89da-4f18-9a0f-9fb628cbf84f)
 
 ### Deskripsi Program : 
+Program ini menerima empat bilangan asli (`a`, `b`, `c`, dan `d`) sebagai input dari pengguna, kemudian menghitung dan menampilkan hasil permutasi dan kombinasi dari `a` terhadap `c`, serta dari `b` terhadap `d`. Program ini menggunakan rumus permutasi `P(n, r) = n!/(n-r)!` dan kombinasi `C(n, r) = n!/r!(n-r)!`, dan juga memverifikasi bahwa nilai `a` lebih besar atau sama dengan `c`, serta `b` lebih besar atau sama dengan `d`.
 
 ### Algoritma Program
-
+1. Input Bilangan: Program meminta pengguna memasukkan empat bilangan asli `a`, `b`, `c`, dan `d`.
+2. Validasi Kondisi: Program mengecek apakah nilai `a` lebih besar atau sama dengan `c`, dan `b` lebih besar atau sama dengan `d`. Jika kondisi tidak terpenuhi, program menampilkan pesan error dan berhenti.
+3. Hitung Permutasi dan Kombinasi:
+   - Program menghitung permutasi dan kombinasi dari pasangan `a` terhadap `c` dengan memanggil prosedur `HitungPermutasi` dan `HitungKombinasi`.
+   - Program juga menghitung permutasi dan kombinasi dari pasangan `b` terhadap `d`.
+4. Output Hasil: Program menampilkan hasil perhitungan permutasi dan kombinasi untuk kedua pasangan bilangan.
 
 ### Cara Kerja Program:
-
+1. Program meminta input empat bilangan dari pengguna.
+2. Setelah memeriksa apakah syarat `a >= c` dan `b >= d` terpenuhi, program melanjutkan dengan menghitung permutasi dan kombinasi menggunakan dua prosedur:
+   - Prosedur `HitungPermutasi`: Menghitung permutasi `P(n, r)` dengan membagi faktorial dari `n` dengan faktorial dari `(n - r)`.
+   - Prosedur `HitungKombinasi`: Menghitung kombinasi `C(n, r)` dengan membagi faktorial dari `n` dengan hasil perkalian faktorial `r` dan faktorial `(n - r)`.
+3. Hasil perhitungan permutasi dan kombinasi ditampilkan ke layar untuk kedua pasangan bilangan (`a`, `c` dan `b`, `d`).
 
 ### 2.
 ### Source Code :
