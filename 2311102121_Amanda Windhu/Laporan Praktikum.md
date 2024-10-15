@@ -15,3 +15,99 @@
 # <h3 align="center"> FAKULTAS INFORMATIKA </h3>
 # <h3 align="center"> TELKOM UNIVERSITY PURWOKERTO </h3>
 # <h3 align="center"> 2024 </h3>
+
+## I. DASAR TEORI
+
+
+
+## II. GUIDED
+
+### 1. Contoh Program dengan Function
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var a, b int
+	fmt.Scan(&a, &b) // Membaca input dari pengguna untuk dua nilai integer a dan b
+	if a >= b { 
+		// Jika a lebih besar atau sama dengan b, panggil prosedur permutasi dengan parameter (a, b)
+		permutasi(a, b)
+	} else { 
+		// Jika b lebih besar dari a, panggil prosedur permutasi dengan parameter (b, a)
+		permutasi(b, a)
+	}
+}
+
+func faktorial(n int) int {
+	var hasil int = 1
+	// Loop untuk menghitung faktorial dari n
+	for i := 1; i <= n; i++ {
+		hasil *= i // Mengalikan hasil dengan nilai i pada setiap iterasi
+	}
+	return hasil // Mengembalikan hasil faktorial
+}
+
+func permutasi(n, r int) {
+	// Menghitung permutasi nPr dan langsung mencetak hasilnya
+	hasil := faktorial(n) / faktorial(n-r)
+	fmt.Println(hasil) // Mencetak hasil permutasi
+}
+```
+## Output: ![image](https://github.com/user-attachments/assets/6ed035eb-545b-4835-a4f0-ec0d64af7862)
+
+Kode di atas
+
+### 2. Menghitung Luas dan Keliling Persegi
+
+```go
+package main
+
+import "fmt"
+
+// Prosedur untuk menghitung dan mencetak luas persegi
+func hitungLuas(sisi float64) {
+    luas := sisi * sisi
+    fmt.Printf("Luas persegi: %.2f\n", luas) // Mencetak hasil luas
+}
+
+// Prosedur untuk menghitung dan mencetak keliling persegi
+func hitungKeliling(sisi float64) {
+    keliling := 4 * sisi
+    fmt.Printf("Keliling persegi: %.2f\n", keliling) // Mencetak hasil keliling
+}
+
+func main() {
+    var sisi float64
+
+    fmt.Print("Masukkan panjang sisi persegi: ")
+    fmt.Scan(&sisi)
+
+    hitungLuas(sisi)      // Memanggil prosedur hitungLuas
+    hitungKeliling(sisi)  // Memanggil prosedur hitungKeliling
+}
+```
+## Output: ![image](https://github.com/user-attachments/assets/d33e1c01-7b2e-48ab-926c-58807500733d)
+
+Kode di atas
+
+## III. UNGUIDED
+
+### Minggu ini, mahasiswa Fakultas Informatika mendapatkan tugas dari mata kuliah matematika diskrit untuk mempelajari kombinasi dan permutasi. Jonas salah seorang mahasiswa, iseng untuk mengimplementasikannya ke dalam suatu program. Oleh karena itu bersediakah kalian membantu Jonas? (tidak tentunya ya :p)<br/> Masukan terdiri dari empat buah bilangan asli a, b, c, dan d yang dipisahkan oleh spasi, dengan syarat a ≥ c dan b ≥ d. <br/> Keluaran terdiri dari dua baris. Baris pertama adalah hasil permutasi dan kombinasi a terhadap c, sedangkan baris kedua adalah hasil permutasi dan kombinasi b terhadap d. <br/> Catatan: permutasi (P) dan kombinasi (C) dari n terhadap r (n ≥ r) dapat dihitung dengan menggunakan persamaan berikut!<br/>
+![image](https://github.com/user-attachments/assets/5b90c7e3-9f76-45eb-bf14-8f1bca637918)
+Selesaikan program tersebut dengan memanfaatkan procedure yang diberikan berikut ini!
+![image](https://github.com/user-attachments/assets/d7a28bc4-25bd-4c1d-9091-e058e26a1407)
+
+
+
+
+
+
+
+
+
+
+### KESIMPULAN
+### REFERENSI
