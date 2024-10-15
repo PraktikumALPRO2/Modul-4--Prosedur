@@ -332,12 +332,28 @@ func main() {
 ![Screenshot 2024-10-15 234343](https://github.com/user-attachments/assets/bdad2794-85f7-4e68-a8d5-e5e8f25afbe4)
 
 ### Deskripsi Program : 
-
+Program ini menerapkan algoritma Collatz, yang juga dikenal sebagai masalah 3n + 1. Program ini meminta pengguna untuk memasukkan sebuah bilangan bulat positif dan kemudian mencetak urutan angka yang dihasilkan berdasarkan aturan berikut:
+- Jika bilangan tersebut genap, bagi dengan 2.
+- Jika bilangan tersebut ganjil, kalikan dengan 3 dan tambahkan 1. Proses ini berlangsung hingga bilangan tersebut mencapai 1, dan program akan mencetak seluruh urutan tersebut.
+  
 ### Algoritma Program
-
+1. Input: Minta pengguna untuk memasukkan bilangan bulat positif.
+2. Inisialisasi: Ambil nilai bilangan yang dimasukkan oleh pengguna.
+3. Proses:
+- Selama bilangan tidak sama dengan 1:
+- Cetak nilai bilangan.
+- Jika bilangan genap, bagi bilangan tersebut dengan 2.
+- Jika bilangan ganjil, kalikan bilangan tersebut dengan 3 dan tambahkan 1.
+4. Setelah bilangan mencapai 1, cetak 1 dan akhiri proses.
+5. Output: Tampilkan urutan yang dihasilkan.
 
 ### Cara Kerja Program:
-
+1. Program dimulai dengan mendefinisikan prosedur `cetakDeret` yang menerima satu parameter `bilangan`.
+2. Di dalam prosedur, selama `bilangan` tidak sama dengan 1, program mencetak nilai `bilangan` saat ini.
+3. Jika `bilangan` genap, program membagi `bilangan` dengan 2.
+4. Jika `bilangan` ganjil, program mengalikan `bilangan` dengan 3 dan menambahkan 1.
+5. Ketika `bilangan` akhirnya menjadi 1, program mencetak 1 sebagai bagian terakhir dari urutan.
+6. Dalam fungsi `main`, program meminta input dari pengguna dan memanggil prosedur `cetakDeret` untuk memproses dan mencetak urutan tersebut.
 
 
 
