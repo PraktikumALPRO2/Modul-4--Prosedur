@@ -253,8 +253,12 @@ func main() {
 ```
 
 ### Output:
+![Screenshot 2024-10-15 221705](https://github.com/user-attachments/assets/60dd4435-7f88-4f00-9979-4fe6677f6698)
+
+![Screenshot 2024-10-15 221754](https://github.com/user-attachments/assets/89bc1e81-57f9-4403-bd95-e41650f0db7f)
 
 ### Full code Screenshot:
+![Screenshot 2024-10-15 221813](https://github.com/user-attachments/assets/6ae2f635-89da-4f18-9a0f-9fb628cbf84f)
 
 ### Deskripsi Program : 
 
