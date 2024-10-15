@@ -340,10 +340,10 @@ Program ini menerapkan algoritma Collatz, yang juga dikenal sebagai masalah 3n +
 1. Input: Minta pengguna untuk memasukkan bilangan bulat positif.
 2. Inisialisasi: Ambil nilai bilangan yang dimasukkan oleh pengguna.
 3. Proses:
-- Selama bilangan tidak sama dengan 1:
-- Cetak nilai bilangan.
-- Jika bilangan genap, bagi bilangan tersebut dengan 2.
-- Jika bilangan ganjil, kalikan bilangan tersebut dengan 3 dan tambahkan 1.
+    - Selama bilangan tidak sama dengan 1:
+    - Cetak nilai bilangan.
+    - Jika bilangan genap, bagi bilangan tersebut dengan 2.
+    - Jika bilangan ganjil, kalikan bilangan tersebut dengan 3 dan tambahkan 1.
 4. Setelah bilangan mencapai 1, cetak 1 dan akhiri proses.
 5. Output: Tampilkan urutan yang dihasilkan.
 
