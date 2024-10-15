@@ -299,12 +299,37 @@ Program ini menerima empat bilangan asli (`a`, `b`, `c`, dan `d`) sebagai input 
 ### 3.
 ### Source Code :
 ```go
+package main
+
+import "fmt"
+
+// Prosedur untuk mencetak deret
+func cetakDeret(bilangan int) {
+    for bilangan != 1 {
+        fmt.Printf("%d ", bilangan)
+        if bilangan%2 == 0 {
+            bilangan /= 2 // Jika n genap, bagi dua
+        } else {
+            bilangan = 3*bilangan + 1 // Jika n ganjil, kalikan tiga dan tambahkan satu
+        }
+    }
+    fmt.Printf("1\n") 
+}
+
+func main() {
+    var bilangan int
+    fmt.Print("Masukkan bilangan: ")
+    fmt.Scan(&bilangan)
+    cetakDeret(bilangan)
+}
 
 ```
 
 ### Output:
+![Screenshot 2024-10-15 234325](https://github.com/user-attachments/assets/0f6adad2-3530-47bb-ba10-f4d874f73a55)
 
 ### Full code Screenshot:
+![Screenshot 2024-10-15 234343](https://github.com/user-attachments/assets/bdad2794-85f7-4e68-a8d5-e5e8f25afbe4)
 
 ### Deskripsi Program : 
 
