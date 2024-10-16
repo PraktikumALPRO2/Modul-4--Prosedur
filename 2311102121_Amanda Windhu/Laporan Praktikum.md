@@ -95,8 +95,67 @@ Kode di atas
 
 ## III. UNGUIDED
 
-### 1. Minggu ini, mahasiswa Fakultas Informatika mendapatkan tugas dari mata kuliah matematika diskrit untuk mempelajari kombinasi dan permutasi. Jonas salah seorang mahasiswa, iseng untuk mengimplementasikannya ke dalam suatu program. Oleh karena itu bersediakah kalian membantu Jonas? (tidak tentunya ya :p)<br/> Masukan terdiri dari empat buah bilangan asli a, b, c, dan d yang dipisahkan oleh spasi, dengan syarat a ≥ c dan b ≥ d. <br/> Keluaran terdiri dari dua baris. Baris pertama adalah hasil permutasi dan kombinasi a terhadap c, sedangkan baris kedua adalah hasil permutasi dan kombinasi b terhadap d. <br/> Catatan: permutasi (P) dan kombinasi (C) dari n terhadap r (n ≥ r) dapat dihitung dengan menggunakan persamaan berikut!<br/> ![image](https://github.com/user-attachments/assets/5b90c7e3-9f76-45eb-bf14-8f1bca637918) <br/> Selesaikan program tersebut dengan memanfaatkan procedure yang diberikan berikut ini!<br/>![image](https://github.com/user-attachments/assets/d7a28bc4-25bd-4c1d-9091-e058e26a1407)
+### 1. Minggu ini, mahasiswa Fakultas Informatika mendapatkan tugas dari mata kuliah matematika diskrit untuk mempelajari kombinasi dan permutasi. Jonas salah seorang mahasiswa, iseng untuk mengimplementasikannya ke dalam suatu program. Oleh karena itu bersediakah kalian membantu Jonas? (tidak tentunya ya :p)<br/> Masukan terdiri dari empat buah bilangan asli a, b, c, dan d yang dipisahkan oleh spasi, dengan syarat a ≥ c dan b ≥ d. <br/> Keluaran terdiri dari dua baris. Baris pertama adalah hasil permutasi dan kombinasi a terhadap c, sedangkan baris kedua adalah hasil permutasi dan kombinasi b terhadap d. <br/> Catatan: permutasi (P) dan kombinasi (C) dari n terhadap r (n ≥ r) dapat dihitung dengan menggunakan persamaan berikut!<br/> ![image](https://github.com/user-attachments/assets/5b90c7e3-9f76-45eb-bf14-8f1bca637918) <br/> Selesaikan program tersebut dengan memanfaatkan procedure yang diberikan berikut ini!<br/>![image](https://github.com/user-attachments/assets/d7a28bc4-25bd-4c1d-9091-e058e26a1407)<br/>
 
+```go
+package main
+
+import (
+	"fmt"
+)
+
+// Prosedur untuk menghitung faktorial
+func factorial(n int, result *int) {
+	*result = 1
+	if n == 0 {
+		*result = 1
+		return
+	}
+	for i := 1; i <= n; i++ {
+		*result *= i
+	}
+}
+
+// Prosedur untuk menghitung permutasi
+func permutation(n, r int, result *int) {
+	var fn, fnr int
+	factorial(n, &fn)
+	factorial(n-r, &fnr)
+	*result = fn / fnr
+}
+
+// Prosedur untuk menghitung kombinasi
+func combination(n, r int, result *int) {
+	var fn, fr, fnr int
+	factorial(n, &fn)
+	factorial(r, &fr)
+	factorial(n-r, &fnr)
+	*result = fn / (fr * fnr)
+}
+
+func main() {
+	// Input empat bilangan: a, b, c, d
+	var a, b, c, d int
+	fmt.Print("Masukkan 4 bilangan: ")
+	fmt.Scan(&a, &b, &c, &d)
+
+	// Variabel untuk menyimpan hasil
+	var p1, c1, p2, c2 int
+
+	// Baris pertama: permutasi dan kombinasi a terhadap c
+	permutation(a, c, &p1)
+	combination(a, c, &c1)
+	fmt.Printf("%d %d\n", p1, c1)
+
+	// Baris kedua: permutasi dan kombinasi b terhadap d
+	permutation(b, d, &p2)
+	combination(b, d, &c2)
+	fmt.Printf("%d %d\n", p2, c2)
+}
+```
+## Output: ![image](https://github.com/user-attachments/assets/39e62db0-e5d2-4312-accd-9d73df59666d)
+
+Kode di atas
 
 ### 2. Kompetisi pemrograman tingkat nasional berlangsung ketat. Setiap peserta diberikan 8 soal yang harus dapat diselesaikan dalam waktu 5 jam saja. Peserta yang berhasil menyelesaikan soal paling banyak dalam waktu paling singkat adalah pemenangnya. <br/> Buat program gema yang mencari pemenang dari daftar peserta yang diberikan. Program harus dibuat modular, yaitu dengan membuat prosedur hitungSkor yang mengembalikan total soal dan total skor yang dikerjakan oleh seorang peserta, melalui parameter formal. Pembacaan nama peserta dilakukan di program utama, sedangkan waktu pengerjaan dibaca di dalam prosedur.<br/> ![image](https://github.com/user-attachments/assets/b8f89dce-7575-4a33-ad7a-61ece8188938)<br/> Setiap baris masukan dimulai dengan satu string nama peserta tersebut diikuti dengan adalah 8 integer yang menyatakan berapa lama (dalam menit) peserta tersebut menyelesaikan soal. Jika tidak berhasil atau tidak mengirimkan jawaban, maka otomatis dianggap menyelesaikan dalam waktu 5 jam 1 menit (301 menit). <br/> Satu baris keluaran berisi nama pemenang, jumlah soal yang diselesaikan, dan nilai yang diperoleh. Nilai adalah total waktu yang dibutuhkan untuk menyelesaikan soal yang berhasil diselesaikan.<br/>![image](https://github.com/user-attachments/assets/3117bbb6-fc8f-45e5-9027-890dea0cb6dc)<br/>Keterangan:<br/> Astuti menyelesaikan 6 soal dalam waktu 287 menit, sedangkan Bertha 7 soal dalam waktu 294 menit. Karena Bertha menyelesaikan lebih banyak, maka Bertha menang. Jika keduanya menyelesaikan sama banyak, maka pemenang adalah yang menyelesaikan dengan total waktu paling kecil.<br/>
 
