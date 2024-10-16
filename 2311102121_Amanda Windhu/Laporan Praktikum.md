@@ -159,6 +159,66 @@ Kode di atas
 
 ### 2. Kompetisi pemrograman tingkat nasional berlangsung ketat. Setiap peserta diberikan 8 soal yang harus dapat diselesaikan dalam waktu 5 jam saja. Peserta yang berhasil menyelesaikan soal paling banyak dalam waktu paling singkat adalah pemenangnya. <br/> Buat program gema yang mencari pemenang dari daftar peserta yang diberikan. Program harus dibuat modular, yaitu dengan membuat prosedur hitungSkor yang mengembalikan total soal dan total skor yang dikerjakan oleh seorang peserta, melalui parameter formal. Pembacaan nama peserta dilakukan di program utama, sedangkan waktu pengerjaan dibaca di dalam prosedur.<br/> ![image](https://github.com/user-attachments/assets/b8f89dce-7575-4a33-ad7a-61ece8188938)<br/> Setiap baris masukan dimulai dengan satu string nama peserta tersebut diikuti dengan adalah 8 integer yang menyatakan berapa lama (dalam menit) peserta tersebut menyelesaikan soal. Jika tidak berhasil atau tidak mengirimkan jawaban, maka otomatis dianggap menyelesaikan dalam waktu 5 jam 1 menit (301 menit). <br/> Satu baris keluaran berisi nama pemenang, jumlah soal yang diselesaikan, dan nilai yang diperoleh. Nilai adalah total waktu yang dibutuhkan untuk menyelesaikan soal yang berhasil diselesaikan.<br/>![image](https://github.com/user-attachments/assets/3117bbb6-fc8f-45e5-9027-890dea0cb6dc)<br/>Keterangan:<br/> Astuti menyelesaikan 6 soal dalam waktu 287 menit, sedangkan Bertha 7 soal dalam waktu 294 menit. Karena Bertha menyelesaikan lebih banyak, maka Bertha menang. Jika keduanya menyelesaikan sama banyak, maka pemenang adalah yang menyelesaikan dengan total waktu paling kecil.<br/>
 
+```go
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+const maxTime = 301
+
+// Prosedur untuk menghitung skor dan total waktu
+func hitungSkor(soal [8]int, totalSoal *int, totalWaktu *int) {
+	*totalSoal = 0
+	*totalWaktu = 0
+	for _, waktu := range soal {
+		if waktu < maxTime {
+			*totalSoal++
+			*totalWaktu += waktu
+		}
+	}
+}
+
+func main() {
+	var nama, pemenang string
+	var soal [8]int
+	var totalSoal, totalWaktu int
+	maxSoal := -1
+	minWaktu := maxTime * 8 // Inisialisasi dengan nilai maksimal
+
+	for {
+		// Input nama peserta dan soal-soal yang dikerjakan
+		fmt.Print("Masukkan nama peserta: ")
+		fmt.Scan(&nama)
+		if strings.ToLower(nama) == "selesai" {
+			break
+		}
+
+		fmt.Println("Masukkan waktu pengerjaan: ")
+		for i := 0; i < 8; i++ {
+			fmt.Scan(&soal[i])
+		}
+
+		// Hitung total soal yang diselesaikan dan total waktu yang dibutuhkan
+		hitungSkor(soal, &totalSoal, &totalWaktu)
+
+		// Tentukan pemenang sementara
+		if totalSoal > maxSoal || (totalSoal == maxSoal && totalWaktu < minWaktu) {
+			maxSoal = totalSoal
+			minWaktu = totalWaktu
+			pemenang = nama
+		}
+	}
+
+	// Output pemenang
+	fmt.Printf("%s %d %d\n", pemenang, maxSoal, minWaktu)
+}
+```
+## Output: ![image](https://github.com/user-attachments/assets/58671054-6ef9-40e6-8188-0ab45d7a86d8)
+
+Kode di atas
 
 ### 3. Skiena dan Revilla dalam Programming Challenges mendefinisikan sebuah deret bilangan. Deret dimulai dengan sebuah bilangan bulat n. Jika bilangan n saat itu genap, maka suku berikutnya adalah ½n, tetapi jika ganjil maka suku berikutnya bernilai 3n+1. Rumus yang sama digunakan terus menerus untuk mencari suku berikutnya. Deret berakhir ketika suku terakhir bernilai 1. Sebagai contoh, jika dimulai dengan n = 22, maka deret bilangan yang diperoleh adalah:<br/> ![image](https://github.com/user-attachments/assets/eb8656b7-5bd8-4bc3-8e9e-ac2e315c7cff)<br/>Untuk suku awal sampai dengan 1000000, diketahui deret selalu mencapai suku dengan nilai 1.<br/>Buat program skiena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat dalam prosedur cetakDeret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal.<br/> 
 ### ![image](https://github.com/user-attachments/assets/3abb1b23-463e-4877-918c-5e045d2a246e) <br/>Masukan berupa satu bilangan integer positif yang lebih kecil dari 1000000.<br/> Keluaran terdiri dari satu baris saja. Setiap suku dari deret tersebut dicetak dalam baris yang sama dan dipisahkan oleh sebuah spasi.<br/>
