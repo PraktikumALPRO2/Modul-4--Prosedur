@@ -261,7 +261,8 @@ func main() {
 ```
 ## Output: ![image](https://github.com/user-attachments/assets/2ccb1a4c-8909-4acc-8947-c58a108a890a)
 
-Kode di atas
+Kode di atas adalah program yang mencetak deret bilangan berdasarkan aturan dari "Collatz Conjecture" atau yang sering dikenal sebagai masalah 3n + 1. Prosedur `cetakDeret` menerima satu bilangan bulat `n` sebagai input dan mencetak deretnya. Jika `n` adalah bilangan genap, maka `n` dibagi 2. Jika `n` adalah bilangan ganjil, maka dihitung dengan rumus 3𝑛+1. Proses ini berulang hingga nilai `n` menjadi 1, yang juga akan dicetak sebagai elemen terakhir dari deret.<br/>
+Pada bagian utama (`main`), program meminta pengguna memasukkan sebuah bilangan awal `n`. Setelah input diterima, program memanggil prosedur `cetakDeret` untuk mencetak deret bilangan yang dihasilkan hingga mencapai angka 1. Setiap angka dalam deret dicetak dengan spasi sebagai pemisah.
 
 ### KESIMPULAN
 ### REFERENSI
