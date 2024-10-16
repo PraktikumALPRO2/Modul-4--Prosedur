@@ -93,7 +93,8 @@ func main() {
 ```
 ## Output: ![image](https://github.com/user-attachments/assets/d33e1c01-7b2e-48ab-926c-58807500733d)
 
-Kode di atas
+Kode di atas menghitung dan mencetak luas serta keliling sebuah persegi. Program ini terdiri dari dua prosedur utama, yaitu `hitungLuas` dan `hitungKeliling`. Prosedur `hitungLuas` menerima panjang sisi persegi sebagai parameter dan menghitung luasnya menggunakan rumus 
+sisi × sisi, kemudian mencetak hasilnya dengan format desimal hingga dua angka di belakang koma. Prosedur `hitungKeliling` juga menerima panjang sisi persegi sebagai parameter, lalu menghitung keliling menggunakan rumus 4 × sisi, dan mencetak hasil keliling dengan format serupa. Pada bagian utama (`main`), program meminta pengguna untuk memasukkan panjang sisi persegi. Setelah itu, prosedur `hitungLuas` dan `hitungKeliling` dipanggil untuk menghitung dan menampilkan hasil perhitungan luas dan keliling persegi secara berurutan.
 
 ## III. UNGUIDED
 
