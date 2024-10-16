@@ -223,15 +223,39 @@ Kode di atas
 ### 3. Skiena dan Revilla dalam Programming Challenges mendefinisikan sebuah deret bilangan. Deret dimulai dengan sebuah bilangan bulat n. Jika bilangan n saat itu genap, maka suku berikutnya adalah ½n, tetapi jika ganjil maka suku berikutnya bernilai 3n+1. Rumus yang sama digunakan terus menerus untuk mencari suku berikutnya. Deret berakhir ketika suku terakhir bernilai 1. Sebagai contoh, jika dimulai dengan n = 22, maka deret bilangan yang diperoleh adalah:<br/> ![image](https://github.com/user-attachments/assets/eb8656b7-5bd8-4bc3-8e9e-ac2e315c7cff)<br/>Untuk suku awal sampai dengan 1000000, diketahui deret selalu mencapai suku dengan nilai 1.<br/>Buat program skiena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat dalam prosedur cetakDeret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal.<br/> 
 ### ![image](https://github.com/user-attachments/assets/3abb1b23-463e-4877-918c-5e045d2a246e) <br/>Masukan berupa satu bilangan integer positif yang lebih kecil dari 1000000.<br/> Keluaran terdiri dari satu baris saja. Setiap suku dari deret tersebut dicetak dalam baris yang sama dan dipisahkan oleh sebuah spasi.<br/>
 
+```go
+package main
 
+import "fmt"
 
+// Prosedur untuk mencetak deret
+func cetakDeret(n int) {
+	for n != 1 {
+		fmt.Printf("%d ", n)
+		if n%2 == 0 {
+			n /= 2
+		} else {
+			n = 3*n + 1
+		}
+	}
+	// Cetak angka terakhir (1)
+	fmt.Printf("%d\n", n)
+}
 
+func main() {
+	var n int
 
+	// Input bilangan awal
+	fmt.Print("Masukkan bilangan: ")
+	fmt.Scan(&n)
 
+	// Cetak deret
+	cetakDeret(n)
+}
+```
+## Output: ![image](https://github.com/user-attachments/assets/2ccb1a4c-8909-4acc-8947-c58a108a890a)
 
-
-
-
+Kode di atas
 
 ### KESIMPULAN
 ### REFERENSI
