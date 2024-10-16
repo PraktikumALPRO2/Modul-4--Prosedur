@@ -58,7 +58,9 @@ func permutasi(n, r int) {
 ```
 ## Output: ![image](https://github.com/user-attachments/assets/6ed035eb-545b-4835-a4f0-ec0d64af7862)
 
-Kode di atas
+Kode di atas menghitung dan mencetak hasil permutasi dari dua bilangan integer yang dimasukkan oleh pengguna. Program dimulai dengan membaca dua nilai, `a` dan `b`. Jika `a` lebih besar atau sama dengan `b`, program akan memanggil prosedur `permutasi` dengan parameter `(a, b)`. Sebaliknya, jika `b` lebih besar dari `a`, prosedur permutasi dipanggil dengan parameter `(b, a)`.<br/>
+Prosedur `faktorial` bertugas menghitung faktorial dari sebuah bilangan dengan menggunakan loop untuk mengalikan semua angka dari 1 hingga `n`. Prosedur `permutasi` kemudian menghitung permutasi 𝑛𝑃𝑟, dengan menggunakan hasil faktorial dari `n` dan `n-r`, kemudian mencetak hasilnya.<br/>
+Secara keseluruhan, program ini mengimplementasikan konsep permutasi dengan cara modular, memisahkan perhitungan faktorial dan permutasi dalam dua prosedur terpisah, serta mencetak hasil perhitungan langsung ke layar.
 
 ### 2. Menghitung Luas dan Keliling Persegi
 
