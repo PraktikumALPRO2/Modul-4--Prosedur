@@ -351,12 +351,29 @@ func main() {
 ![Screenshot 2024-10-17 221736](https://github.com/user-attachments/assets/13f4b5d2-e24a-4d23-8bf4-4b2559bd9888)
 
 ### Deskripsi Program : 
+Program ini digunakan untuk menentukan pemenang kompetisi berdasarkan jumlah soal yang diselesaikan dan total waktu yang digunakan oleh peserta. Setiap peserta mengerjakan maksimal 8 soal, dan soal dengan waktu pengerjaan lebih dari 301 menit tidak dihitung. Pemenang adalah peserta yang menyelesaikan soal terbanyak dengan waktu terkecil. Program menerima input berupa nama dan waktu pengerjaan soal, lalu memproses data untuk menentukan pemenangnya.
 
 ### Algoritma Program
-
+1. Input Data Peserta:
+    - Program meminta data berupa nama peserta dan waktu penyelesaian 8 soal.
+    - Proses input berlanjut sampai pengguna memasukkan "Selesai" untuk menghentikan.
+      
+2. Perhitungan Nilai Peserta:
+    - Prosedur `HitungNilai` digunakan untuk menghitung berapa soal yang selesai (dengan waktu < 301 menit) dan menjumlahkan total waktu soal yang berhasil dikerjakan.
+    - Dua variabel (`jumlahSoal` dan `totalWaktu`) digunakan sebagai referensi untuk menyimpan hasil perhitungan.
+      
+3. Menentukan Pemenang:
+    - Jika peserta menyelesaikan lebih banyak soal dibandingkan peserta lain, atau jika soal yang diselesaikan sama tapi dengan total waktu lebih kecil, peserta tersebut dianggap sebagai pemenang sementara.
+    - Proses ini dilakukan untuk setiap peserta yang dimasukkan.
+      
+4. Menampilkan Hasil:
+    - Setelah semua data peserta diproses, program akan menampilkan nama pemenang, jumlah soal yang berhasil diselesaikan, serta total waktu pengerjaannya.
 
 ### Cara Kerja Program:
-
+1. Program menerima input nama peserta dan waktu pengerjaan 8 soal. Jika waktu pengerjaan soal lebih dari 301 menit, soal tersebut dianggap tidak selesai.
+2. Prosedur `HitungNilai` dipanggil untuk menghitung berapa soal yang selesai dan total waktu pengerjaan dari setiap peserta.
+3. Program kemudian membandingkan hasil tiap peserta berdasarkan jumlah soal yang selesai. Jika jumlahnya sama, maka peserta dengan waktu pengerjaan terkecil akan dipilih sebagai pemenang.
+4. Hail akhir berupa nama pemenang bersama dengan jumlah soal yang selesai dan total waktu pengerjaan ditampilkan ke layar.
 
 ### 3.
 ### Source Code :
