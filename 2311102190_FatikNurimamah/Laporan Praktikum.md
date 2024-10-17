@@ -57,7 +57,7 @@
 
 ## Guided 
 
-### 1. Buatlah program 
+### 1. Buatlah program beserta prosedur yang digunakan untuk menghitung nilai faktorial dan permutasi
 
 ### Source Code :
 ```go
@@ -127,7 +127,7 @@ Program ini digunakan untuk menghitung permutasi dari dua bilangan bulat yang di
 5. Hasil akhirnya ditampilkan di layar sebagai hasil permutasi dari dua bilangan yang dimasukkan.
 
 
-### 2. Buatlah program 
+### 2. Buatlah program beserta prosedur untuk menghitung luas persegi dan keliling persegi
 
 ### Source Code :
 ```go
