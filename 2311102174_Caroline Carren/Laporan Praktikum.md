@@ -56,8 +56,10 @@
 ## Dasar Teori
 **Prosedur (Fungsi) dalam Go**
 
-Prosedur adalah bagian fundamental dari pemrograman terstruktur yang memungkinkan program dipecah menjadi bagian-bagian kecil yang dapat dikelola. 
-Di Go, prosedur disebut sebagai fungsi (*function*). Fungsi digunakan untuk memisahkan logika program menjadi modul-modul terpisah sehingga lebih mudah dikelola, diuji, dan digunakan kembali. Fungsi ini memiliki komponen berikut:
+Prosedur adalah bagian fundamental dari pemrograman terstruktur yang memungkinkan program dipecah menjadi bagian-bagian kecil yang dapat dikelola. [1]
+Di Go, prosedur disebut sebagai fungsi (*function*). Fungsi digunakan untuk memisahkan logika program menjadi modul-modul terpisah sehingga lebih mudah dikelola, diuji, dan digunakan kembali. [1]
+
+Fungsi ini memiliki komponen berikut:
 
 - Nama Fungsi : Digunakan untuk mengidentifikasi fungsi dan memanggilnya.
 - Parameter : Input yang diterima oleh fungsi untuk diproses. Fungsi dapat menerima beberapa parameter.
@@ -82,10 +84,10 @@ dan mengembalikan nilai hasil perkalian panjang dan lebar sebagai integer.
 **Parameter dan Argumen**
 
 - Parameter adalah variabel yang dideklarasikan dalam definisi fungsi.
-  Ini adalah nilai-nilai yang akan diterima oleh fungsi ketika dipanggil.
+  Ini adalah nilai-nilai yang akan diterima oleh fungsi ketika dipanggil.[2]
   Go memungkinkan penulisan parameter dengan tipe data eksplisit.
 - Argumen adalah nilai yang diberikan ke parameter saat memanggil fungsi.
-  Argumen ini bisa berupa variabel, konstanta, atau hasil dari ekspresi lain.
+  Argumen ini bisa berupa variabel, konstanta, atau hasil dari ekspresi lain.[2]
 
 Parameter dengan Tipe yang Sama: Go memungkinkan penulisan parameter yang memiliki tipe data yang sama secara singkat.
 
@@ -99,8 +101,8 @@ func tambah(a, b int) int {
 
 **Pengembalian Nilai (Return Values)**
 
-Salah satu fitur yang menonjol di Go adalah kemampuannya untuk mengembalikan lebih dari satu nilai dari fungsi. 
-Ini sangat berguna ketika sebuah fungsi perlu mengembalikan hasil utama dan informasi tambahan (misalnya, status kesalahan).
+Salah satu fitur yang menonjol di Go adalah kemampuannya untuk mengembalikan lebih dari satu nilai dari fungsi. [1]
+Ini sangat berguna ketika sebuah fungsi perlu mengembalikan hasil utama dan informasi tambahan (misalnya, status kesalahan).[1]
 
 Contoh :
 ```go
@@ -125,7 +127,9 @@ Dalam contoh ini, fungsi `bagi` mengembalikan dua nilai : hasil pembagian dan po
 
 **First-Class Function (Fungsi sebagai Objek Kelas Utama)**
 
-Dalam Go, fungsi adalah `first-class citizen`, yang berarti fungsi dapat diperlakukan seperti objek lainnya, seperti variabel. Fungsi dapat:
+Dalam Go, fungsi adalah `first-class citizen`, yang berarti fungsi dapat diperlakukan seperti objek lainnya, seperti variabel. [1]
+
+Fungsi dapat:
 
 - Disimpan dalam variabel.
 - Diteruskan sebagai parameter ke fungsi lain.
@@ -148,7 +152,7 @@ Variabel ini kemudian diteruskan sebagai argumen ke fungsi *operasi*.
 
 **Closure**
 
-Closure adalah fungsi yang "membungkus" lingkungannya, yaitu variabel-variabel dari cakupan luar yang dapat diakses di dalam fungsi tersebut, bahkan setelah lingkungannya selesai dieksekusi.
+Closure adalah fungsi yang "membungkus" lingkungannya, yaitu variabel-variabel dari cakupan luar yang dapat diakses di dalam fungsi tersebut, bahkan setelah lingkungannya selesai dieksekusi.[2]
 
 Contoh :
 ```go
@@ -171,8 +175,8 @@ Di sini, fungsi anonim di dalam `buatCounter` dapat mengakses variabel `hitung`,
 
 **Variadic Function**
 
-Go mendukung fungsi *variadic*, yang artinya fungsi dapat menerima sejumlah argumen yang bervariasi. 
-Hal ini memungkinkan lebih banyak fleksibilitas saat memanggil fungsi dengan jumlah argumen yang berbeda-beda.
+Go mendukung fungsi *variadic*, yang artinya fungsi dapat menerima sejumlah argumen yang bervariasi. [1]
+Hal ini memungkinkan lebih banyak fleksibilitas saat memanggil fungsi dengan jumlah argumen yang berbeda-beda.[1]
 
 Contoh :
 ```go
@@ -193,7 +197,7 @@ Fungsi `cetakAngka` di atas dapat menerima jumlah argumen yang tidak terbatas ka
 
 Salah satu kekuatan utama Go adalah dukungan bawaan untuk *concurrency*. 
 Dengan menggunakan *goroutine*, kita bisa menjalankan fungsi secara paralel tanpa overhead yang signifikan. 
-Goroutine adalah fungsi ringan yang berjalan secara bersamaan dengan fungsi lain.
+Goroutine adalah fungsi ringan yang berjalan secara bersamaan dengan fungsi lain.[1]
 
 Contoh :
 ```go
@@ -213,7 +217,7 @@ Dalam contoh ini, fungsi `cetakAngka` berjalan sebagai goroutine, yang dijalanka
 
 **Error Handling : Panic dan Recover**
 
-Dalam bahasa Go, kesalahan penanganan dapat dilakukan dengan menggunakan mekanisme panic dan recover. Ketika terjadi panic, program akan berhenti, tetapi kita bisa menangkap panic menggunakan recover untuk mencegah program crash.
+Dalam bahasa Go, kesalahan penanganan dapat dilakukan dengan menggunakan mekanisme panic dan recover. Ketika terjadi panic, program akan berhenti, tetapi kita bisa menangkap panic menggunakan recover untuk mencegah program crash.[2]
 
 Contoh :
 ```go
@@ -239,7 +243,7 @@ func main() {
 
 Go menggunakan konsep *interface* untuk mendukung pemrograman yang lebih fleksibel. 
 *Interface* mendefinisikan sekumpulan metode yang harus diimplementasikan oleh tipe tertentu. 
-Jika tipe mengimplementasikan metode-metode tersebut, maka tipe tersebut "memenuhi" interface.
+Jika tipe mengimplementasikan metode-metode tersebut, maka tipe tersebut "memenuhi" interface.[2]
 
 Contoh :
 ```go
@@ -268,7 +272,7 @@ sehingga dapat digunakan di fungsi *jalankan* yang menerima tipe *penggerak*.
 
 **Anonymous Function**
 
-Fungsi anonim adalah fungsi tanpa nama yang biasanya didefinisikan dan dipanggil secara langsung. Fungsi ini berguna untuk operasi sederhana yang tidak perlu nama khusus.
+Fungsi anonim adalah fungsi tanpa nama yang biasanya didefinisikan dan dipanggil secara langsung. Fungsi ini berguna untuk operasi sederhana yang tidak perlu nama khusus.[1]
 
 Contoh :
 ```go
@@ -877,9 +881,9 @@ Deret ini dimulai dengan bilangan bulat positif yang diberikan oleh pengguna dan
    - Di dalam Fungsi cetakDeret(n):
      - Fungsi ini pertama-tama mencetak nilai awal n.
      - Selanjutnya, program masuk ke dalam loop yang berfungsi untuk menghitung deret Collatz. Loop ini terus berjalan selama n tidak sama dengan 1:
-     - Jika n adalah bilangan genap (n % 2 == 0), program membagi n dengan 2 (n = n / 2).
-     - Jika n adalah bilangan ganjil (n % 2 != 0), program menghitung nilai baru n menggunakan rumus 3 * n + 1.
-     - Setiap kali nilai n diperbarui, program mencetak nilai tersebut di konsol, dipisahkan dengan spasi.
+       - Jika n adalah bilangan genap (n % 2 == 0), program membagi n dengan 2 (n = n / 2).
+       - Jika n adalah bilangan ganjil (n % 2 != 0), program menghitung nilai baru n menggunakan rumus 3 * n + 1.
+       - Setiap kali nilai n diperbarui, program mencetak nilai tersebut di konsol, dipisahkan dengan spasi.
 
 5. Menampilkan Hasil Akhir:
    - Proses dalam loop akan terus berlanjut sampai nilai n menjadi 1, pada titik ini loop berhenti.
