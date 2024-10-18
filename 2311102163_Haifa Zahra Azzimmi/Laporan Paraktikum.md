@@ -200,7 +200,7 @@ func main() {
 
 ### Output:
 
-### Full code Screenshot:![Screenshot 2024-10-17 221736](https://github.com/user-attachments/assets/13f4b5d2-e24a-4d23-8bf4-4b2559bd9888)
+### Full code Screenshot:
 
 ### Deskripsi Program : 
 
