@@ -45,14 +45,85 @@
 1. [Dasar Teori](#dasar-teori)
 2. [Guided](#guided)
 3. [Unguided](#unguided)
-4. [Kesimpulan](#kesimpulan)
-5. [Daftar Pustaka](#daftar-pustaka)
+4. [Daftar Pustaka](#daftar-pustaka)
 
 
 ## Dasar Teori
+**1. Definisi Prosedur**
 
+prosedur adalah jenis fungsi yang tidak mengembalikan nilai. Berbeda dengan fungsi pada umumnya yang memiliki nilai kembalian, prosedur digunakan untuk melaksanakan tindakan tertentu, seperti menampilkan output atau memanipulasi data.
 
+**2. Deklarasi Prosedur**
 
+Deklarasi prosedur dalam Golang dilakukan dengan kata kunci `func`, diikuti oleh nama prosedur, daftar parameter, dan blok kode. Berikut ini adalah contoh cara mendeklarasikan prosedur:
+
+```go
+func namaProsedur(parameter1 tipe1, parameter2 tipe2) {
+    // blok kode
+}
+```
+**3. Cara Pemanggilan Prosedur**
+
+Pemanggilan prosedur dilakukan dengan menyebutkan nama prosedur dan menyediakan argumen yang sesuai. Berikut adalah contoh cara memanggil prosedur:
+
+```go
+cetakPesan("Hello, World!")
+```
+
+**4. Parameter**
+
+Berdasarkan letak penulisannya pada program, maka parameter dapat dikelompokkan menjadi dua, yaitu parameter formal dan parameter aktual.
+
+a. Parameter Formal: Ini adalah variabel yang ditentukan dalam deklarasi prosedur. Mereka berfungsi sebagai tempat untuk nilai yang akan diterima oleh prosedur saat dipanggil.
+
+```go
+func prosedurContoh(a int, b string) {
+    // a dan b adalah parameter formal
+    fmt.Println(a, b)
+}
+
+```
+
+b. Parameter Aktual: Juga disebut sebagai argumen, parameter ini adalah nilai atau ekspresi yang disediakan saat prosedur dipanggil. Parameter ini sesuai dengan parameter formal yang telah didefinisikan.
+
+```go
+func main() {
+    prosedurContoh(10, "Hello") // 10 dan "Hello" adalah parameter aktual
+}
+
+```
+
+Selain itu, parameter juga dikelompokkan berdasarkan alokasi memorinya, yaitu pass by value dan pass by reference.
+
+a. Pass by Value: Dalam metode ini, salinan nilai parameter aktual dikirim ke prosedur. Perubahan yang dilakukan pada parameter di dalam prosedur tidak akan memengaruhi nilai aslinya yang di luar prosedur.
+
+```go
+func ubahNilai(x int) {
+    x = 20 // Mengubah salinan x
+}
+
+func main() {
+    z := 10
+    ubahNilai(z) // z tetap 10
+    fmt.Println(z) // Output: 10
+}
+
+```
+
+b. Pass by Reference: Dalam metode ini, alamat variabel asli dikirim ke prosedur. Dengan memanfaatkan pointer, perubahan yang dilakukan pada parameter di dalam prosedur akan memengaruhi nilai aslinya.
+
+```go
+func ubahNilai(x *int) {
+    *x = 20 // Mengubah nilai di alamat yang ditunjuk oleh x
+}
+
+func main() {
+    z := 10
+    ubahNilai(&z) // Mengirim alamat z
+    fmt.Println(z) // Output: 20
+}
+
+```
 
 
 ## Guided 
@@ -434,9 +505,6 @@ Program ini menerapkan algoritma Collatz, yang juga dikenal sebagai masalah 3n +
 5. Ketika `bilangan` akhirnya menjadi 1, program mencetak 1 sebagai bagian terakhir dari urutan.
 6. Dalam fungsi `main`, program meminta input dari pengguna dan memanggil prosedur `cetakDeret` untuk memproses dan mencetak urutan tersebut.
 
-
-
-## Kesimpulan 
 
 
 ## Daftar Pustaka
