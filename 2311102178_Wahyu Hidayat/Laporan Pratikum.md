@@ -3,8 +3,8 @@
 
 <br>
 
-<h2 align="center"><strong>MODUL III</strong></h2>
-<h2 align="center"><strong> FUNGSI </strong></h2>
+<h2 align="center"><strong>MODUL IV</strong></h2>
+<h2 align="center"><strong> PROSEDUR </strong></h2>
 
 <br>
 
@@ -215,13 +215,8 @@ func main() {
 #### Screenshoot Source Code
 ![Screenshot 2024-10-18 162007](https://github.com/user-attachments/assets/205a1f11-5b54-4806-836c-aa0b3e26aba9)
 
-
-
 #### Screenshoot Output
 ![Screenshot 2024-10-18 162017](https://github.com/user-attachments/assets/7819802a-6c4f-41ac-b1ff-2db968f152d2)
-
-
-
 
 #### Deskripsi Program
 Program ini menghitung luas dan keliling persegi berdasarkan sisi yang dimasukkan oleh pengguna. Setelah meminta input berupa panjang sisi persegi, program memanggil dua prosedur: hitungLuas untuk menghitung dan menampilkan luas persegi, serta hitungKeliling untuk menghitung dan menampilkan keliling persegi. Kedua prosedur ini tidak mengembalikan nilai, tetapi langsung mencetak hasil perhitungan ke layar, sehingga pengguna dapat dengan mudah melihat hasilnya. Program ini dirancang untuk memberikan informasi yang cepat dan jelas tentang luas dan keliling persegi yang diberikan.
@@ -319,9 +314,6 @@ func main() {
 #### Screenshoot Source Code
 ![Screenshot 2024-10-18 162708](https://github.com/user-attachments/assets/da362146-d0da-4304-8a43-c62990bdb543)
 
-
-
-
 #### Screenshoot Output
 ![Screenshot 2024-10-18 162714](https://github.com/user-attachments/assets/8746109d-b1bc-4fa0-86b9-d3668edae206)
 
@@ -348,205 +340,207 @@ Program ini menghitung dan menampilkan faktorial, permutasi, dan kombinasi berda
 - Kombinasi C(b, d)
 3. Output: Semua hasil perhitungan ditampilkan di layar.
 
-## 2. Program Komposisi Tiga Fungsi Matematika
+## 2. Program Penentuan Pemenang Kompetisi Pemrograman Berdasarkan Skor dan Waktu Penyelesaian
 
 #### Source Code
 ```go
 package main
 
 import (
-	"fmt"
-)
-
-// Function f(x) = x^2
-func f(x int) int {
-	return x * x
-}
-
-// Function g(x) = x - 2
-func g(x int) int {
-	return x - 2
-}
-
-// Function h(x) = x + 1
-func h(x int) int {
-	return x + 1
-}
-
-// Main function to read input and calculate the compositions
-func main() {
-	var a, b, c int
-	fmt.Println("Masukkan nilai a, b, c dipisahkan oleh spasi:")
-	fmt.Scanf("%d %d %d", &a, &b, &c)
-
-	// Calculate f(g(h(a)))
-	result1 := f(g(h(a)))
-	// Calculate g(h(f(b)))
-	result2 := g(h(f(b)))
-	// Calculate h(f(g(c)))
-	result3 := h(f(g(c)))
-
-	// Output the results
-	fmt.Println(result1)
-	fmt.Println(result2)
-	fmt.Println(result3)
-}
-
-
-```
-#### Screenshoot Source Code
-![Screenshot 2024-10-13 173415](https://github.com/user-attachments/assets/793a8c82-e2eb-4fd9-82c7-71dc324bad83)
-
-
-
-
-
-#### Screenshoot Output
-![Screenshot 2024-10-13 173421](https://github.com/user-attachments/assets/4a00b51d-322e-4730-b265-fa9f703621b1)
-
-
-
-
-#### Deskripsi Program
-Program ini mengimplementasikan tiga fungsi matematika sederhana: fungsi kuadrat, fungsi pengurangan, dan fungsi penambahan. Program kemudian menerima tiga input dari pengguna, menghitung komposisi dari ketiga fungsi tersebut, dan menampilkan hasilnya. Komposisi yang dihitung adalah:
-1. Fungsi f(g(h(a)))
-2. Fungsi g(h(f(b)))
-3. Fungsi h(f(g(c)))
-
-#### Algoritma Program
-1. Definisikan tiga fungsi:
-- Fungsi f(x) yang mengembalikan hasil kuadrat dari input.
-- Fungsi g(x) yang mengurangi 2 dari input.
-- Fungsi h(x) yang menambah 1 pada input.
-2. Baca tiga nilai input dari pengguna (a, b, c).
-3. Hitung hasil komposisi fungsi untuk setiap input:
-- Komposisi f(g(h(a))):
-  - Pertama, hitung h(a) (nilai a ditambah 1).
-  - Kedua, hitung g(h(a)) (hasil dari h(a) dikurangi 2).
-  - Ketiga, hitung f(g(h(a))) (kuadratkan hasil dari g(h(a))).
-- Komposisi g(h(f(b))):
-  - Pertama, hitung f(b) (kuadratkan nilai b).
-  - Kedua, hitung h(f(b)) (hasil dari f(b) ditambah 1).
-  - Ketiga, hitung g(h(f(b))) (kurangi hasil dari h(f(b)) dengan 2).
-- Komposisi h(f(g(c))):
-  - Pertama, hitung g(c) (nilai c dikurangi 2).
-  - Kedua, hitung f(g(c)) (kuadratkan hasil dari g(c)).
-  - Ketiga, hitung h(f(g(c))) (tambahkan 1 pada hasil dari f(g(c))).
-4. Tampilkan hasil dari setiap komposisi di layar.
-
-
-#### Cara Kerja
-1. Pengguna memasukkan tiga angka a, b, dan c yang dipisahkan oleh spasi.
-2. Program membaca angka tersebut dan menghitung tiga hasil komposisi fungsi berdasarkan urutan berikut:
-- Untuk angka pertama a, program akan menghitung fungsi f(g(h(a))).
-- Untuk angka kedua b, program menghitung g(h(f(b))).
-- Untuk angka ketiga c, program menghitung h(f(g(c))).
-3. Setelah ketiga hasil diperoleh, program akan menampilkan setiap hasil di layar, masing-masing pada baris yang berbeda.
-
-
-
-
-
-
-## 3. Menentukan Posisi Titik terhadap Dua Lingkaran
-
-#### Source Code
-```go
-package main
-
-import (
+	"bufio"
 	"fmt"
 	"math"
+	"os"
+	"strconv"
+	"strings"
 )
 
-// Fungsi untuk menghitung jarak antara dua titik
-func jarak(a, b, c, d float64) float64 {
-	return math.Sqrt(math.Pow(a-c, 2) + math.Pow(b-d, 2))
-}
+// Prosedur untuk menghitung skor peserta
+func hitungSkor(soal [8]int, totalSoal *int, totalWaktu *int) {
+	*totalSoal = 0
+	*totalWaktu = 0
 
-// Fungsi untuk memeriksa apakah suatu titik berada di dalam lingkaran
-func didalam(cx, cy, r, x, y float64) bool {
-	return jarak(cx, cy, x, y) <= r
+	// Hitung jumlah soal yang berhasil diselesaikan dan total waktu yang dibutuhkan
+	for _, waktu := range soal {
+		if waktu < 301 {
+			*totalSoal++
+			*totalWaktu += waktu
+		}
+	}
 }
 
 func main() {
-	// Input koordinat untuk dua lingkaran dan titik sembarang
-	var cx1, cy1, r1 float64
-	var cx2, cy2, r2 float64
-	var x, y float64
+	scanner := bufio.NewScanner(os.Stdin)
+	var pemenangNama string
+	var maxSoalDiselesaikan int
+	var minWaktu int = math.MaxInt32
 
-	// Input untuk Lingkaran 1
-	fmt.Print("Masukkan pusat lingkaran 1 (cx1 cy1) dan radius r1: ")
-	fmt.Scan(&cx1, &cy1, &r1)
+	for {
+		fmt.Printf("Masukkan nama peserta diikuti dengan waktu untuk setiap soal atau ketik 'Selesai' untuk berhenti:")
 
-	// Input untuk Lingkaran 2
-	fmt.Print("Masukkan pusat lingkaran 2 (cx2 cy2) dan radius r2: ")
-	fmt.Scan(&cx2, &cy2, &r2)
+		// Membaca input peserta
+		scanner.Scan()
+		input := scanner.Text()
 
-	// Input untuk Titik Sembarang
-	fmt.Print("Masukkan koordinat titik sembarang (x y): ")
-	fmt.Scan(&x, &y)
+		if strings.ToLower(input) == "selesai" {
+			break
+		}
 
-	// Cek posisi titik terhadap lingkaran
-	dalamLingkaran1 := didalam(cx1, cy1, r1, x, y)
-	dalamLingkaran2 := didalam(cx2, cy2, r2, x, y)
+		// Memisahkan input menjadi nama peserta dan waktu pengerjaan soal
+		parts := strings.Fields(input)
+		if len(parts) < 9 {
+			fmt.Println("Input tidak valid. Pastikan memasukkan nama peserta dan 8 waktu pengerjaan soal.")
+			continue
+		}
 
-	if dalamLingkaran1 && dalamLingkaran2 {
-		fmt.Println("Titik di dalam lingkaran 1 dan 2")
-	} else if dalamLingkaran1 {
-		fmt.Println("Titik di dalam lingkaran 1")
-	} else if dalamLingkaran2 {
-		fmt.Println("Titik di dalam lingkaran 2")
+		pesertaNama := parts[0]
+
+		// Simpan waktu pengerjaan soal-soal ke array
+		var soal [8]int
+		for i := 1; i <= 8; i++ {
+			soal[i-1], _ = strconv.Atoi(parts[i])
+		}
+
+		// Variabel untuk menyimpan hasil hitung skor
+		var totalSoal, totalWaktu int
+
+		// Hitung skor peserta menggunakan prosedur
+		hitungSkor(soal, &totalSoal, &totalWaktu)
+
+		// Tentukan pemenang berdasarkan jumlah soal yang diselesaikan dan waktu total
+		if totalSoal > maxSoalDiselesaikan || (totalSoal == maxSoalDiselesaikan && totalWaktu < minWaktu) {
+			pemenangNama = pesertaNama
+			maxSoalDiselesaikan = totalSoal
+			minWaktu = totalWaktu
+		}
+	}
+
+	// Tampilkan hasil
+	if pemenangNama != "" {
+		fmt.Printf("Pemenang: %s\n", pemenangNama)
+		fmt.Printf("Jumlah soal yang diselesaikan: %d\n", maxSoalDiselesaikan)
+		fmt.Printf("Total waktu: %d menit\n", minWaktu)
 	} else {
-		fmt.Println("Titik di luar lingkaran 1 dan 2")
+		fmt.Println("Tidak ada data peserta.")
 	}
 }
 
 ```
 #### Screenshoot Source Code
-![Screenshot 2024-10-13 174426](https://github.com/user-attachments/assets/2f14133f-26bb-41c3-9d7f-5c8626486c07)
-
-
-
+![Screenshot 2024-10-18 171334](https://github.com/user-attachments/assets/593b23ce-b6d5-42ed-86ca-d007a15747e4)
 
 #### Screenshoot Output
-![Screenshot 2024-10-13 174439](https://github.com/user-attachments/assets/4fd769c7-ba9b-47b5-aec1-fb918fbbc0b1)
-
-
-
-
-
+![Screenshot 2024-10-18 171340](https://github.com/user-attachments/assets/a39e3dba-3718-460e-a1f0-bc473974674a)
 
 #### Deskripsi Program
-Program ini berfungsi untuk menentukan apakah sebuah titik sembarang berada di dalam lingkaran pertama, di dalam lingkaran kedua, di dalam kedua lingkaran, atau di luar keduanya. Input yang diperlukan adalah koordinat pusat dan jari-jari dari dua lingkaran serta koordinat titik sembarang. Program kemudian menghitung jarak titik tersebut dari pusat setiap lingkaran dan memeriksa apakah jaraknya lebih kecil atau sama dengan jari-jari lingkaran.
+Program ini menentukan pemenang kompetisi pemrograman berdasarkan jumlah soal yang berhasil diselesaikan dan total waktu pengerjaan. Setiap peserta diberi 8 soal, dan jika waktu pengerjaan soal lebih dari 301 menit, soal tersebut dianggap tidak terselesaikan. Program membaca input nama peserta beserta waktu pengerjaan soal, lalu menghitung jumlah soal yang diselesaikan dan total waktu yang diperlukan. Pemenang ditentukan berdasarkan siapa yang menyelesaikan soal terbanyak, dan jika sama, yang menyelesaikan dengan waktu paling sedikit menang.
 
-#### Algoritma Program
-1. Menerima input dari pengguna:
-- Koordinat pusat dan jari-jari lingkaran pertama.
-- Koordinat pusat dan jari-jari lingkaran kedua.
-- Koordinat titik sembarang yang ingin diperiksa.
-2. Menghitung jarak antara titik sembarang dan pusat lingkaran pertama menggunakan rumus jarak Euclidean.
-3. Menghitung jarak antara titik sembarang dan pusat lingkaran kedua.
-4. Membandingkan hasil jarak dengan jari-jari lingkaran:
-- Jika jarak titik ke pusat lingkaran pertama kurang dari atau sama dengan jari-jari lingkaran pertama, maka titik berada di dalam lingkaran pertama.
-- Jika jarak titik ke pusat lingkaran kedua kurang dari atau sama dengan jari-jari lingkaran kedua, maka titik berada di dalam lingkaran kedua.
-- Jika jarak titik ke kedua lingkaran kurang dari atau sama dengan masing-masing jari-jari, maka titik berada di dalam kedua lingkaran.
-- Jika jarak titik ke kedua lingkaran lebih besar dari jari-jari, maka titik berada di luar kedua lingkaran.
-5. Menampilkan hasilnya, apakah titik berada di dalam lingkaran pertama, kedua, keduanya, atau di luar.
+#### Algoritma Program Penentuan Pemenang Kompetisi Pemrograman:
+1. Mulai Program
+2. Inisialisasi variabel:
+   - `pemenangNama` untuk menyimpan nama pemenang.
+   - `maxSoalDiselesaikan` untuk menyimpan jumlah soal maksimal yang berhasil diselesaikan oleh peserta.
+   - `minWaktu` untuk menyimpan waktu total minimal peserta dalam menyelesaikan soal.
+3. Ulangi (loop) proses input:
+   - Minta input dari pengguna berupa nama peserta diikuti oleh 8 waktu pengerjaan soal (dalam menit).
+   - Jika input adalah "Selesai", keluar dari loop.
+   - Pisahkan input menjadi `nama peserta` dan `waktu pengerjaan soal` dalam array.
+4. Proses tiap peserta:
+   - Inisialisasi variabel `totalSoal` dan `totalWaktu` untuk menyimpan jumlah soal yang diselesaikan dan waktu total pengerjaan peserta.
+   - Loop 8 soal:
+     - Jika waktu pengerjaan soal kurang dari 301 menit, tambahkan soal ke `totalSoal` dan tambahkan waktu ke `totalWaktu`.
+5. Bandingkan hasil peserta dengan pemenang sementara:
+   - Jika jumlah soal yang diselesaikan peserta lebih banyak daripada `maxSoalDiselesaikan`, peserta ini menjadi pemenang sementara.
+   - Jika jumlah soal sama, bandingkan waktu total. Peserta dengan waktu lebih sedikit menjadi pemenang.
+6. Ulangi langkah 3-5 untuk setiap peserta hingga semua peserta telah dimasukkan.
+7. Tampilkan pemenang:
+   - Cetak nama pemenang, jumlah soal yang diselesaikan, dan waktu total.
+8. Selesai Program.
+
 
 #### Cara Kerja
-1. Input: Pengguna memasukkan tiga set data:
-- Koordinat dan jari-jari lingkaran pertama.
-- Koordinat dan jari-jari lingkaran kedua.
-- Koordinat titik sembarang.
-2. Penghitungan Jarak: Program menghitung jarak dari titik sembarang ke pusat lingkaran menggunakan rumus jarak Euclidean (akar kuadrat dari jumlah kuadrat selisih koordinat).
-3. Pengecekan Posisi:
-- Jika jarak titik ke pusat lingkaran lebih kecil atau sama dengan jari-jari lingkaran, titik tersebut dianggap berada di dalam lingkaran.
-- Program melakukan hal ini untuk kedua lingkaran.
-4. Hasil: Program menentukan apakah titik tersebut berada di dalam lingkaran pertama, di dalam lingkaran kedua, di dalam keduanya, atau di luar keduanya, lalu mencetak hasilnya.
+1. Program dimulai dengan menginisialisasi variabel untuk menyimpan nama pemenang, jumlah soal maksimal yang diselesaikan, dan waktu total minimal.
+2. Program kemudian meminta input pengguna dalam bentuk satu baris yang berisi nama peserta diikuti dengan waktu pengerjaan 8 soal. Jika input adalah "Selesai", program berhenti meminta input.
+3. Untuk setiap peserta, program membaca nama dan waktu pengerjaan soal. Waktu pengerjaan setiap soal yang lebih dari atau sama dengan 301 menit dianggap tidak terselesaikan. Jika waktu pengerjaan kurang dari 301 menit, soal tersebut dihitung sebagai soal yang diselesaikan, dan waktu pengerjaannya ditambahkan ke total waktu.
+4. Setelah menghitung jumlah soal yang diselesaikan dan total waktu untuk setiap peserta, program membandingkan hasil peserta tersebut dengan hasil pemenang sementara:
+- Jika peserta baru menyelesaikan lebih banyak soal, maka peserta baru ini menjadi pemenang sementara.
+- Jika jumlah soal sama dengan pemenang sementara, peserta dengan waktu total lebih sedikit menjadi pemenang sementara.
+5. Proses ini berulang sampai semua peserta dimasukkan.
+6. Setelah semua peserta diinput, program menampilkan nama pemenang, jumlah soal yang diselesaikan, dan waktu total yang dihabiskan.
+7. Program selesai setelah menampilkan hasil pemenang.
+
+## 3. Program untuk Mencetak Deret Bilangan Berdasarkan Algoritma 3n+1
+
+#### Source Code
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func cetakDeret(n int) {
+	// Selama n bukan 1, teruskan cetak deret
+	for n != 1 {
+		fmt.Print(n, " ")
+		if n%2 == 0 {
+			n = n / 2 // Jika n genap
+		} else {
+			n = 3*n + 1 // Jika n ganjil
+		}
+	}
+	// Cetak 1 sebagai elemen terakhir
+	fmt.Print(1)
+}
+
+func main() {
+	var n int
+	fmt.Print("Masukkan nilai awal: ")
+	fmt.Scan(&n)
+
+	// Panggil fungsi untuk mencetak deret
+	cetakDeret(n)
+}
+
+
+```
+#### Screenshoot Source Code
+![Screenshot 2024-10-18 172458](https://github.com/user-attachments/assets/f282917e-7d64-4018-943e-9a4602510e13)
+
+#### Screenshoot Output
+![Screenshot 2024-10-18 172502](https://github.com/user-attachments/assets/5b631b76-0a99-4608-898f-6cae76bec825)
+
+#### Deskripsi Program
+Program ini dirancang untuk mencetak deret bilangan berdasarkan aturan algoritma 3n+1, yang juga dikenal sebagai Collatz Conjecture. Program dimulai dengan sebuah bilangan bulat positif sebagai input. Jika bilangan tersebut genap, maka akan dibagi dua; namun jika ganjil, akan dihitung menggunakan rumus tiga kali bilangan ditambah satu. Proses ini terus berulang hingga bilangan mencapai satu, yang menjadi bilangan terakhir dalam deret. Program ini menggunakan sebuah prosedur untuk melakukan perhitungan dan mencetak hasilnya dalam satu baris dengan setiap elemen dipisahkan oleh spasi.
+
+#### Algoritma Program
+1. Mulai
+2. Minta pengguna untuk memasukkan bilangan bulat positif n.
+3. Cetak nilai n.
+4. Lakukan perulangan selama nilai n belum sama dengan satu:
+- Jika n adalah bilangan genap, bagi nilai n dengan dua.
+- Jika n adalah bilangan ganjil, ubah nilai n menjadi tiga kali n ditambah satu.
+- Cetak nilai n setelah dilakukan perhitungan.
+5. Akhiri perulangan ketika nilai n menjadi satu.
+6. Cetak nilai satu sebagai elemen terakhir deret.
+7. Selesai
+
+#### Cara Kerja
+1. Input Pengguna:
+- Program dimulai dengan meminta pengguna memasukkan sebuah bilangan bulat positif. Nilai ini disimpan dalam variabel n, yang akan menjadi titik awal deret.
+2. Fungsi Perhitungan Deret:
+- Program menggunakan fungsi cetakDeret(n) untuk melakukan perhitungan deret. Setiap kali fungsi ini dipanggil, ia akan mencetak bilangan awal, kemudian menghitung elemen-elemen berikutnya dalam deret sesuai aturan berikut:
+  - Jika bilangan genap, maka bilangan tersebut dibagi dua.
+  - Jika bilangan ganjil, maka dihitung dengan rumus tiga kali bilangan ditambah satu.
+- Hasil perhitungan dicetak pada layar, dengan elemen-elemen deret dipisahkan oleh spasi.
+3. Pengulangan Sampai Nilai Satu:
+- Perhitungan berulang terus menerus hingga nilai n mencapai satu. Ini sesuai dengan aturan Collatz Conjecture, di mana setiap bilangan pada akhirnya akan turun menjadi satu.
+- Setiap nilai yang dihasilkan dari perhitungan (baik hasil pembagian atau penambahan) dicetak dalam satu baris hingga deret selesai.
+4. Akhir Program:
+- Ketika nilai n sudah menjadi satu, program mencetak "1" sebagai elemen terakhir dan berhenti.
 
 ### Kesimpulan
-Fungsi adalah alat penting dalam pemrograman yang memungkinkan kita untuk membuat kode lebih modular, terorganisir, dan dapat digunakan kembali. Dengan membagi program ke dalam beberapa fungsi, kita dapat menyederhanakan pengembangan dan pemeliharaan kode. Di Go, deklarasi fungsi mencakup nama fungsi, parameter, dan tipe pengembalian, serta pemanggilan fungsi dilakukan dengan menyebutkan nama fungsi beserta argumennya [2][3].
+Penggunaan prosedur dalam pemrograman adalah alat yang sangat berguna untuk menyusun kode secara terstruktur dan efisien. Dengan memahami cara mendeklarasikan dan menggunakan prosedur, programmer dapat meningkatkan keterbacaan dan keorganisasian kode mereka, serta memudahkan proses debugging dan pengembangan di masa mendatang. Prosedur memberikan cara untuk membagi program menjadi bagian yang lebih kecil dan lebih mudah dikelola, menjadikannya komponen penting dalam pemrograman modern.
 
 ## Referensi 
 [1] Go.dev. (n.d.). Introduction to Go functions. Go Documentation.
