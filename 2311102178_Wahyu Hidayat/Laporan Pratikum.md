@@ -42,139 +42,141 @@
 
 ## I. Dasar Teori
 ### Pengertian Fungsi
-Fungsi adalah blok kode yang dapat dijalankan secara independen dalam sebuah program. Fungsi digunakan untuk memecah program menjadi bagian-bagian yang lebih kecil dan lebih terorganisir. Setiap fungsi dirancang untuk melakukan tugas tertentu dan dapat dipanggil dari bagian lain dari program untuk menghindari penulisan ulang kode yang sama. Dengan kata lain, fungsi memberikan cara untuk membuat program lebih modular dan efisien dalam hal pemeliharaan serta penggunaan ulang kode [1]. 
+Prosedur adalah blok kode yang tidak mengembalikan nilai tetapi dirancang untuk menjalankan tugas tertentu. Berbeda dengan fungsi yang mengembalikan hasil, prosedur hanya menjalankan sekumpulan instruksi tanpa memberikan nilai kembali ke pemanggil. Prosedur berguna untuk memecah program menjadi bagian yang lebih sederhana dan mudah dipahami, terutama ketika tugas tidak memerlukan pengembalian nilai [1].
 
-Fungsi juga meningkatkan keterbacaan program karena pengembang dapat memisahkan logika yang kompleks ke dalam beberapa fungsi yang lebih kecil dan lebih mudah dikelola [2].
+Prosedur membantu meningkatkan keterbacaan dan organisasi program karena memungkinkan pembagian logika program menjadi beberapa bagian yang terpisah namun tetap koheren dalam menjalankan tugas tertentu [2].
 
-### Deklarasi Fungsi
-Dalam bahasa Go, deklarasi fungsi dimulai dengan kata kunci func diikuti dengan nama fungsi, parameter yang diperlukan (opsional), dan tipe pengembalian (opsional). Fungsi dideklarasikan dengan sintaks sebagai berikut:
+### Deklarasi Prosedur
+Dalam bahasa pemrograman, deklarasi prosedur biasanya sangat mirip dengan fungsi, namun prosedur tidak memiliki tipe pengembalian. Pada beberapa bahasa seperti Pascal atau Go (dimana prosedur disebut sebagai "fungsi tanpa pengembalian"), prosedur dideklarasikan menggunakan kata kunci yang sama dengan fungsi namun tanpa tipe pengembalian.
+
+Contoh deklarasi prosedur dalam bahasa Go:
+
 ```go
-func namaFungsi(parameter1 tipe1, parameter2 tipe2) tipePengembalian {
-    // blok kode yang akan dieksekusi
-    return nilaiPengembalian
+func cetakNama(nama string) {
+    fmt.Println("Nama:", nama)
 }
 
 ```
 #### Penjelasan:
-namaFungsi: Nama yang digunakan untuk memanggil fungsi.
+- cetakNama: Nama prosedur yang digunakan untuk pemanggilan.
+- nama: Parameter yang diterima oleh prosedur, dalam hal ini berupa string.
+- Blok kode: Berisi instruksi yang akan dijalankan oleh prosedur.
 
-parameter: Nilai masukan yang diterima oleh fungsi, dapat terdiri dari nol atau lebih parameter.
+### Pemanggilan Prosedur
+Sama seperti fungsi, pemanggilan prosedur adalah cara untuk mengeksekusi instruksi yang berada di dalamnya. Prosedur dapat dipanggil kapan saja selama berada dalam lingkup yang benar. Untuk memanggil prosedur, kita cukup menuliskan nama prosedur diikuti oleh kurung buka dan tutup beserta argumen yang diperlukan (jika ada).
 
-tipePengembalian: Tipe data yang dikembalikan oleh fungsi, bisa berupa tipe data tunggal atau lebih dari satu (multi-return values).
-
-blok kode: Kumpulan perintah yang akan dijalankan ketika fungsi dipanggil.
-
-return: Mengembalikan hasil dari fungsi ke pemanggil (opsional, tergantung tipe pengembalian).
-
-## Contoh Deklarasi Fungsi dalam Golang
-Contoh sederhana deklarasi fungsi dalam Golang:
-
-```go
-func sapa(nama string) string {
-    return "Halo, " + nama
-}
-
-```
-Pada contoh di atas, fungsi sapa menerima parameter nama bertipe string dan mengembalikan nilai bertipe string yang merupakan pesan sapaan [3].
-
-### Pemanggilan Fungsi
-Pemanggilan fungsi adalah cara untuk mengeksekusi kode yang berada di dalam sebuah fungsi. Fungsi yang telah dideklarasikan bisa dipanggil kapan saja selama berada dalam lingkup yang benar. Untuk memanggil fungsi, kita cukup menuliskan nama fungsi diikuti oleh kurung buka dan tutup beserta argumen yang diperlukan (jika ada) [1].
-
-Contoh pemanggilan fungsi dari contoh sebelumnya:
+Contoh pemanggilan prosedur dari contoh sebelumnya:
 
 ```go
 func main() {
-    hasil := sapa("Andi") // Memanggil fungsi 'sapa' dengan argumen "Andi"
-    fmt.Println(hasil)    // Output: Halo, Andi
+    cetakNama("Andi") // Memanggil prosedur 'cetakNama' dengan argumen "Andi"
 }
 ```
-Dalam contoh di atas, fungsi sapa dipanggil dalam fungsi main dengan memberikan nilai "Andi" sebagai argumen. Hasil dari pemanggilan fungsi tersebut disimpan dalam variabel hasil yang kemudian dicetak ke layar [3].
 
-#### Fungsi dengan Nilai Kembali Lebih dari Satu
-Bahasa Go mendukung fungsi dengan pengembalian lebih dari satu nilai (multi-return). Ini berguna ketika kita perlu mengembalikan beberapa hasil dari satu fungsi. Contoh fungsi dengan beberapa nilai kembali:
+Dalam contoh di atas, prosedur cetakNama dipanggil dengan memberikan argumen "Andi". Prosedur tersebut tidak mengembalikan nilai, hanya mencetak nama ke layar.
+
+### Prosedur dengan Banyak Parameter
+Prosedur juga dapat menerima lebih dari satu parameter untuk melakukan tugas yang lebih kompleks. Berikut contoh prosedur dengan beberapa parameter:
 
 ```go
-func hitung(a int, b int) (int, int) {
-    penjumlahan := a + b
-    pengurangan := a - b
-    return penjumlahan, pengurangan
+func tampilkanDetail(nama string, umur int) {
+    fmt.Printf("Nama: %s, Umur: %d\n", nama, umur)
 }
 
 ```
-#### Pemanggilan fungsi:
+#### Pemanggilan prosedur:
 ```go
-func hitung(a int, b int) (int, int) {
-    penjumlahan := a + b
-    pengurangan := a - b
-    return penjumlahan, pengurangan
+func main() {
+    tampilkanDetail("Andi", 25) // Output: Nama: Andi, Umur: 25
 }
-
 ```
-Pada contoh di atas, fungsi hitung mengembalikan dua nilai, yaitu hasil penjumlahan dan pengurangan dari dua bilangan. Saat memanggil fungsi tersebut, kita bisa menangkap kedua nilai pengembaliannya sekaligus [3].
-
-
-
-
-
+Pada contoh di atas, prosedur tampilkanDetail menerima dua parameter: nama dan umur, lalu mencetak informasi detail tersebut.
 
 ## II. GUIDED
 ## 1. Program Perhitungan Permutasi Dua Bilangan Bulat
 
 #### Source Code
 ```go
-package main 
+package main
 
 import "fmt"
- 
-func main(){
-	var a,b int 
-	fmt.Scan(&a, &b) 
-	if a >= b {
-		fmt.Println(permutasi(a,b))
-	}else{
-		fmt.Println(permutasi(b,a))
-	}
-}
-func faktorial(n int) int{ 
-	var hasil int = 1
-	var i int
-	for i = 1; i <= n; i++ { 
-		hasil = hasil * i
-	}
 
-	return hasil
+func main() {
+    var a, b int
+    fmt.Scan(&a, &b)
+    if a >= b {
+        permutasi(a, b)
+    } else {
+        permutasi(b, a)
+    }
 }
-func permutasi(n,r int) int {
-	return faktorial(n) / faktorial(n-r)
+
+// Prosedur faktorial untuk menghitung dan menampilkan faktorial
+func faktorial(n int) {
+    var hasil int = 1
+    var i int
+    for i = 1; i <= n; i++ {
+        hasil = hasil * i
+    }
+    fmt.Println("Faktorial dari", n, "adalah:", hasil)
+}
+
+// Prosedur permutasi untuk menghitung dan mencetak hasil permutasi
+func permutasi(n, r int) {
+    faktorialN := 1
+    faktorialNR := 1
+    // Hitung faktorial n
+    for i := 1; i <= n; i++ {
+        faktorialN *= i
+    }
+    // Hitung faktorial (n-r)
+    for i := 1; i <= (n - r); i++ {
+        faktorialNR *= i
+    }
+    // Cetak hasil permutasi
+    fmt.Println("Permutasi dari", n, "dan", r, "adalah:", faktorialN/faktorialNR)
 }
 ```
 #### Screenshoot Source Code
-![Screenshot 2024-10-13 165455](https://github.com/user-attachments/assets/876a0dc8-2ef3-44db-a9ae-11e12592d7e3)
+
+![Screenshot 2024-10-18 160722](https://github.com/user-attachments/assets/1c196384-aed0-45f5-ab10-29f209cb065e)
 
 
 
 #### Screenshoot Output
-![Screenshot 2024-10-13 165444](https://github.com/user-attachments/assets/757e7796-17de-4103-ad21-3c2386e5038c)
+![Screenshot 2024-10-18 160728](https://github.com/user-attachments/assets/85c7508d-0715-4cbe-a245-d88e7ef9a819)
 
 
 
 #### Deskripsi Program
-Program ini menghitung permutasi dua bilangan bulat positif, yaitu jumlah cara untuk menyusun sejumlah objek dari total objek yang tersedia. Program meminta dua input bilangan dan menghitung permutasi berdasarkan rumus matematika permutasi. Jika nilai bilangan pertama lebih kecil dari yang kedua, maka keduanya dibalik agar perhitungan tetap valid.
+Program ini menghitung permutasi dari dua bilangan bulat positif, yaitu jumlah cara untuk menyusun sejumlah objek dari total objek yang tersedia. Program meminta dua input bilangan dari pengguna, dan jika bilangan pertama lebih kecil dari bilangan kedua, keduanya akan dibalik agar perhitungan permutasi tetap valid. Setelah menerima input, program akan menggunakan dua prosedur: satu untuk menghitung faktorial dan satu lagi untuk menghitung permutasi berdasarkan rumus matematika. Hasil permutasi kemudian dicetak di layar tanpa mengembalikan nilai, sehingga pengguna dapat langsung melihat hasil perhitungan.
 
 #### Algoritma Program
-1. Input dua bilangan bulat.
-2. Periksa apakah bilangan pertama lebih besar atau sama dengan bilangan kedua.
-3. Jika benar, hitung permutasi menggunakan rumus permutasi.
-4. Jika salah, tukar urutan bilangan dan hitung permutasi.
-5. Hitung faktorial dari bilangan pertama dan faktorial dari selisih bilangan pertama dan kedua.
-6. Bagikan hasil faktorial untuk mendapatkan nilai permutasi.
-7. Cetak hasil perhitungan.
+1. Input: Minta pengguna untuk memasukkan dua bilangan bulat positif (a, b).
+2. Periksa: Jika a >= b, panggil permutasi(a, b), jika tidak, panggil permutasi(b, a).
+3. Prosedur Faktorial:
+- Terima parameter n.
+- Hitung faktorial dari n.
+- Cetak hasil faktorial.
+4. Prosedur Permutasi:
+- Terima parameter n dan r.
+- Hitung faktorial dari n dan (n - r).
+- Cetak hasil permutasi (faktorial(n) / faktorial(n - r)).
 
 #### Cara Kerja
-- Fungsi faktorial(n int): Fungsi ini menghitung faktorial dengan mengalikan bilangan dari satu hingga bilangan tersebut.
-- Fungsi permutasi(n, r int): Fungsi ini menghitung permutasi dengan membagi faktorial bilangan pertama dengan faktorial selisih antara bilangan pertama dan kedua.
-- Proses Input: Program menerima dua bilangan bulat dari pengguna, kemudian memeriksa apakah bilangan pertama lebih besar dari atau sama dengan bilangan kedua.
-- Proses Output: Hasil perhitungan permutasi dicetak ke layar berdasarkan input pengguna.
+1. Input:
+- Program meminta pengguna untuk memasukkan dua bilangan bulat positif. Nilai yang dimasukkan disimpan dalam variabel a dan b.
+2. Perbandingan:
+- Program memeriksa apakah nilai a lebih besar atau sama dengan nilai b.
+- Jika ya, program akan melanjutkan untuk menghitung permutasi dengan menggunakan a dan b.
+- Jika tidak, program akan membalik nilai a dan b dan kemudian melanjutkan untuk menghitung permutasi.
+3. Hitung Permutasi:
+- Program memanggil prosedur yang bernama permutasi, menggunakan nilai a dan b (atau b dan a jika dibalik) sebagai argumen.
+4. Prosedur Faktorial:
+- Dalam prosedur faktorial, program menghitung dan mencetak nilai faktorial dari bilangan yang diberikan dengan mengalikan semua angka dari satu hingga bilangan tersebut.
+5. Prosedur Permutasi:
+- Dalam prosedur permutasi, program menghitung faktorial dari bilangan total dan faktorial dari selisih antara total dan jumlah objek yang disusun.
+Hasil permutasi kemudian dicetak berdasarkan pembagian antara faktorial total dan faktorial selisih.
 
 ## 2. Program Penghitungan Luas dan Keliling Persegi
 
@@ -533,8 +535,6 @@ Program ini berfungsi untuk menentukan apakah sebuah titik sembarang berada di d
 Fungsi adalah alat penting dalam pemrograman yang memungkinkan kita untuk membuat kode lebih modular, terorganisir, dan dapat digunakan kembali. Dengan membagi program ke dalam beberapa fungsi, kita dapat menyederhanakan pengembangan dan pemeliharaan kode. Di Go, deklarasi fungsi mencakup nama fungsi, parameter, dan tipe pengembalian, serta pemanggilan fungsi dilakukan dengan menyebutkan nama fungsi beserta argumennya [2][3].
 
 ## Referensi 
-[1] A. A. Demailly, "Efficient Function Calls and Modular Programming in Go," Journal of Software Engineering, vol. 34, no. 2, pp. 145-153, 2022.
+[1] Go.dev. (n.d.). Introduction to Go functions. Go Documentation.
 
-[2] R. C. Martin, Clean Code: A Handbook of Agile Software Craftsmanship, Pearson Education, 2009.
-
-[3] A. Donovan and B. W. Kernighan, The Go Programming Language, Addison-Wesley, 2015.
+[2] Zakhour, M., et al. (2010). The Java programming language. Addison-Wesley.
