@@ -259,7 +259,9 @@ Program ini digunakan untuk menghitung luas dan keliling sebuah persegi berdasar
 
 ## Unguided 
 
-### 1.
+### 1. Program untuk menghitung Faktorial, Permutasi dan Kombinasi
+![Screenshot 2024-10-09 090531](https://github.com/user-attachments/assets/939bb468-ffa3-42f2-a6a3-1e7d44633ed1)
+
 ### Source Code :
 ```go
 package main
@@ -349,7 +351,9 @@ Program ini menerima empat bilangan asli (`a`, `b`, `c`, dan `d`) sebagai input 
    - Prosedur `HitungKombinasi`: Menghitung kombinasi `C(n, r)` dengan membagi faktorial dari `n` dengan hasil perkalian faktorial `r` dan faktorial `(n - r)`.
 3. Hasil perhitungan permutasi dan kombinasi ditampilkan ke layar untuk kedua pasangan bilangan (`a`, `c` dan `b`, `d`).
 
-### 2.
+### 2. Buat program gema yang mencari pemenang dari daftar peserta yang diberikan
+**Program harus dibuat modular, yaitu dengan membuat prosedur hitungSkor yang mengembalikan total soal dan total skor yang dikerjakan oleh seorang peserta, melalui parameter formal. Pembacaan nama peserta dilakukan di program utama, sedangkan waktu pengerjaan dibaca di dalam prosedur.**
+
 ### Source Code :
 ```go
 package main
@@ -446,7 +450,8 @@ Program ini digunakan untuk menentukan pemenang kompetisi berdasarkan jumlah soa
 3. Program kemudian membandingkan hasil tiap peserta berdasarkan jumlah soal yang selesai. Jika jumlahnya sama, maka peserta dengan waktu pengerjaan terkecil akan dipilih sebagai pemenang.
 4. Hail akhir berupa nama pemenang bersama dengan jumlah soal yang selesai dan total waktu pengerjaan ditampilkan ke layar.
 
-### 3.
+### 3. Buat program skiena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat dalam prosedur cetakDeret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal.
+
 ### Source Code :
 ```go
 package main
@@ -508,6 +513,6 @@ Program ini menerapkan algoritma Collatz, yang juga dikenal sebagai masalah 3n +
 
 
 ## Daftar Pustaka
-[1] Using Go Modules. (n.d.). Retrieved from Golang ID: https://golang-id.org/blog/using-go-modules/
+[1] Formal and Actual Parameters in Programming. (n.d.). Retrieved from GeeksforGeeks: https://www.geeksforgeeks.org/formal-and-actual-parameters-in-programming/
 
-[2]
+[2] Using Go Modules. (n.d.). Retrieved from Golang ID: https://golang-id.org/blog/using-go-modules/
