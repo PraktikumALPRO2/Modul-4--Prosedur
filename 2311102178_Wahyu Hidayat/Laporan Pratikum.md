@@ -188,12 +188,16 @@ import (
 	"fmt"
 )
 
-func hitungLuas(sisi float64) float64 {
-	return sisi * sisi
+// Prosedur untuk menghitung dan menampilkan luas persegi
+func hitungLuas(sisi float64) {
+	luas := sisi * sisi
+	fmt.Printf("Luas persegi: %.2f\n", luas)
 }
 
-func hitungKeliling(sisi float64) float64 {
-	return 4 * sisi
+// Prosedur untuk menghitung dan menampilkan keliling persegi
+func hitungKeliling(sisi float64) {
+	keliling := 4 * sisi
+	fmt.Printf("Keliling persegi: %.2f\n", keliling)
 }
 
 func main() {
@@ -202,38 +206,43 @@ func main() {
 	fmt.Print("Sisi Persegi: ")
 	fmt.Scan(&sisi)
 
-	luas := hitungLuas(sisi)
-	keliling := hitungKeliling(sisi)
-
-	fmt.Printf("Luas persegi: %.2f\n", luas)
-	fmt.Printf("Keliling persegi: %.2f\n", keliling)
+	// Panggil prosedur untuk menghitung luas dan keliling
+	hitungLuas(sisi)
+	hitungKeliling(sisi)
 }
+
 ```
 #### Screenshoot Source Code
-![Screenshot 2024-10-13 171043](https://github.com/user-attachments/assets/500889b0-56d7-4943-80fe-dba39e2e3e8f)
+![Screenshot 2024-10-18 162007](https://github.com/user-attachments/assets/205a1f11-5b54-4806-836c-aa0b3e26aba9)
 
 
 
 #### Screenshoot Output
-![Screenshot 2024-10-13 171037](https://github.com/user-attachments/assets/80d7b38d-9263-4c39-aa41-c496c38b1c7e)
+![Screenshot 2024-10-18 162017](https://github.com/user-attachments/assets/7819802a-6c4f-41ac-b1ff-2db968f152d2)
 
 
 
 
 #### Deskripsi Program
-Program ini digunakan untuk menghitung luas dan keliling dari sebuah persegi. Pengguna memasukkan panjang sisi persegi, lalu program akan menghitung dan menampilkan hasil luas dan kelilingnya. Perhitungan dilakukan dengan rumus sederhana untuk luas dan keliling persegi.
+Program ini menghitung luas dan keliling persegi berdasarkan sisi yang dimasukkan oleh pengguna. Setelah meminta input berupa panjang sisi persegi, program memanggil dua prosedur: hitungLuas untuk menghitung dan menampilkan luas persegi, serta hitungKeliling untuk menghitung dan menampilkan keliling persegi. Kedua prosedur ini tidak mengembalikan nilai, tetapi langsung mencetak hasil perhitungan ke layar, sehingga pengguna dapat dengan mudah melihat hasilnya. Program ini dirancang untuk memberikan informasi yang cepat dan jelas tentang luas dan keliling persegi yang diberikan.
 
 #### Algoritma Program
-1. Input panjang sisi persegi dari pengguna.
-2. Hitung luas persegi menggunakan rumus: panjang sisi × panjang sisi.
-3. Hitung keliling persegi menggunakan rumus: 4 × panjang sisi.
-4. Tampilkan hasil perhitungan luas dan keliling dengan format dua angka desimal.
+1. Input:
+- Minta pengguna untuk memasukkan panjang sisi persegi.
+2. Panggil Prosedur Hitung Luas:
+- Hitung luas persegi dengan rumus sisi dikali sisi.
+- Tampilkan hasil luas ke layar.
+3. Panggil Prosedur Hitung Keliling:
+- Hitung keliling persegi dengan rumus empat kali sisi.
+- Tampilkan hasil keliling ke layar.
+4. Selesai:
+- Program selesai setelah menampilkan hasil luas dan keliling.
 
 #### Cara Kerja
-- Fungsi hitungLuas(sisi float64): Fungsi ini menghitung luas persegi dengan mengalikan panjang sisi dengan dirinya sendiri.
-- Fungsi hitungKeliling(sisi float64): Fungsi ini menghitung keliling persegi dengan mengalikan panjang sisi dengan 4.
-- Proses Input: Pengguna diminta untuk memasukkan nilai panjang sisi persegi.
-- Proses Output: Program menampilkan hasil perhitungan luas dan keliling persegi dengan dua angka desimal untuk lebih presisi.
+1. Input: Program meminta pengguna untuk memasukkan panjang sisi persegi dan menyimpannya dalam variabel sisi.
+2. Hitung Luas: Program memanggil prosedur hitungLuas, yang menghitung luas persegi dan mencetak hasilnya.
+3. Hitung Keliling: Program memanggil prosedur hitungKeliling, yang menghitung keliling persegi dan mencetak hasilnya.
+4. Output: Program menampilkan hasil luas dan keliling persegi kepada pengguna.
 
 ## III. UNGUIDED
 ## 1. Program Penghitung Permutasi dan Kombinasi
@@ -246,26 +255,49 @@ import (
 	"fmt"
 )
 
-// Fungsi untuk menghitung faktorial
-func factorial(n int) int {
+// Prosedur untuk menghitung dan menampilkan faktorial
+func factorial(n int) {
 	if n == 0 {
-		return 1
+		fmt.Printf("Faktorial dari %d adalah: 1\n", n)
+		return
 	}
 	result := 1
 	for i := 1; i <= n; i++ {
 		result *= i
 	}
-	return result
+	fmt.Printf("Faktorial dari %d adalah: %d\n", n, result)
 }
 
-// Fungsi untuk menghitung permutasi P(n, r)
-func permutation(n, r int) int {
-	return factorial(n) / factorial(n-r)
+// Prosedur untuk menghitung dan menampilkan permutasi P(n, r)
+func permutation(n, r int) {
+	factN := 1
+	for i := 1; i <= n; i++ {
+		factN *= i
+	}
+	factNR := 1
+	for i := 1; i <= (n - r); i++ {
+		factNR *= i
+	}
+	p := factN / factNR
+	fmt.Printf("Permutasi P(%d, %d) adalah: %d\n", n, r, p)
 }
 
-// Fungsi untuk menghitung kombinasi C(n, r)
-func combination(n, r int) int {
-	return factorial(n) / (factorial(r) * factorial(n-r))
+// Prosedur untuk menghitung dan menampilkan kombinasi C(n, r)
+func combination(n, r int) {
+	factN := 1
+	for i := 1; i <= n; i++ {
+		factN *= i
+	}
+	factR := 1
+	for i := 1; i <= r; i++ {
+		factR *= i
+	}
+	factNR := 1
+	for i := 1; i <= (n - r); i++ {
+		factNR *= i
+	}
+	c := factN / (factR * factNR)
+	fmt.Printf("Kombinasi C(%d, %d) adalah: %d\n", n, r, c)
 }
 
 func main() {
@@ -275,64 +307,46 @@ func main() {
 	fmt.Scanf("%d %d %d %d", &a, &b, &c, &d)
 
 	// Hasil permutasi dan kombinasi untuk a dan c
-	p_ac := permutation(a, c)
-	c_ac := combination(a, c)
+	permutation(a, c)
+	combination(a, c)
 
 	// Hasil permutasi dan kombinasi untuk b dan d
-	p_bd := permutation(b, d)
-	c_bd := combination(b, d)
-
-	// Output
-	fmt.Printf("%d %d\n", p_ac, c_ac)
-	fmt.Printf("%d %d\n", p_bd, c_bd)
+	permutation(b, d)
+	combination(b, d)
 }
 
 ```
 #### Screenshoot Source Code
-![Screenshot 2024-10-13 171753](https://github.com/user-attachments/assets/e441a9a2-e5b2-4917-ad79-d6393e5d4edb)
+![Screenshot 2024-10-18 162708](https://github.com/user-attachments/assets/da362146-d0da-4304-8a43-c62990bdb543)
 
 
 
 
 #### Screenshoot Output
-![Screenshot 2024-10-13 171736](https://github.com/user-attachments/assets/7fe92782-099e-4ef4-9175-93d7548731c7)
-
-
-
-
+![Screenshot 2024-10-18 162714](https://github.com/user-attachments/assets/8746109d-b1bc-4fa0-86b9-d3668edae206)
 
 #### Deskripsi Program
-Program ini dibuat untuk menghitung nilai permutasi dan kombinasi dari empat bilangan bulat yang diberikan sebagai input. Pengguna akan memasukkan empat bilangan bulat, yaitu a, b, c, dan d. Program ini kemudian menghitung hasil permutasi dan kombinasi dari a terhadap c, serta b terhadap d, dan menampilkan hasilnya dalam dua baris. Baris pertama menunjukkan hasil perhitungan permutasi dan kombinasi dari a terhadap c, dan baris kedua menunjukkan hasil perhitungan permutasi dan kombinasi dari b terhadap d.
+Program ini menghitung dan menampilkan faktorial, permutasi, dan kombinasi berdasarkan input empat bilangan bulat yang dimasukkan oleh pengguna. Setelah meminta pengguna untuk memasukkan bilangan a, b, c, dan d, program memanggil prosedur untuk menghitung permutasi P(a, c) dan C(a, c), serta P(b, d) dan C(b, d). Hasil dari setiap perhitungan ditampilkan langsung ke layar. Program ini dirancang untuk memberikan informasi yang jelas dan cepat tentang faktorial, permutasi, dan kombinasi dari bilangan yang diberikan.
 
 #### Algoritma Program
 1. Input:
-- Program menerima empat bilangan bulat a, b, c, dan d.
-2. Proses:
-- Untuk menghitung permutasi dan kombinasi, terlebih dahulu dilakukan perhitungan faktorial dari bilangan-bilangan yang dibutuhkan.
-- Rumus yang digunakan:
-  - Permutasi dihitung dengan membagi faktorial n dengan faktorial dari selisih n dan r.
-  - Kombinasi dihitung dengan membagi faktorial n dengan hasil perkalian faktorial r dan faktorial dari selisih n dan r.
-- Permutasi dan kombinasi dihitung untuk pasangan a terhadap c, serta b terhadap d.
-3. Output:
-- Hasil permutasi dan kombinasi dari a terhadap c ditampilkan di baris pertama.
-- Hasil permutasi dan kombinasi dari b terhadap d ditampilkan di baris kedua.
+- Minta pengguna untuk memasukkan empat bilangan bulat: a, b, c, dan d.
+2. Hitung dan Tampilkan Permutasi dan Kombinasi:
+- Panggil prosedur permutation dengan argumen a dan c untuk menghitung permutasi P(a, c) dan tampilkan hasilnya.
+- Panggil prosedur combination dengan argumen a dan c untuk menghitung kombinasi C(a, c) dan tampilkan hasilnya.
+- Panggil prosedur permutation dengan argumen b dan d untuk menghitung permutasi P(b, d) dan tampilkan hasilnya.
+- Panggil prosedur combination dengan argumen b dan d untuk menghitung kombinasi C(b, d) dan tampilkan hasilnya.
+3. Selesai:
+- Program selesai setelah semua hasil perhitungan ditampilkan.
 
 #### Cara Kerja
-1. Input Data:
-- Program meminta pengguna memasukkan empat bilangan bulat. Sebagai contoh, jika pengguna memasukkan "5 10 3 10", maka a adalah 5, b adalah 10, c adalah 3, dan d adalah 10.
-2. Menghitung Faktorial:
-- Faktorial adalah hasil perkalian berurutan dari suatu bilangan dengan bilangan yang lebih kecil hingga satu. Misalnya, faktorial dari 5 adalah 5 x 4 x 3 x 2 x 1 = 120.
-- Faktorial dihitung untuk bilangan-bilangan yang relevan dalam menghitung permutasi dan kombinasi.
-3. Menghitung Permutasi dan Kombinasi:
-- Permutasi dihitung dengan membagi faktorial dari a dengan faktorial dari selisih a dan c. Contoh: untuk a = 5 dan c = 3, permutasi dihitung sebagai 5 faktorial dibagi dengan 2 faktorial, yang hasilnya adalah 60.
-- Kombinasi dihitung dengan membagi faktorial dari a dengan hasil kali faktorial dari c dan faktorial dari selisih a dan c.
-4. Menampilkan Hasil:
-- Hasil perhitungan permutasi dan kombinasi dari a terhadap c ditampilkan terlebih dahulu.
-- Kemudian, hasil perhitungan permutasi dan kombinasi dari b terhadap d ditampilkan di baris berikutnya.
-
-
-
-
+1. Input: Pengguna diminta memasukkan empat bilangan bulat: a, b, c, dan d.
+2. Hitung: Program menghitung dan menampilkan:
+- Permutasi P(a, c)
+- Kombinasi C(a, c)
+- Permutasi P(b, d)
+- Kombinasi C(b, d)
+3. Output: Semua hasil perhitungan ditampilkan di layar.
 
 ## 2. Program Komposisi Tiga Fungsi Matematika
 
