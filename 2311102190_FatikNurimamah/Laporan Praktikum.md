@@ -508,4 +508,6 @@ Program ini menerapkan algoritma Collatz, yang juga dikenal sebagai masalah 3n +
 
 
 ## Daftar Pustaka
-[1]
+[1] Using Go Modules. (n.d.). Retrieved from Golang ID: https://golang-id.org/blog/using-go-modules/
+
+[2]
