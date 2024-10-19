@@ -16,7 +16,7 @@
 # <h3 align="center"> TELKOM UNIVERSITY PURWOKERTO </h3>
 # <h3 align="center"> 2024 </h3>
 
-## I. DASAR TEORI
+# I. DASAR TEORI
 
 - Definisi Prosedur<br/>
   Prosedur adalah serangkaian instruksi yang dipecah dari program yang lebih besar untuk mengurangi kompleksitas kode. Ketika prosedur dipanggil dalam program
