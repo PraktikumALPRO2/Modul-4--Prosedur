@@ -163,7 +163,46 @@ Buatlah sebuah program beserta prosedur yang digunakan untuk menghitung nilai fa
 *Keluaran : Berupa sebuah bilangan bulat yang menyatakan nilai a permutasi b apabila >= b atau b permutasi a untuk kemungkinan yang lain*
 
 ### Source Code
-)
+```
+//Nama: Rangga Pradarrell Fathi
+//NIM : 2311102200 Kelas: IF-11-05
+package main
+
+import "fmt"
+
+func main() {
+    var a, b int // mendeklarasikan 2 variabel 
+    fmt.Scan(&a, &b)  // untuk input dari pengguna
+    if a >= b { // jika a >= b, akan ada permutasi
+        permutasi(a, b) // memanggil prosedur permutasi
+    } else { // jika b >= a, akan ada permutasi
+        permutasi(b, a) // memanggil prosedur permutasi
+    }
+}
+
+// prosedur untuk menghitung faktorial 
+func faktorial(n int, hasil *int) {
+    *hasil = 1
+    for i := 1; i <= n; i++ {
+        *hasil *= i
+    }
+}
+
+// prosedur untuk menghitung dan mencetak permutasi
+func permutasi(n, r int) {
+    var faktorialN, faktorialNR int
+
+    // menghitung faktorial n
+    faktorial(n, &faktorialN)
+
+    // menghitung faktorial (n-r)
+    faktorial(n-r, &faktorialNR)
+
+    // menghitung permutasi 
+    hasil := faktorialN / faktorialNR
+    fmt.Println(hasil)
+}
+```
 
 ### Screenshot Code
 
@@ -189,7 +228,42 @@ Setelah itu, program memanggil hitungPermutasi untuk menghitung permutasi dan me
 Membuat program dengan bahasa go untuk mencari sebuah Luas dan Keliling Persegi.
 
 ### Source Code
+```
+//Nama: Rangga Pradarrell Fathi
+//NIM : 2311102200 Kelas: IF-11-05
+package main
 
+import (
+	"fmt"
+)
+
+// prosedur untuk menghitung luas persegi
+func hitungLuas(sisi float64, luas *float64) {
+	*luas = sisi * sisi
+}
+
+// prosedur untuk menghitung keliling persegi
+func hitungKeliling(sisi float64, keliling *float64) {
+	*keliling = 4 * sisi
+}
+
+func main() {
+	var sisi, luas, keliling float64
+
+	// untuk inputan dari user
+	fmt.Print("Sisi Persegi: ")
+	fmt.Scan(&sisi)
+
+	// menghitung luas persegi menggunakan prosedur hitungLuas
+	hitungLuas(sisi, &luas)
+	// menghitung keliling persegi menggunakan prosedur hitungKeliling
+	hitungKeliling(sisi, &keliling)
+
+	// menampilkan hasil dari perhitungan luas dan keliling persegi
+	fmt.Printf("Luas persegi: %.2f\n", luas)
+	fmt.Printf("Keliling persegi: %.2f\n", keliling)
+}
+```
 ### Screenshot Output
 
 
@@ -227,8 +301,86 @@ Catatan: permutasi (P) dan kombinasi (C) dari 𝑛 terhadap 𝑟 (𝑛 ≥ 𝑟)
 
 
 ### Source Code
+```
+// Rangga Pradarrell Fathi
+// 2311102200 / S1IF11-05
+package main
 
+import "fmt"
 
+// Prosedur untuk input bilangan
+func inputBilangan(prompt string, bilangan *int) {
+    fmt.Print(prompt)
+    fmt.Scan(bilangan)
+}
+
+// Prosedur untuk mengecek syarat a>=c dan b>=d
+func cekSyarat(a, b, c, d int) bool {
+    return a >= c && b >= d
+}
+
+// Prosedur untuk menampilkan hasil perhitungan
+func tampilkanHasil(label string, permutasi, kombinasi int) {
+    fmt.Printf("\nPermutasi %s: %d\n", label, permutasi)
+    fmt.Printf("Kombinasi %s: %d\n", label, kombinasi)
+}
+
+// Prosedur untuk menghitung faktorial
+func faktorial(n int, hasil *int) {
+    *hasil = 1
+    for i := 1; i <= n; i++ {
+        *hasil *= i
+    }
+}
+
+// Prosedur untuk menghitung permutasi
+func permutasi(n, r int, hasil *int) {
+    var faktorialN, faktorialNR int
+    faktorial(n, &faktorialN)
+    faktorial(n-r, &faktorialNR)
+    *hasil = faktorialN / faktorialNR
+}
+
+// Prosedur untuk menghitung kombinasi
+func kombinasi(n, r int, hasil *int) {
+    var faktorialN, faktR, faktorialNR int
+    faktorial(n, &faktorialN)
+    faktorial(r, &faktR)
+    faktorial(n-r, &faktorialNR)
+    *hasil = faktorialN / (faktR * faktorialNR)
+}
+
+// Prosedur untuk melakukan perhitungan permutasi dan kombinasi
+func hitungPermutasiKombinasi(n, r int) (int, int) {
+    var hasilPermutasi, hasilKombinasi int
+    permutasi(n, r, &hasilPermutasi)
+    kombinasi(n, r, &hasilKombinasi)
+    return hasilPermutasi, hasilKombinasi
+}
+
+func main() {
+    var a, b, c, d int
+
+    // Input bilangan menggunakan prosedur
+    inputBilangan("Bilangan a: ", &a)
+    inputBilangan("Bilangan b: ", &b)
+    inputBilangan("Bilangan c: ", &c)
+    inputBilangan("Bilangan d: ", &d)
+
+    // Cek syarat menggunakan prosedur
+    if cekSyarat(a, b, c, d) {
+        // Hitung permutasi dan kombinasi untuk (a,c)
+        permutasiAC, kombinasiAC := hitungPermutasiKombinasi(a, c)
+        tampilkanHasil("(a, c)", permutasiAC, kombinasiAC)
+
+        // Hitung permutasi dan kombinasi untuk (b,d)
+        permutasiBD, kombinasiBD := hitungPermutasiKombinasi(b, d)
+        tampilkanHasil("(b, d)", permutasiBD, kombinasiBD)
+    } else {
+        fmt.Println("Input tidak sesuai dengan syarat yang ada")
+    }
+}
+```
 ### Screenshot Output
 
 
@@ -278,7 +430,101 @@ Keterangan:
 Astuti menyelesaikan 6 soal dalam waktu 287 menit, sedangkan Bertha 7 soal dalam waktu 294 menit. Karena Bertha menyelesaikan lebih banyak, maka Bertha menang. Jika keduanya menyelesaikan sama banyak, maka pemenang adalah yang menyelesaikan dengan total waktu paling kecil.
 
 ### Source Code
+```
+// Rangga Pradarrell Fathi
+// 2311102200 / S1IF11-05
+package main
 
+import (
+    "fmt"
+)
+
+// Struct untuk menyimpan data peserta
+type Peserta struct {
+    nama      string
+    waktu     [8]int
+    soalBenar int
+    totalWaktu int
+}
+
+// Prosedur untuk input jumlah peserta
+func inputJumlahPeserta() int {
+    var n int
+    fmt.Print("Jumlah Peserta: ")
+    fmt.Scan(&n)
+    return n
+}
+
+// Prosedur untuk input data peserta
+func inputDataPeserta(nomorPeserta int) Peserta {
+    var peserta Peserta
+    
+    // Input nama peserta
+    fmt.Printf("\nNama peserta %d: ", nomorPeserta+1)
+    fmt.Scan(&peserta.nama)
+    
+    // Input waktu pengerjaan
+    fmt.Print("Waktu Pengerjaan Soal (8 soal): ")
+    for j := 0; j < 8; j++ {
+        fmt.Scan(&peserta.waktu[j])
+    }
+    
+    return peserta
+}
+
+// Prosedur untuk menghitung total soal yang dikerjakan dan total waktu
+func hitungSkor(waktu [8]int, soal *int, totalWaktu *int) {
+    *soal = 0
+    *totalWaktu = 0
+    for i := 0; i < 8; i++ {
+        if waktu[i] <= 300 { // jika waktu pengerjaan kurang dari 300 menit, soal selesai
+            *soal++
+            *totalWaktu += waktu[i] // hanya tambahkan waktu soal yang selesai
+        }
+    }
+}
+
+// Prosedur untuk menentukan pemenang
+func tentukanPemenang(peserta Peserta, pemenangSekarang *Peserta) {
+    if peserta.soalBenar > pemenangSekarang.soalBenar || 
+       (peserta.soalBenar == pemenangSekarang.soalBenar && peserta.totalWaktu < pemenangSekarang.totalWaktu) {
+        *pemenangSekarang = peserta
+    }
+}
+
+// Prosedur untuk menampilkan hasil akhir
+func tampilkanHasil(pemenang Peserta) {
+    fmt.Printf("\nNama pemenang: %s\n", pemenang.nama)
+    fmt.Printf("Jumlah soal yang selesai: %d\n", pemenang.soalBenar)
+    fmt.Printf("Total waktu yang dihabiskan: %d menit\n", pemenang.totalWaktu)
+}
+
+func main() {
+    // Input jumlah peserta
+    n := inputJumlahPeserta()
+    
+    // Inisialisasi data pemenang sementara
+    pemenang := Peserta{
+        soalBenar: -1,
+        totalWaktu: 1000,
+    }
+    
+    // Proses setiap peserta
+    for i := 0; i < n; i++ {
+        // Input data peserta
+        peserta := inputDataPeserta(i)
+        
+        // Hitung skor peserta
+        hitungSkor(peserta.waktu, &peserta.soalBenar, &peserta.totalWaktu)
+        
+        // Tentukan pemenang sementara
+        tentukanPemenang(peserta, &pemenang)
+    }
+    
+    // Tampilkan hasil akhir
+    tampilkanHasil(pemenang)
+}
+```
 ### Screenshot Output
 
 
@@ -322,9 +568,8 @@ Astuti menyelesaikan 6 soal dalam waktu 287 menit, sedangkan Bertha 7 soal dalam
 
 # Unguided - 3
 ### Study Case
-3)	Skiena dan Revilla dalam Programming Challenges mendefinisikan sebuah deret bilangan. Deret dimulai dengan sebuah bilangan bulat n. Jika bilangan n saat itu genap, maka suku berikutnya adalah ½n, tetapi jika ganjil maka suku berikutnya bernilai 3n+1. Rumus yang sama digunakan terus menerus untuk mencari suku berikutnya. Deret berakhir ketika suku terakhir bernilai 1. Sebagai contoh jika dimulai dengan n=22, maka deret bilangan yang diperoleh adalah:
-4)	
-22 11  34  17  52  26  13  40  20  10  5  16  8  4  2  1
+Skiena dan Revilla dalam Programming Challenges mendefinisikan sebuah deret bilangan. Deret dimulai dengan sebuah bilangan bulat n. Jika bilangan n saat itu genap, maka suku berikutnya adalah ½n, tetapi jika ganjil maka suku berikutnya bernilai 3n+1. Rumus yang sama digunakan terus menerus untuk mencari suku berikutnya. Deret berakhir ketika suku terakhir bernilai 1. Sebagai contoh jika dimulai dengan n=22, maka deret bilangan yang diperoleh adalah:
+	22 11  34  17  52  26  13  40  20  10  5  16  8  4  2  1
  
 Untuk suku awal sampai dengan 1000000, diketahui deret selalu mencapai suku dengan nilai 1.
 Buat program skiena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat dalam prosedur cetakDeret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal.
@@ -336,7 +581,99 @@ Masukan berupa satu bilangan integer positif yang lebih kecil dari 1000000.
 Keluaran terdiri dari satu baris saja. Setiap suku dari deret tersebut dicetak dalam baris yang dan dipisahkan oleh sebuah spasi.
 
 ### Source Code
+```
+// Rangga Pradarrell Fathi
+// 2311102200 / S1IF11-05
+package main
 
+import (
+    "fmt"
+)
+
+// Prosedur untuk input bilangan
+func inputBilangan() int {
+    var n int
+    fmt.Print("Bilangan: ")
+    fmt.Scan(&n)
+    return n
+}
+
+// Prosedur untuk validasi input
+func validasiInput(n int) bool {
+    if n <= 0 || n >= 1000000 {
+        fmt.Println("Nilai harus positif dan kurang dari 1000000.")
+        return false
+    }
+    return true
+}
+
+// Prosedur untuk menghitung bilangan berikutnya dalam deret
+func hitungBilanganBerikutnya(n int) int {
+    if n%2 == 0 {
+        return n / 2
+    }
+    return 3*n + 1
+}
+
+// Prosedur untuk menyimpan deret dalam slice
+func buatDeret(n int) []int {
+    deret := make([]int, 0)
+    deret = append(deret, n)
+    
+    for n != 1 {
+        n = hitungBilanganBerikutnya(n)
+        deret = append(deret, n)
+    }
+    
+    return deret
+}
+
+// Prosedur untuk mencetak deret
+func cetakDeret(deret []int) {
+    fmt.Print("Suku dan deret: ")
+    for i, nilai := range deret {
+        if i == len(deret)-1 {
+            fmt.Printf("%d", nilai)
+        } else {
+            fmt.Printf("%d ", nilai)
+        }
+    }
+    fmt.Println()
+}
+
+// Prosedur untuk analisis deret
+func analisisDeret(deret []int) {
+    panjangDeret := len(deret)
+    nilaiTerbesar := deret[0]
+    
+    for _, nilai := range deret {
+        if nilai > nilaiTerbesar {
+            nilaiTerbesar = nilai
+        }
+    }
+    
+    fmt.Printf("\nAnalisis Deret:\n")
+    fmt.Printf("Panjang deret: %d\n", panjangDeret)
+    fmt.Printf("Nilai terbesar dalam deret: %d\n", nilaiTerbesar)
+}
+
+func main() {
+    // Input bilangan
+    n := inputBilangan()
+    
+    // Validasi input
+    if validasiInput(n) {
+        // Buat deret
+        deret := buatDeret(n)
+        
+        // Cetak deret
+        cetakDeret(deret)
+        
+        // Tampilkan analisis deret
+        analisisDeret(deret)
+    }
+}
+```
 
 ### Screenshot Output
 
