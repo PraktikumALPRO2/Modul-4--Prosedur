@@ -163,7 +163,7 @@ Buatlah sebuah program beserta prosedur yang digunakan untuk menghitung nilai fa
 *Keluaran : Berupa sebuah bilangan bulat yang menyatakan nilai a permutasi b apabila >= b atau b permutasi a untuk kemungkinan yang lain*
 
 ### Source Code
-```
+```go
 //Nama: Rangga Pradarrell Fathi
 //NIM : 2311102200 Kelas: IF-11-05
 package main
@@ -205,6 +205,7 @@ func permutasi(n, r int) {
 ```
 
 ### Screenshot Code
+![Screenshot 2024-10-19 091209](https://github.com/user-attachments/assets/e9b6c33c-63ba-418d-84d6-a338fa5a7247)
 
 
 ### Deskripsi Program
@@ -265,6 +266,7 @@ func main() {
 }
 ```
 ### Screenshot Output
+![Screenshot 2024-10-19 091312](https://github.com/user-attachments/assets/c07e6b42-4b82-4f94-844b-8f19919b2034)
 
 
 ### Deskripsi Program
@@ -382,6 +384,7 @@ func main() {
 }
 ```
 ### Screenshot Output
+![Screenshot 2024-10-19 091530](https://github.com/user-attachments/assets/5ab5f8b2-750c-45bc-ad0b-a94cd7f080cf)
 
 
 ### Deskripsi Program
@@ -526,10 +529,11 @@ func main() {
 }
 ```
 ### Screenshot Output
+![Screenshot 2024-10-19 092255](https://github.com/user-attachments/assets/b79b6736-1151-49c5-9fcf-aadad1789882)
 
 
 ### Deskripsi Program
-
+Program ini memiliki aplikasi untuk lomba atau kompetisi yang melibatkan peserta mengerjakan beberapa soal dalam waktu terbatas, dengan kriteria penentuan pemenang berdasarkan kecepatan dan jumlah soal yang diselesaikan.
 
 ### **Algoritma Program**
 
@@ -676,10 +680,11 @@ func main() {
 ```
 
 ### Screenshot Output
+![Screenshot 2024-10-19 092409](https://github.com/user-attachments/assets/c1cd761b-8dc5-44de-9dfd-3d2123fdc865)
 
 
 ### Deskripsi Program
-
+Program ini merupakan implementasi yang menghasilkan deret angka berdasarkan aturan dari Collatz conjecture atau 3n + 1 problem. Program ini meminta input bilangan dari pengguna, membentuk deret berdasarkan aturan tertentu, menampilkan deret, dan memberikan analisis terkait deret tersebut.
 
 #### **Algoritma Program**
 1. **Inisialisasi**:
