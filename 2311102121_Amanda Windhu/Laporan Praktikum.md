@@ -43,7 +43,7 @@
    Berikut ini adalah contoh penulisan prosedur pada suatu program lengkap. Buatlah sebuah program beserta prosedur yang digunakan untuk menampilkan suatu pesan
    error, warning atau informasi berdasarkan masukan dari user.<br/>
    Masukan: terdiri dari sebuah bilangan bulat flag (0 s.d. 2) dan sebuah string M.<br/>
-   Keluaran: berupa string pesan M beserta jenis pesannya, yaitu error, warning atau informasi berdasarkan nilai flag 0, 1 dan 2 secara berturut-turut.
+   Keluaran: berupa string pesan M beserta jenis pesannya, yaitu error, warning atau informasi berdasarkan nilai flag 0, 1 dan 2 secara berturut-turut.<br/>
    ![image](https://github.com/user-attachments/assets/57ce1970-8232-4a64-8ab5-979580a393c4)<br/>
    Penulisan argumen pada parameter cetakPesan(pesan, bilangan) harus sesuai tipe data pada func cetakPesan (M string, flag int), yaitu string kemudian integer.<br/>
 ### Parameter
