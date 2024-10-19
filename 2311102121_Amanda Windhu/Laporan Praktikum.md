@@ -16,17 +16,24 @@
 # <h3 align="center"> TELKOM UNIVERSITY PURWOKERTO </h3>
 # <h3 align="center"> 2024 </h3>
 
-# I. DASAR TEORI
+## I. DASAR TEORI
 
-- Definisi Prosedur<br/>
+### Definisi Prosedur<br/>
   Prosedur adalah serangkaian instruksi yang dipecah dari program yang lebih besar untuk mengurangi kompleksitas kode. Ketika prosedur dipanggil dalam program
   utama, ia akan memberikan efek langsung pada jalannya program. Suatu subprogram disebut sebagai prosedur jika:<br/>
   1. Tidak memiliki deklarasi tipe nilai yang dikembalikan, dan<br/>
   2. Tidak menggunakan kata kunci return dalam isinya.<br/>
   Prosedur mirip dengan instruksi dasar seperti penugasan (assignment) atau instruksi dari paket seperti fmt.Scan atau fmt.Print. Oleh karena itu, nama prosedur
   sebaiknya menggunakan kata kerja atau sesuatu yang menggambarkan suatu tindakan, misalnya cetak, hitungRerata, cariNilai, belok, mulai, dll.<br/>
-- Deklarasi Prosedur
-  ![image](https://github.com/user-attachments/assets/6d1c5b52-393a-4886-842e-2dd1b8eb2f2d)
+### Deklarasi Prosedur<br/>
+  ![image](https://github.com/user-attachments/assets/6d1c5b52-393a-4886-842e-2dd1b8eb2f2d)>br/>
+  Penulisan deklarasi ini berada di luar blok yang dari program utama atau fungsi main() pada suatu program C, dan bisa ditulis sebelum atau setelah dari blok
+  program utama tersebut.<br/>
+  Contoh deklarasi prosedur mencetak n nilai pertama dari deret Fibonacci<br/>
+  ![image](https://github.com/user-attachments/assets/af00ed5f-67b8-46aa-a0bf-1b51097fa66f)<br/>
+### Cara Pemanggilan Prosedur
+  
+
 
 
 
