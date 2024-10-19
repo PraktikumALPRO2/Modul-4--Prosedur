@@ -32,10 +32,39 @@
   Contoh deklarasi prosedur mencetak n nilai pertama dari deret Fibonacci<br/>
   ![image](https://github.com/user-attachments/assets/af00ed5f-67b8-46aa-a0bf-1b51097fa66f)<br/>
 ### Cara Pemanggilan Prosedur
-  
-
-
-
+  Seperti yang telah dijelaskan, prosedur hanya akan dijalankan jika dipanggil, baik secara langsung maupun tidak langsung oleh program utama. Pemanggilan tidak
+  langsung berarti prosedur tersebut dipanggil melalui subprogram lain sebagai perantara.<br/>
+  Cara memanggil prosedur cukup sederhana, yaitu dengan menuliskan nama prosedur dan menyertakan parameter atau argumen yang diperlukan. Misalnya, prosedur
+  cetakNFibo dipanggil dengan menuliskan namanya dan memberikan sebuah variabel atau nilai integer tertentu sebagai argumen untuk parameter n.<br/>
+  Contohnya:<br/>
+  ![image](https://github.com/user-attachments/assets/bd95646f-17c7-4e16-9b2e-b3dfc1c8e892)<br/>
+  ![image](https://github.com/user-attachments/assets/74830e5c-c03f-46a1-b2de-182201893a22)<br/>
+### Contoh Program dengan Prosedur<br/>
+   Berikut ini adalah contoh penulisan prosedur pada suatu program lengkap. Buatlah sebuah program beserta prosedur yang digunakan untuk menampilkan suatu pesan
+   error, warning atau informasi berdasarkan masukan dari user.<br/>
+   Masukan: terdiri dari sebuah bilangan bulat flag (0 s.d. 2) dan sebuah string M.<br/>
+   Keluaran: berupa string pesan M beserta jenis pesannya, yaitu error, warning atau informasi berdasarkan nilai flag 0, 1 dan 2 secara berturut-turut.
+   ![image](https://github.com/user-attachments/assets/57ce1970-8232-4a64-8ab5-979580a393c4)<br/>
+   Penulisan argumen pada parameter cetakPesan(pesan, bilangan) harus sesuai tipe data pada func cetakPesan (M string, flag int), yaitu string kemudian integer.<br/>
+### Parameter
+   Subprogram yang dipanggil dapat berinteraksi dengan pemanggilnya melalui argumen yang diberikan ke parameter yang dideklarasikan dalam subprogram. Terdapat dua
+   jenis parameter berdasarkan posisinya dalam program, yaitu parameter formal dan parameter aktual.<br/>
+   ![image](https://github.com/user-attachments/assets/801d26f8-a078-4d3b-8c86-52cc28f19c77)<br/>
+   - Parameter Fromal<br/>
+     Parameter formal adalah parameter yang ditulis pada saat deklarasi suatu subprogram, parameter ini berfungsi sebagai petunjuk bahwa argumen apa saja yang
+     diperlukan pada saat pemanggilan subprogram. Sebagai contoh parameter jari_jari, tinggi pada deklarasi fungsi volumeTabung adalah parameter formal (teks
+     berwarna merah). Artinya ketika memanggil volumeTabung maka kita harus mempersiapkan dua integer (berapapun nilainya) sebagai jari_jari dan tinggi.<br/>
+   - Parameter Aktual<br/>
+     Sedangkan parameter aktual adalah argumen yang digunakan pada bagian parameter saat pemanggilan suatu subprogram. Banyaknya argumen dan tipe data yang
+     terdapat pada parameter aktual harus mengikuti parameter formal. Sebagai contoh argumen r, t, 15, 14 dan 100 pada contoh kode di atas (teks berwarna biru)
+     adalah parameter aktual, yang menyatakan nilai yang kita berikan sebagai jari-jari dan tinggi.<br/>
+Selain itu, parameter juga diklasifikasikan berdasarkan cara alokasi memorinya, yaitu pass by value dan pass by reference.<br/>
+1. Pass by Value<br/>
+Pada pass by value, nilai dari parameter aktual disalin ke variabel lokal (parameter formal) dalam subprogram. Ini berarti parameter aktual dan formal memiliki alamat memori yang berbeda. Subprogram dapat menggunakan nilai pada parameter formal untuk berbagai proses, namun tidak dapat mengembalikan informasi tersebut ke pemanggil melalui parameter aktual, karena pemanggil tidak memiliki akses ke memori subprogram. Pass by value dapat diterapkan baik pada fungsi maupun prosedur.
+Dalam notasi pseudocode, semua parameter formal pada fungsi secara default menggunakan pass by value, sedangkan pada prosedur menggunakan kata kunci "in" saat mendeklarasikan parameter formal. Di bahasa pemrograman Go, sama seperti pada pseudocode fungsi, tidak ada kata kunci khusus untuk parameter formal pada fungsi dan prosedur.<br/>
+2. Pass by Reference (Pointer)<br/>
+Pada pass by reference, parameter formal bertindak sebagai pointer yang menyimpan alamat memori dari parameter aktual. Hal ini berarti perubahan yang terjadi pada parameter formal akan berdampak langsung pada parameter aktual. Setelah subprogram selesai dijalankan, nilai akhir dari parameter tersebut dapat diakses oleh pemanggil. Pass by reference lebih cocok digunakan pada prosedur. Dalam pseudocode, parameter pass by reference pada prosedur ditulis dengan kata kunci "in/out", sedangkan di bahasa Go menggunakan simbol asterik (*) sebelum tipe data pada parameter formal.<br/>
+Catatan: Sebaiknya parameter pada fungsi menggunakan pass by value, karena fungsi dapat mengembalikan nilai ke pemanggil tanpa memberikan dampak langsung pada program. Meskipun demikian, pass by reference juga dapat digunakan jika diperlukan. Sementara itu, pass by reference lebih ideal digunakan pada prosedur, karena prosedur tidak dapat mengembalikan nilai secara langsung. Dengan pass by reference, prosedur dapat seolah-olah mengirimkan nilai ke pemanggil.<br/>
 
 ## II. GUIDED
 
