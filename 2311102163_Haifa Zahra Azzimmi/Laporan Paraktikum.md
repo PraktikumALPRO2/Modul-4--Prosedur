@@ -158,45 +158,131 @@ func main() {
 
 ### Source Code :
 ```go
+package main
+
+import "fmt"
+
+// Prosedur utama
+func main() {
+	var a, b int
+
+	// Meminta input dari pengguna
+	fmt.Print("Masukkan nilai a: ")
+	fmt.Scan(&a)
+	fmt.Print("Masukkan nilai b: ")
+	fmt.Scan(&b)
+
+	// Memilih mana yang lebih besar antara a dan b untuk menghitung permutasi
+	if a >= b {
+		fmt.Printf("Permutasi dari %dP%d adalah: %d\n", a, b, permutasi(a, b))
+	} else {
+		fmt.Printf("Permutasi dari %dP%d adalah: %d\n", b, a, permutasi(b, a))
+	}
+}
+
+// Prosedur untuk menghitung faktorial dari suatu bilangan
+func faktorial(n int) int {
+	hasil := 1
+	for i := 1; i <= n; i++ {
+		hasil *= i
+	}
+	return hasil
+}
+
+// Prosedur untuk menghitung permutasi nPr
+func permutasi(n, r int) int {
+	return faktorial(n) / faktorial(n-r)
+}
 
 ```
 
 ### Output :
-
+![image](https://github.com/user-attachments/assets/c365c126-0c75-4d81-b7da-0566db4d4b39)
 
 ### Full code Screenshot :
+![image](https://github.com/user-attachments/assets/483dc846-be7c-4769-9a40-f9a4dc490d26)
 
 
 ### Deskripsi Program : 
-
+Program ini meminta pengguna untuk memasukkan dua nilai, a dan b. Kemudian, program memilih nilai yang lebih besar antara a dan b untuk menghitung permutasi nPr (dimana n adalah nilai yang lebih besar dan r adalah nilai yang lebih kecil). Program ini menggunakan dua prosedur: satu untuk menghitung faktorial (faktorial) dan satu untuk menghitung permutasi (permutasi). Hasil permutasi kemudian dicetak ke layar.
+- Jika a lebih besar atau sama dengan b, program menghitung permutasi aPb.
+- Jika b lebih besar, program menghitung permutasi bPa.
 
 ### Algoritma Program :
-
+1. Mulai
+2. Minta pengguna memasukkan dua nilai a dan b.
+3. Baca input pengguna.
+4. Jika a ≥ b, hitung permutasi aPb.
+5. Jika b > a, hitung permutasi bPa.
+6. Cetak hasil permutasi yang dihitung.
+7. Selesai
 
 ### Cara Kerja Program :
-
-
+Program dimulai dengan meminta pengguna memasukkan dua nilai, a dan b. Program kemudian membandingkan kedua nilai tersebut untuk menentukan mana yang lebih besar. Selanjutnya, program menggunakan nilai yang lebih besar sebagai n dan nilai yang lebih kecil sebagai r dalam perhitungan permutasi nPr. Fungsi faktorial digunakan untuk menghitung faktorial dari sebuah bilangan, dan hasil ini digunakan dalam fungsi permutasi untuk menghitung permutasi nPr. Hasil perhitungan permutasi kemudian dicetak ke layar.
 
 ### 2. Buatlah program beserta prosedur untuk menghitung luas persegi dan keliling persegi
 
 ### Source Code :
 ```go
+package main
+
+import (
+	"fmt"
+)
+
+// Prosedur utama
+func main() {
+	var panjangSisi float64
+
+	// Meminta input panjang sisi persegi
+	fmt.Print("Masukkan panjang sisi persegi: ")
+	fmt.Scan(&panjangSisi)
+
+	// Menghitung luas dan keliling persegi menggunakan prosedur terpisah
+	luas := hitungLuas(panjangSisi)
+	keliling := hitungKeliling(panjangSisi)
+
+	// Menampilkan hasil
+	fmt.Printf("Luas persegi: %g\n", luas)
+	fmt.Printf("Keliling persegi: %g\n", keliling)
+}
+
+// Prosedur untuk menghitung luas persegi
+func hitungLuas(sisi float64) float64 {
+	return sisi * sisi
+}
+
+// Prosedur untuk menghitung keliling persegi
+func hitungKeliling(sisi float64) float64 {
+	return 4 * sisi
+}
 
 ```
 
 ### Output :
-
+![image](https://github.com/user-attachments/assets/62de6da9-67c7-43db-934b-7029ac640ff4)
 
 ### Full code Screenshot :
+![image](https://github.com/user-attachments/assets/69f4a885-4d5f-4d6c-9314-264f0928e95e)
 
 ### Deskripsi Program : 
-
+rogram ini meminta pengguna untuk memasukkan panjang sisi dari sebuah persegi. Kemudian, program menghitung luas dan keliling persegi menggunakan prosedur terpisah, dan menampilkan hasilnya.
 
 ### Algoritma Program :
+1. Mulai
+2. Minta pengguna memasukkan panjang sisi persegi.
+3. Baca input pengguna.
+4. Hitung luas persegi menggunakan prosedur hitungLuas.
+5. Hitung keliling persegi menggunakan prosedur hitungKeliling.
+6. Tampilkan hasil luas dan keliling persegi.
+7. Selesai
 
 ### Cara Kerja Program :
-
-
+1. Program dimulai dan meminta pengguna untuk memasukkan panjang sisi dari sebuah persegi.
+2. Input panjang sisi dibaca dan disimpan dalam variabel panjangSisi.
+3. Program memanggil prosedur hitungLuas dengan panjangSisi sebagai argumen untuk menghitung luas persegi (sisi * sisi).
+4. Program memanggil prosedur hitungKeliling dengan panjangSisi sebagai argumen untuk menghitung keliling persegi (4 * sisi).
+5. Hasil perhitungan luas dan keliling kemudian ditampilkan ke layar.
 
 ## Unguided 
 
