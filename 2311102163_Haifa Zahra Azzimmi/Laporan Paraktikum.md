@@ -377,20 +377,106 @@ Program ini meminta pengguna memasukkan empat angka dengan syarat angka1 ≥ ang
 
 ### Source Code :
 ```go
+package main
 
+import (
+    "fmt"
+    "math"
+)
+
+// Fungsi untuk menghitung skor
+func hitungSkor(waktuPengerjaan []int) (int, int) {
+    jumlahSoalSelesai := 0
+    totalWaktu := 0
+    for _, waktu := range waktuPengerjaan {
+        if waktu < 301 {
+            jumlahSoalSelesai++
+            totalWaktu += waktu
+        }
+    }
+    return jumlahSoalSelesai, totalWaktu
+}
+
+// Fungsi untuk mencari pemenang
+func cariPemenang(peserta map[string][]int) (string, int, int) {
+    namaPemenang := ""
+    jumlahSoalMax := -1
+    skorMin := math.MaxInt64
+
+    for nama, waktuPengerjaan := range peserta {
+        jumlahSoalSelesai, totalWaktu := hitungSkor(waktuPengerjaan)
+        if jumlahSoalSelesai > jumlahSoalMax || (jumlahSoalSelesai == jumlahSoalMax && totalWaktu < skorMin) {
+            namaPemenang = nama
+            jumlahSoalMax = jumlahSoalSelesai
+            skorMin = totalWaktu
+        }
+    }
+    return namaPemenang, jumlahSoalMax, skorMin
+}
+
+func main() {
+    var jumlahPeserta int
+    fmt.Println("Silakan masukkan jumlah peserta:")
+    fmt.Scan(&jumlahPeserta)
+    
+    peserta := make(map[string][]int)
+    
+    for i := 0; i < jumlahPeserta; i++ {
+        var nama string
+        fmt.Printf("Masukkan nama untuk peserta ke-%d:\n", i+1)
+        fmt.Scan(&nama)
+        
+        waktuPengerjaan := make([]int, 8)
+        fmt.Printf("Masukkan waktu pengerjaan untuk setiap soal oleh %s:\n", nama)
+        for j := 0; j < 8; j++ {
+            fmt.Scan(&waktuPengerjaan[j])
+        }
+        
+        peserta[nama] = waktuPengerjaan
+    }
+    
+    // Mencari pemenang
+    pemenang, maxSoal, minSkor := cariPemenang(peserta)
+    fmt.Printf("Pemenangnya adalah %s dengan jumlah soal %d dan total waktu %d\n", pemenang, maxSoal, minSkor)
+}
 
 ```
 
-### Output:
+### Output :
+![image](https://github.com/user-attachments/assets/fc642d7f-d0dd-4d97-8e99-169107af97af)
 
 ### Full code Screenshot:
+![image](https://github.com/user-attachments/assets/5876b3ba-8d61-4d34-8158-e77fa5f8d2a1)
 
 ### Deskripsi Program : 
-
-### Algoritma Program
-
-### Cara Kerja Program:
-
+Program ini meminta pengguna untuk memasukkan jumlah peserta dan waktu pengerjaan setiap soal oleh masing-masing peserta. Program ini kemudian menghitung skor (jumlah soal yang selesai dalam waktu kurang dari 301 detik dan total waktu pengerjaan) untuk setiap peserta dan menentukan pemenang berdasarkan jumlah soal yang selesai dan total waktu pengerjaan terendah.
+### Algoritma Program :
+1. Mulai
+2. Minta pengguna memasukkan jumlah peserta.
+3. Baca input pengguna.
+   - Untuk setiap peserta:
+   - Minta nama peserta.
+   - Baca nama peserta.
+   - Minta waktu pengerjaan untuk setiap soal (8 soal).
+   - Baca waktu pengerjaan.
+   - Simpan data waktu pengerjaan dalam peta (map).
+4. Hitung skor untuk setiap peserta:
+   - Hitung jumlah soal yang selesai dalam waktu kurang dari 301 detik.
+   - Hitung total waktu pengerjaan untuk soal yang selesai.
+5. Tentukan pemenang berdasarkan:
+   - Jumlah soal yang selesai terbanyak.
+   - Jika jumlah soal sama, pilih peserta dengan total waktu pengerjaan terendah.
+7. Tampilkan pemenang dan hasil perhitungan.
+8. Selesai
+   
+### Cara Kerja Program :
+1. Program dimulai dengan meminta pengguna memasukkan jumlah peserta.
+2. Untuk setiap peserta, pengguna diminta memasukkan nama dan waktu pengerjaan untuk setiap soal.
+3. Data waktu pengerjaan disimpan dalam peta (map) dengan nama peserta sebagai kunci.
+4. Program menghitung skor untuk setiap peserta dengan menghitung jumlah soal yang selesai dalam waktu kurang dari 301 detik dan total waktu pengerjaan.
+5. Program mencari pemenang berdasarkan jumlah soal yang selesai terbanyak. Jika terdapat beberapa peserta dengan jumlah soal yang sama, peserta dengan total waktu pengerjaan terendah akan dipilih sebagai pemenang.
+6. Nama pemenang, jumlah soal yang selesai, dan total waktu pengerjaan ditampilkan ke layar.
+   
 ### 3. Buat program skiena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat dalam prosedur cetakDeret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal.
 ![image](https://github.com/user-attachments/assets/40d94ec4-0290-4ac1-8260-f7442596d4e8)
 
