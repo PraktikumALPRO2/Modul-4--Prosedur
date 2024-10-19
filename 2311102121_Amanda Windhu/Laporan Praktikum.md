@@ -311,4 +311,15 @@ Kode di atas adalah program yang mencetak deret bilangan berdasarkan aturan dari
 Pada bagian utama (`main`), program meminta pengguna memasukkan sebuah bilangan awal `n`. Setelah input diterima, program memanggil prosedur `cetakDeret` untuk mencetak deret bilangan yang dihasilkan hingga mencapai angka 1. Setiap angka dalam deret dicetak dengan spasi sebagai pemisah.
 
 ### KESIMPULAN
+1. Prosedur digunakan untuk menyederhanakan kode dengan memecah program yang kompleks menjadi blok-blok yang lebih kecil dan terorganisir. Prosedur tidak mengembalikan nilai dan tidak menggunakan kata kunci return.<br/>
+2. Pemanggilan prosedur bisa dilakukan secara langsung atau tidak langsung melalui subprogram lain, dengan menyertakan parameter atau argumen sesuai yang dibutuhkan.<br/>
+3. Parameter pada prosedur dibedakan menjadi dua, yaitu parameter formal yang dideklarasikan dalam subprogram, dan parameter aktual yang merupakan argumen yang digunakan saat pemanggilan.<br/>
+4. Terdapat dua mekanisme untuk mengelola alokasi memori parameter:<br/>
+   - Pass by value: Nilai dari parameter aktual disalin ke parameter formal tanpa mempengaruhi memori asal. Cocok untuk fungsi maupun prosedur.<br/>
+   - Pass by reference (pointer): Parameter formal berfungsi sebagai pointer yang merujuk langsung ke alamat memori parameter aktual. Perubahan pada parameter
+     formal berdampak langsung pada parameter aktual, lebih cocok digunakan dalam prosedur.<br/>
+5. Go tidak menggunakan kata kunci khusus untuk mendefinisikan parameter pass by value atau pass by reference, tetapi pass by reference menggunakan tanda asterik (*) sebelum tipe data pada parameter formal.<br/>
+Secara keseluruhan, pemahaman tentang prosedur membantu dalam mengorganisir program dengan lebih baik, meminimalkan kompleksitas, dan memanfaatkan alokasi memori secara efisien.
+
 ### REFERENSI
+[1] Modul Praktikum Algoritma dan Pemrograman 2 (Prosedur)<br/>
