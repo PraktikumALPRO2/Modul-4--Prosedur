@@ -18,6 +18,16 @@
 
 ## I. DASAR TEORI
 
+- Definisi Prosedur<br/>
+  Prosedur adalah serangkaian instruksi yang dipecah dari program yang lebih besar untuk mengurangi kompleksitas kode. Ketika prosedur dipanggil dalam program
+  utama, ia akan memberikan efek langsung pada jalannya program. Suatu subprogram disebut sebagai prosedur jika:<br/>
+  1. Tidak memiliki deklarasi tipe nilai yang dikembalikan, dan<br/>
+  2. Tidak menggunakan kata kunci return dalam isinya.<br/>
+  Prosedur mirip dengan instruksi dasar seperti penugasan (assignment) atau instruksi dari paket seperti fmt.Scan atau fmt.Print. Oleh karena itu, nama prosedur
+  sebaiknya menggunakan kata kerja atau sesuatu yang menggambarkan suatu tindakan, misalnya cetak, hitungRerata, cariNilai, belok, mulai, dll.<br/>
+- Deklarasi Prosedur
+  ![image](https://github.com/user-attachments/assets/6d1c5b52-393a-4886-842e-2dd1b8eb2f2d)
+
 
 
 ## II. GUIDED
