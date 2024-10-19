@@ -201,25 +201,90 @@ func main() {
 ## Unguided 
 
 ### 1. Program untuk menghitung Faktorial, Permutasi dan Kombinasi
+![image](https://github.com/user-attachments/assets/9ba253ad-cf25-47b1-9e25-594bba4eeea3)
+
 
 ### Source Code :
 ```go
+//Haifa Zahra Azzimmi
+//2311102163
 
+package main
+
+import (
+    "fmt"
+)
+
+// Fungsi untuk menghitung faktorial dari sebuah angka
+func hitungFaktorial(x int) int {
+    if x == 0 || x == 1 {
+        return 1
+    }
+    hasil := 1
+    for i := 2; i <= x; i++ {
+        hasil *= i
+    }
+    return hasil
+}
+
+// Fungsi untuk menghitung permutasi dari n dan r
+func hitungPermutasi(n, r int) int {
+    return hitungFaktorial(n) / hitungFaktorial(n-r)
+}
+
+// Fungsi untuk menghitung kombinasi dari n dan r
+func hitungKombinasi(n, r int) int {
+    return hitungFaktorial(n) / (hitungFaktorial(r) * hitungFaktorial(n-r))
+}
+
+func main() {
+    var angka1, angka2, angka3, angka4 int
+
+    // Meminta pengguna memasukkan 4 angka
+    fmt.Println("Masukkan empat angka dengan syarat angka1 >= angka3 dan angka2 >= angka4:")
+    fmt.Scan(&angka1, &angka2, &angka3, &angka4)
+
+    // Mengecek apakah syarat angka1 >= angka3 dan angka2 >= angka4 terpenuhi
+    if angka1 < angka3 || angka2 < angka4 {
+        fmt.Println("Syarat angka1 >= angka3 dan angka2 >= angka4 tidak terpenuhi!")
+        return
+    }
+
+    // Menghitung permutasi dan kombinasi untuk dua pasangan angka
+    permutasiA := hitungPermutasi(angka1, angka3)
+    kombinasiA := hitungKombinasi(angka1, angka3)
+    permutasiB := hitungPermutasi(angka2, angka4)
+    kombinasiB := hitungKombinasi(angka2, angka4)
+
+    // Menampilkan hasil perhitungan
+    fmt.Printf("Hasil permutasi dari %d terhadap %d: %d, kombinasi: %d\n", angka1, angka3, permutasiA, kombinasiA)
+    fmt.Printf("Hasil permutasi dari %d terhadap %d: %d, kombinasi: %d\n", angka2, angka4, permutasiB, kombinasiB)
+}
 
 ```
 
 ### Output:
+![image](https://github.com/user-attachments/assets/182071fe-0f5a-45c1-86a4-fb59c1903275)
 
 
 ### Full code Screenshot:
+![image](https://github.com/user-attachments/assets/72871c8a-bace-4f3f-863a-e090a2c9c12b)
 
 ### Deskripsi Program : 
+Program ini meminta pengguna untuk memasukkan empat angka dengan syarat angka1 ≥ angka3 dan angka2 ≥ angka4. Kemudian, program menghitung dan menampilkan hasil permutasi dan kombinasi untuk dua pasangan angka yang dimasukkan. Menggunakan fungsi untuk menghitung faktorial, permutasi, dan kombinasi.
 
-### Algoritma Program
-
+### Algoritma Program :
+1. Mulai
+2. Minta pengguna memasukkan empat angka dengan syarat angka1 ≥ angka3 dan angka2 ≥ angka4.
+3. Baca input pengguna.
+4. Periksa apakah syarat angka1 ≥ angka3 dan angka2 ≥ angka4 terpenuhi.
+   - Jika syarat tidak terpenuhi, tampilkan pesan kesalahan dan hentikan program.
+5. Jika syarat terpenuhi, hitung permutasi dan kombinasi untuk pasangan angka (angka1, angka3) dan (angka2, angka4).
+6. Tampilkan hasil perhitungan permutasi dan kombinasi untuk kedua pasangan angka tersebut.
+7. Selesai
 
 ### Cara Kerja Program:
-
+Program ini meminta pengguna memasukkan empat angka dengan syarat angka1 ≥ angka3 dan angka2 ≥ angka4. Jika syarat terpenuhi, program menghitung dan menampilkan hasil permutasi dan kombinasi dari dua pasangan angka tersebut menggunakan fungsi yang sudah didefinisikan untuk menghitung faktorial, permutasi, dan kombinasi. Jika syarat tidak terpenuhi, program akan menampilkan pesan kesalahan dan berhenti. Jadi, program ini melakukan operasi matematika pada input angka sesuai dengan aturan yang diberikan
 
 ### 2. Buat program gema yang mencari pemenang dari daftar peserta yang diberikan
 **Program harus dibuat modular, yaitu dengan membuat prosedur hitungSkor yang mengembalikan total soal dan total skor yang dikerjakan oleh seorang peserta, melalui parameter formal. Pembacaan nama peserta dilakukan di program utama, sedangkan waktu pengerjaan dibaca di dalam prosedur.**
