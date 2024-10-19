@@ -59,7 +59,8 @@ func tampilkanSelamat() {
 Prosedur ini mencetak pesan "Selamat datang!" ketika dipanggil.
 
 ### Cara Pemanggilan Prosedur
-Setelah prosedur atau fungsi didefinisikan, pemanggilan prosedur dilakukan dengan menggunakan nama fungsi diikuti oleh tanda kurung. Jika prosedur memiliki parameter, nilai yang sesuai harus diberikan pada saat pemanggilan.
+Setelah prosedur atau fungsi didefinisikan, pemanggilan prosedur dilakukan dengan menggunakan nama fungsi diikuti oleh tanda kurung.
+Jika prosedur memiliki parameter, nilai yang sesuai harus diberikan pada saat pemanggilan.
 
 Contoh pemanggilan prosedur tanpa parameter:
 ```go
@@ -73,7 +74,8 @@ Jika prosedur memiliki parameter, nilai aktual diberikan dalam tanda kurung saat
 
 
 ### Keuntungan Menggunakan Prosedur:
-1. Modularitas: Dengan membagi program besar ke dalam beberapa fungsi kecil, kode menjadi lebih mudah dipahami dan dikelola. Setiap fungsi bertanggung jawab atas 	satu tugas spesifik.func tampilkanPesan(nama string) {
+1. Modularitas: Dengan membagi program besar ke dalam beberapa fungsi kecil, kode menjadi lebih mudah dipahami dan dikelola.
+ Setiap fungsi bertanggung jawab atas satu tugas spesifik.func tampilkanPesan(nama string) {
     fmt.Println("Halo", nama)
 }
 
@@ -383,68 +385,118 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	"math"
 )
 
-func hitungSkor(soal []int) (int, int) {
-	skor := 0
+// Fungsi untuk menghitung jumlah soal selesai dan total waktu
+func kalkulasiSkor(waktu []int) (int, int) {
+	jumlahSelesai := 0
 	totalWaktu := 0
-
-	// Loop untuk menghitung soal yang berhasil diselesaikan dan total waktu
-	for i := 0; i < len(soal); i++ {
-		if soal[i] <= 301 {
-			skor++
-			totalWaktu += soal[i]
+	for _, t := range waktu {
+		if t < 301 {
+			jumlahSelesai++
+			totalWaktu += t
 		}
 	}
+	return jumlahSelesai, totalWaktu
+}
 
-	return skor, totalWaktu
+// Fungsi untuk mencari peserta terbaik
+func temukanPemenang(dataPeserta map[string][]int) (string, int, int) {
+	namaPemenang := ""
+	soalMaksimum := -1
+	skorMinimum := math.MaxInt64
+
+	for nama, waktu := range dataPeserta {
+		soalSelesai, totalWaktu := kalkulasiSkor(waktu)
+		if soalSelesai > soalMaksimum || (soalSelesai == soalMaksimum && totalWaktu < skorMinimum) {
+			namaPemenang = nama
+			soalMaksimum = soalSelesai
+			skorMinimum = totalWaktu
+		}
+	}
+	return namaPemenang, soalMaksimum, skorMinimum
 }
 
 func main() {
-	var peserta string
-	var pesertaTerbaik string
-	maxSkor := -1
-	waktuTerbaik := 999999
-	skorPeserta := 0
-	totalWaktuPeserta := 0
+	var jumlahPeserta int
+	fmt.Println("Masukkan jumlah peserta (minimal 1):")
+	fmt.Scan(&jumlahPeserta)
 
-	for {
-		// Membaca input peserta
-		fmt.Scanln(&peserta)
-		if peserta == "Selesai" {
-			break
-		}
-
-		// Memecah input menjadi bagian-bagian
-		data := strings.Split(peserta, " ")
-		nama := data[0]
-		soal := make([]int, 8)
-
-		for i := 0; i < 8; i++ {
-			fmt.Sscan(data[i+1], &soal[i])
-		}
-
-		// Menghitung skor dan total waktu
-		skorPeserta, totalWaktuPeserta = hitungSkor(soal)
-
-		// Memilih pemenang berdasarkan skor dan waktu penyelesaian
-		if skorPeserta > maxSkor || (skorPeserta == maxSkor && totalWaktuPeserta < waktuTerbaik) {
-			maxSkor = skorPeserta
-			waktuTerbaik = totalWaktuPeserta
-			pesertaTerbaik = nama
-		}
+	if jumlahPeserta < 1 {
+		fmt.Println("Jumlah peserta harus minimal 1.")
+		return
 	}
 
-	// Menampilkan hasil pemenang
-	fmt.Printf("%s %d %d\n", pesertaTerbaik, maxSkor, waktuTerbaik)
+	dataPeserta := make(map[string][]int)
+
+	for i := 0; i < jumlahPeserta; i++ {
+		var namaPeserta string
+		fmt.Printf("Masukkan nama peserta ke-%d:\n", i+1)
+		fmt.Scan(&namaPeserta)
+
+		waktuPengerjaan := make([]int, 8)
+		fmt.Printf("Masukkan waktu pengerjaan untuk %s (8 soal):\n", namaPeserta)
+		for j := 0; j < 8; j++ {
+			fmt.Scan(&waktuPengerjaan[j])
+		}
+
+		dataPeserta[namaPeserta] = waktuPengerjaan
+	}
+
+	// Menentukan pemenang
+	pemenang, soalTerbanyak, skorTerendah := temukanPemenang(dataPeserta)
+	fmt.Printf("Pemenang: %s, Soal Selesai: %d, Total Waktu: %d\n", pemenang, soalTerbanyak, skorTerendah)
 }
 ```
+
 #### Output
+![image](https://github.com/user-attachments/assets/00d79309-b820-461a-b7c2-cdd2d97b4cd0)
 
 ### Deskripsi Program 
+Program ini digunakan untuk menentukan pemenang dari sebuah kompetisi berdasarkan waktu pengerjaan soal. Setiap peserta akan mengerjakan delapan soal, dan pemenang dipilih berdasarkan dua kriteria:
+
+1. Peserta yang menyelesaikan soal terbanyak dalam waktu kurang dari 301 detik.
+   
+2. Jika dua peserta menyelesaikan jumlah soal yang sama, peserta dengan total waktu pengerjaan terkecil akan menjadi pemenang.
+   
 ### Algoritma Program
+1. 1Program meminta pengguna untuk memasukkan jumlah peserta.
+
+2. Untuk setiap peserta, pengguna memasukkan nama dan waktu pengerjaan untuk delapan soal.
+
+3. Program mengumpulkan data ini dalam sebuah struktur map dengan nama peserta sebagai kunci, dan waktu pengerjaan soal sebagai nilai.
+
+4. Program kemudian menghitung jumlah soal yang diselesaikan dalam waktu kurang dari 301 detik untuk setiap peserta, serta menghitung total waktu pengerjaan untuk 	soal-soal tersebut.
+
+5. Pemenang ditentukan berdasarkan:
+
+	- Jumlah soal yang diselesaikan.
+
+	- Jika jumlah soal yang diselesaikan sama, maka peserta dengan total waktu pengerjaan terkecil menjadi pemenang.
+
+6. Program menampilkan nama pemenang, jumlah soal yang diselesaikan, dan total waktu pengerjaan.
 ### Cara Kerja Program
+1. Input Data:
+
+	•	Program memulai dengan meminta input jumlah peserta. Jika input kurang dari 1, program akan menampilkan pesan kesalahan dan berhenti.
+
+	•	Untuk setiap peserta, program meminta pengguna memasukkan nama peserta dan waktu pengerjaan untuk delapan soal.
+
+2. Proses Perhitungan Skor:
+
+	•	Program memproses setiap peserta dengan menghitung jumlah soal yang selesai (waktu pengerjaan kurang dari 301 detik) dan menjumlahkan total waktu 			pengerjaan soal-soal tersebut.
+
+3. Menentukan Pemenang:
+
+	•	Program membandingkan data peserta berdasarkan jumlah soal yang diselesaikan. Peserta yang menyelesaikan soal terbanyak akan dipilih sebagai 				pemenang.
+
+	•	Jika ada lebih dari satu peserta yang menyelesaikan jumlah soal yang sama, program memilih peserta dengan total waktu pengerjaan terkecil.
+
+4. Output Hasil:
+   
+	•	Setelah semua peserta diproses, program menampilkan nama pemenang, jumlah soal yang diselesaikan, dan total waktu pengerjaannya.
+
 
 ### 3. Buat program skiena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat dalam prosedur cetakDeret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal.
 ![image](https://github.com/user-attachments/assets/9540f0a7-ac70-4a88-8bed-fa641069493e)
@@ -508,13 +560,13 @@ Program ini menerima input integer n dari pengguna dan mencetak deret bilangan b
 6. Ketika nilai `n` sudah sama dengan 1, looping berhenti dan program mencetak angka 1 sebagai penutup deret.
    
 ### Cara Kerja Program
-1. Program meminta pengguna untuk memasukkan bilangan bulat n.
+1. Program meminta pengguna untuk memasukkan bilangan bulat `n`.
  
-2. Program kemudian memanggil fungsi cetakDeret yang akan menjalankan loop untuk memproses nilai n hingga mencapai 1.
+2. Program kemudian memanggil fungsi cetakDeret yang akan menjalankan loop untuk memproses nilai `n` hingga mencapai 1.
 
-3. Selama looping, nilai n akan diperiksa apakah genap atau ganjil. Jika genap, n dibagi dua. Jika ganjil, n dikalikan tiga dan ditambah satu.
+3. Selama looping, nilai `n` akan diperiksa apakah genap atau ganjil. Jika genap, `n` dibagi dua. Jika ganjil, `n` dikalikan tiga dan ditambah satu.
 
-4. Setiap perubahan pada n akan dicetak di layar sampai akhirnya n menjadi 1.
+4. Setiap perubahan pada `n` akan dicetak di layar sampai akhirnya `n` menjadi 1.
 
 5. Setelah itu, program mencetak 1 dan selesai.
 
