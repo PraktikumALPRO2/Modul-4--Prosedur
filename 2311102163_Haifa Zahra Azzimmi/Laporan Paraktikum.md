@@ -161,19 +161,19 @@ func main() {
 
 ```
 
-### Output:
+### Output :
 
 
-### Full code Screenshot:
+### Full code Screenshot :
 
 
 ### Deskripsi Program : 
 
 
-### Algoritma Program
+### Algoritma Program :
 
 
-### Cara Kerja Program:
+### Cara Kerja Program :
 
 
 
@@ -184,17 +184,17 @@ func main() {
 
 ```
 
-### Output:
+### Output :
 
 
-### Full code Screenshot:
+### Full code Screenshot :
 
 ### Deskripsi Program : 
 
 
-### Algoritma Program
+### Algoritma Program :
 
-### Cara Kerja Program:
+### Cara Kerja Program :
 
 
 
@@ -263,11 +263,11 @@ func main() {
 
 ```
 
-### Output:
+### Output :
 ![image](https://github.com/user-attachments/assets/182071fe-0f5a-45c1-86a4-fb59c1903275)
 
 
-### Full code Screenshot:
+### Full code Screenshot :
 ![image](https://github.com/user-attachments/assets/72871c8a-bace-4f3f-863a-e090a2c9c12b)
 
 ### Deskripsi Program : 
@@ -283,7 +283,7 @@ Program ini meminta pengguna untuk memasukkan empat angka dengan syarat angka1 �
 6. Tampilkan hasil perhitungan permutasi dan kombinasi untuk kedua pasangan angka tersebut.
 7. Selesai
 
-### Cara Kerja Program:
+### Cara Kerja Program :
 Program ini meminta pengguna memasukkan empat angka dengan syarat angka1 ≥ angka3 dan angka2 ≥ angka4. Jika syarat terpenuhi, program menghitung dan menampilkan hasil permutasi dan kombinasi dari dua pasangan angka tersebut menggunakan fungsi yang sudah didefinisikan untuk menghitung faktorial, permutasi, dan kombinasi. Jika syarat tidak terpenuhi, program akan menampilkan pesan kesalahan dan berhenti. Jadi, program ini melakukan operasi matematika pada input angka sesuai dengan aturan yang diberikan
 
 ### 2. Buat program gema yang mencari pemenang dari daftar peserta yang diberikan
@@ -306,20 +306,77 @@ Program ini meminta pengguna memasukkan empat angka dengan syarat angka1 ≥ ang
 ### Cara Kerja Program:
 
 ### 3. Buat program skiena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat dalam prosedur cetakDeret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal.
+![image](https://github.com/user-attachments/assets/40d94ec4-0290-4ac1-8260-f7442596d4e8)
 
 ### Source Code :
 ```go
+//Haifa Zahra Azzimmi
+//2311102163
+
+package main
+
+import (
+	"fmt"
+)
+
+func cetakDeret(n int) {
+	// Selama n belum bernilai 1, lanjutkan mencetak deret
+	for n != 1 {
+		// Cetak angka saat ini diikuti oleh spasi
+		fmt.Printf("%d ", n)
+		if n%2 == 0 {
+			// Jika angka genap, bagi dengan 2
+			n /= 2
+		} else {
+			// Jika angka ganjil, kalikan dengan 3 dan tambahkan 1
+			n = 3*n + 1
+		}
+	}
+	// Terakhir, cetak angka 1
+	fmt.Println(n)
+}
+
+func main() {
+	// Deklarasi variabel untuk masukan
+	var nilaiAwal int
+
+	// Meminta input dari pengguna
+	fmt.Print("Masukkan nilai suku awal: ")
+	fmt.Scan(&nilaiAwal)
+
+	// Panggil fungsi cetakDeret dengan nilai yang dimasukkan pengguna
+	cetakDeret(nilaiAwal)
+}
 
 ```
 
 ### Output:
-
+![image](https://github.com/user-attachments/assets/6e2c4107-d2bb-4453-b933-db0c2291b7f0)
 
 ### Full code Screenshot:
+![image](https://github.com/user-attachments/assets/2f20aa95-f8f6-4122-9cf6-e8f331647f32)
 
 ### Deskripsi Program : 
+Program ini meminta pengguna untuk memasukkan nilai awal dari sebuah deret. Selanjutnya, program mencetak deret angka berdasarkan aturan berikut: jika angka genap, bagi dengan 2; jika angka ganjil, kalikan dengan 3 dan tambahkan 1. Program terus mencetak angka hingga mencapai 1
 
-### Algoritma Program
+### Algoritma Program :
+1. Minta pengguna memasukkan nilai awal dari sebuah deret.
+2. Baca input pengguna.
+3.Selama nilai belum bernilai 1:
+  - Cetak nilai saat ini diikuti dengan spasi.
+  - Jika nilai genap, bagi dengan 2.
+  - Jika nilai ganjil, kalikan dengan 3 dan tambahkan 1.
+4. Cetak angka 1.
+5. Selesai
 
-### Cara Kerja Program:
+### Cara Kerja Program :
+1. Program dimulai dan meminta pengguna untuk memasukkan nilai awal dari sebuah deret.
+2. Input pengguna dibaca dan disimpan dalam variabel nilaiAwal.
+3. Program memanggil fungsi cetakDeret dengan nilaiAwal sebagai argumen.
+4. Dalam fungsi cetakDeret, selama nilai belum bernilai 1, program akan:
+  - Mencetak nilai saat ini diikuti dengan spasi.
+  - Jika nilai genap, program akan membagi nilai tersebut dengan 2.
+  - Jika nilai ganjil, program akan mengalikan nilai tersebut dengan 3 dan menambahkannya dengan 1.
+5. Program mencetak angka 1 sebagai akhir dari deret.
+6. Program selesai.
 
