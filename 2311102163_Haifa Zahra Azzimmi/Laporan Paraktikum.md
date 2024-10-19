@@ -114,8 +114,40 @@ func main() {
 }
 
 ```
+c. Pass by Value
 
+Pass by value adalah konsep pemrograman di mana nilai argumen dikirim ke fungsi, dan perubahan dalam fungsi tidak mempengaruhi nilai asli di luar fungsi. Jadi, salinan nilai dikirimkan.
 
+Contoh dalan Go:
+```go
+func ubahNilai(x int) {
+    x = x * 2
+}
+
+func main() {
+    a := 10
+    ubahNilai(a)
+    fmt.Println(a) // Output: 10
+}
+
+```
+d. Pass by Reference
+
+Pass by reference adalah konsep pemrograman di mana alamat memori argumen dikirim ke fungsi, sehingga perubahan dalam fungsi akan mempengaruhi data asli. Jadi, fungsi bekerja langsung dengan data asli, bukan salinannya.
+
+Contoh dalan Go:
+
+ ```go
+func ubahNilai(x *int) {
+    *x = *x * 2
+}
+
+func main() {
+    a := 10
+    ubahNilai(&a)
+    fmt.Println(a) // Output: 20
+}
+```
 
 
 
