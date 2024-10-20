@@ -57,6 +57,7 @@
 **Prosedur (Fungsi) dalam Go**
 
 Prosedur adalah bagian fundamental dari pemrograman terstruktur yang memungkinkan program dipecah menjadi bagian-bagian kecil yang dapat dikelola. [1]
+
 Di Go, prosedur disebut sebagai fungsi (*function*). Fungsi digunakan untuk memisahkan logika program menjadi modul-modul terpisah sehingga lebih mudah dikelola, diuji, dan digunakan kembali. [1]
 
 Fungsi ini memiliki komponen berikut:
@@ -84,10 +85,11 @@ dan mengembalikan nilai hasil perkalian panjang dan lebar sebagai integer.
 **Parameter dan Argumen**
 
 - Parameter adalah variabel yang dideklarasikan dalam definisi fungsi.
-  Ini adalah nilai-nilai yang akan diterima oleh fungsi ketika dipanggil.[2]
-  Go memungkinkan penulisan parameter dengan tipe data eksplisit.
+  - Ini adalah nilai-nilai yang akan diterima oleh fungsi ketika dipanggil.[2]
+  - Go memungkinkan penulisan parameter dengan tipe data eksplisit.
+  
 - Argumen adalah nilai yang diberikan ke parameter saat memanggil fungsi.
-  Argumen ini bisa berupa variabel, konstanta, atau hasil dari ekspresi lain.[2]
+  - Argumen ini bisa berupa variabel, konstanta, atau hasil dari ekspresi lain.[2]
 
 Parameter dengan Tipe yang Sama: Go memungkinkan penulisan parameter yang memiliki tipe data yang sama secara singkat.
 
@@ -102,6 +104,7 @@ func tambah(a, b int) int {
 **Pengembalian Nilai (Return Values)**
 
 Salah satu fitur yang menonjol di Go adalah kemampuannya untuk mengembalikan lebih dari satu nilai dari fungsi. [1]
+
 Ini sangat berguna ketika sebuah fungsi perlu mengembalikan hasil utama dan informasi tambahan (misalnya, status kesalahan).[1]
 
 Contoh :
@@ -176,6 +179,7 @@ Di sini, fungsi anonim di dalam `buatCounter` dapat mengakses variabel `hitung`,
 **Variadic Function**
 
 Go mendukung fungsi *variadic*, yang artinya fungsi dapat menerima sejumlah argumen yang bervariasi. [1]
+
 Hal ini memungkinkan lebih banyak fleksibilitas saat memanggil fungsi dengan jumlah argumen yang berbeda-beda.[1]
 
 Contoh :
