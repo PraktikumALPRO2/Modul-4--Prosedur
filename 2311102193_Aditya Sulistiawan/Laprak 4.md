@@ -357,138 +357,158 @@ Program ini ditulis dalam bahasa Go dan bertujuan untuk menghitung permutasi dan
 6. Menampilkan Hasil: Hasil dari permutasi dan kombinasi dicetak ke layar.
 
 ## 2. Program Penentuan Pemenang Kompetisi Pemrograman Berdasarkan Skor dan Waktu Penyelesaian
+Kompetisi pemrograman tingkat nasional berlangsung ketat. Setiap peserta diberikan 8 soal yang harus dapat diselesaikan dalam waktu 5 jam saja. Peserta yang berhasil menyelesaikan soal paling banyak dalam waktu paling singkat adalah pemenangnya. Buat program gema yang mencari pemenang dari daftar peserta yang diberikan. Program harus dibuat modular, yaitu dengan membuat prosedur hitungSkor yang mengembalikan total soal dan total skor yang dikerjakan oleh seorang peserta, melalui parameter formal. Pembacaan nama peserta dilakukan di program utama, sedangkan waktu pengerjaan dibaca di dalam prosedur. 
 
+Setiap baris masukan dimulai dengan satu string nama peserta tersebut diikuti dengan adalah 8 integer yang menyatakan berapa lama (dalam menit) peserta tersebut menyelesaikan soal. Jika tidak berhasil atau tidak mengirimkan jawaban maka otomatis dianggap menyelesaikan dalam waktu 5 jam 1 menit (301 menit). Satu baris keluaran berisi nama pemenang, jumlah soal yang diselesaikan, dan nilai yang diperoleh. Nilai adalah total waktu yang dibutuhkan untuk menyelesaikan soal yang berhasil diselesaikan.
+
+Keterangan:
+
+Astuti menyelesaikan 6 soal dalam waktu 287 menit, sedangkan Bertha 7 soal dalam waktu 294 menit. Karena Bertha menyelesaikan lebih banyak, maka Bertha menang. Jika keduanya menyelesaikan sama banyak, maka pemenang adalah yang menyelesaikan dengan total waktu paling kecil.
 #### Source Code
 ```go
+// Aditya Sulistiawan
+// 2311102193
+
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"math"
-	"os"
-	"strconv"
-	"strings"
+    "fmt"
 )
 
-// Prosedur untuk menghitung skor peserta
-func hitungSkor(soal [8]int, totalSoal *int, totalWaktu *int) {
-	*totalSoal = 0
-	*totalWaktu = 0
+// Struct untuk menyimpan data peserta
+type Peserta struct {
+    nama       string
+    waktu      [8]int
+    soalBenar  int
+    totalWaktu int
+}
 
-	// Hitung jumlah soal yang berhasil diselesaikan dan total waktu yang dibutuhkan
-	for _, waktu := range soal {
-		if waktu < 301 {
-			*totalSoal++
-			*totalWaktu += waktu
-		}
-	}
+// Prosedur untuk input jumlah peserta
+func inputJumlahPeserta(n *int) {
+    fmt.Print("Jumlah Peserta: ")
+    fmt.Scan(n)
+}
+
+// Prosedur untuk input data peserta
+func inputDataPeserta(nomorPeserta int, peserta *Peserta) {
+    // Input nama peserta
+    fmt.Printf("\nNama peserta %d: ", nomorPeserta+1)
+    fmt.Scan(&peserta.nama)
+
+    // Input waktu pengerjaan
+    fmt.Print("Waktu Pengerjaan Soal (8 soal): ")
+    for j := 0; j < 8; j++ {
+        fmt.Scan(&peserta.waktu[j])
+    }
+}
+
+// Prosedur untuk menghitung total soal yang dikerjakan dan total waktu
+func hitungSkor(waktu [8]int, soal *int, totalWaktu *int) {
+    *soal = 0
+    *totalWaktu = 0
+    for i := 0; i < 8; i++ {
+        if waktu[i] <= 300 { // jika waktu pengerjaan kurang dari 300 menit, soal selesai
+            *soal++
+            *totalWaktu += waktu[i] // hanya tambahkan waktu soal yang selesai
+        }
+    }
+}
+
+// Prosedur untuk menentukan pemenang
+func tentukanPemenang(peserta Peserta, pemenangSekarang *Peserta) {
+    if peserta.soalBenar > pemenangSekarang.soalBenar || 
+       (peserta.soalBenar == pemenangSekarang.soalBenar && peserta.totalWaktu < pemenangSekarang.totalWaktu) {
+        *pemenangSekarang = peserta
+    }
+}
+
+// Prosedur untuk menampilkan hasil akhir
+func tampilkanHasil(pemenang Peserta) {
+    fmt.Printf("\nNama pemenang: %s\n", pemenang.nama)
+    fmt.Printf("Jumlah soal yang selesai: %d\n", pemenang.soalBenar)
+    fmt.Printf("Total waktu yang dihabiskan: %d menit\n", pemenang.totalWaktu)
 }
 
 func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-	var pemenangNama string
-	var maxSoalDiselesaikan int
-	var minWaktu int = math.MaxInt32
+    // Input jumlah peserta
+    var n int
+    inputJumlahPeserta(&n)
 
-	for {
-		fmt.Printf("Masukkan nama peserta diikuti dengan waktu untuk setiap soal atau ketik 'Selesai' untuk berhenti:")
+    // Inisialisasi data pemenang sementara
+    pemenang := Peserta{
+        soalBenar: -1,
+        totalWaktu: 1000,
+    }
 
-		// Membaca input peserta
-		scanner.Scan()
-		input := scanner.Text()
+    // Proses setiap peserta
+    for i := 0; i < n; i++ {
+        // Input data peserta
+        var peserta Peserta
+        inputDataPeserta(i, &peserta)
 
-		if strings.ToLower(input) == "selesai" {
-			break
-		}
+        // Hitung skor peserta
+        hitungSkor(peserta.waktu, &peserta.soalBenar, &peserta.totalWaktu)
 
-		// Memisahkan input menjadi nama peserta dan waktu pengerjaan soal
-		parts := strings.Fields(input)
-		if len(parts) < 9 {
-			fmt.Println("Input tidak valid. Pastikan memasukkan nama peserta dan 8 waktu pengerjaan soal.")
-			continue
-		}
+        // Tentukan pemenang sementara
+        tentukanPemenang(peserta, &pemenang)
+    }
 
-		pesertaNama := parts[0]
-
-		// Simpan waktu pengerjaan soal-soal ke array
-		var soal [8]int
-		for i := 1; i <= 8; i++ {
-			soal[i-1], _ = strconv.Atoi(parts[i])
-		}
-
-		// Variabel untuk menyimpan hasil hitung skor
-		var totalSoal, totalWaktu int
-
-		// Hitung skor peserta menggunakan prosedur
-		hitungSkor(soal, &totalSoal, &totalWaktu)
-
-		// Tentukan pemenang berdasarkan jumlah soal yang diselesaikan dan waktu total
-		if totalSoal > maxSoalDiselesaikan || (totalSoal == maxSoalDiselesaikan && totalWaktu < minWaktu) {
-			pemenangNama = pesertaNama
-			maxSoalDiselesaikan = totalSoal
-			minWaktu = totalWaktu
-		}
-	}
-
-	// Tampilkan hasil
-	if pemenangNama != "" {
-		fmt.Printf("Pemenang: %s\n", pemenangNama)
-		fmt.Printf("Jumlah soal yang diselesaikan: %d\n", maxSoalDiselesaikan)
-		fmt.Printf("Total waktu: %d menit\n", minWaktu)
-	} else {
-		fmt.Println("Tidak ada data peserta.")
-	}
+    // Tampilkan hasil akhir
+    tampilkanHasil(pemenang)
 }
-
 ```
 #### Screenshoot Source Code
-![Screenshot 2024-10-18 171334](https://github.com/user-attachments/assets/593b23ce-b6d5-42ed-86ca-d007a15747e4)
+![SC](https://github.com/user-attachments/assets/20ef0b84-bdcd-4012-b87f-b9ec74cb20e1)
+
 
 #### Screenshoot Output
-![Screenshot 2024-10-18 171340](https://github.com/user-attachments/assets/a39e3dba-3718-460e-a1f0-bc473974674a)
+![Ungi2](https://github.com/user-attachments/assets/23afb799-6495-42f4-968a-750ea9cfe386)
+
 
 #### Deskripsi Program
-Program ini menentukan pemenang kompetisi pemrograman berdasarkan jumlah soal yang berhasil diselesaikan dan total waktu pengerjaan. Setiap peserta diberi 8 soal, dan jika waktu pengerjaan soal lebih dari 301 menit, soal tersebut dianggap tidak terselesaikan. Program membaca input nama peserta beserta waktu pengerjaan soal, lalu menghitung jumlah soal yang diselesaikan dan total waktu yang diperlukan. Pemenang ditentukan berdasarkan siapa yang menyelesaikan soal terbanyak, dan jika sama, yang menyelesaikan dengan waktu paling sedikit menang.
+Program ini adalah aplikasi untuk menentukan pemenang dalam sebuah kompetisi pemrograman. Kompetisi ini melibatkan beberapa peserta yang masing-masing mengerjakan 8 soal. Pemenang ditentukan berdasarkan jumlah soal yang berhasil diselesaikan dan total waktu pengerjaan.
 
 #### Algoritma Program Penentuan Pemenang Kompetisi Pemrograman:
-1. Mulai Program
-2. Inisialisasi variabel:
-   - `pemenangNama` untuk menyimpan nama pemenang.
-   - `maxSoalDiselesaikan` untuk menyimpan jumlah soal maksimal yang berhasil diselesaikan oleh peserta.
-   - `minWaktu` untuk menyimpan waktu total minimal peserta dalam menyelesaikan soal.
-3. Ulangi (loop) proses input:
-   - Minta input dari pengguna berupa nama peserta diikuti oleh 8 waktu pengerjaan soal (dalam menit).
-   - Jika input adalah "Selesai", keluar dari loop.
-   - Pisahkan input menjadi `nama peserta` dan `waktu pengerjaan soal` dalam array.
-4. Proses tiap peserta:
-   - Inisialisasi variabel `totalSoal` dan `totalWaktu` untuk menyimpan jumlah soal yang diselesaikan dan waktu total pengerjaan peserta.
-   - Loop 8 soal:
-     - Jika waktu pengerjaan soal kurang dari 301 menit, tambahkan soal ke `totalSoal` dan tambahkan waktu ke `totalWaktu`.
-5. Bandingkan hasil peserta dengan pemenang sementara:
-   - Jika jumlah soal yang diselesaikan peserta lebih banyak daripada `maxSoalDiselesaikan`, peserta ini menjadi pemenang sementara.
-   - Jika jumlah soal sama, bandingkan waktu total. Peserta dengan waktu lebih sedikit menjadi pemenang.
-6. Ulangi langkah 3-5 untuk setiap peserta hingga semua peserta telah dimasukkan.
-7. Tampilkan pemenang:
-   - Cetak nama pemenang, jumlah soal yang diselesaikan, dan waktu total.
-8. Selesai Program.
-
+1. Mulai
+2. Deklarasi variabel n (jumlah peserta), pemenang (struct Peserta)
+3. Panggil prosedur inputJumlahPeserta(&n)
+4. Inisialisasi pemenang dengan soalBenar = -1 dan totalWaktu = 1000
+5. Untuk i = 0 sampai n-1, lakukan:
+   a. Deklarasi variabel peserta (struct Peserta)
+   b. Panggil prosedur inputDataPeserta(i, &peserta)
+   c. Panggil prosedur hitungSkor(peserta.waktu, &peserta.soalBenar, &peserta.totalWaktu)
+   d. Panggil prosedur tentukanPemenang(peserta, &pemenang)
+6. Panggil prosedur tampilkanHasil(pemenang)
+7. Selesai
 
 #### Cara Kerja
-1. Program dimulai dengan menginisialisasi variabel untuk menyimpan nama pemenang, jumlah soal maksimal yang diselesaikan, dan waktu total minimal.
-2. Program kemudian meminta input pengguna dalam bentuk satu baris yang berisi nama peserta diikuti dengan waktu pengerjaan 8 soal. Jika input adalah "Selesai", program berhenti meminta input.
-3. Untuk setiap peserta, program membaca nama dan waktu pengerjaan soal. Waktu pengerjaan setiap soal yang lebih dari atau sama dengan 301 menit dianggap tidak terselesaikan. Jika waktu pengerjaan kurang dari 301 menit, soal tersebut dihitung sebagai soal yang diselesaikan, dan waktu pengerjaannya ditambahkan ke total waktu.
-4. Setelah menghitung jumlah soal yang diselesaikan dan total waktu untuk setiap peserta, program membandingkan hasil peserta tersebut dengan hasil pemenang sementara:
-- Jika peserta baru menyelesaikan lebih banyak soal, maka peserta baru ini menjadi pemenang sementara.
-- Jika jumlah soal sama dengan pemenang sementara, peserta dengan waktu total lebih sedikit menjadi pemenang sementara.
-5. Proses ini berulang sampai semua peserta dimasukkan.
-6. Setelah semua peserta diinput, program menampilkan nama pemenang, jumlah soal yang diselesaikan, dan waktu total yang dihabiskan.
-7. Program selesai setelah menampilkan hasil pemenang.
+1. Program meminta input jumlah peserta.
+2. Untuk setiap peserta:
+   - Meminta input nama peserta.
+   - Meminta input waktu pengerjaan untuk 8 soal.
+   - Menghitung jumlah soal yang berhasil diselesaikan (waktu <= 300 menit) dan total waktu pengerjaan.
+   - Membandingkan dengan pemenang sementara dan memperbarui jika lebih baik.
+3. Setelah semua peserta diproses, program menampilkan nama pemenang, jumlah soal yang diselesaikan, dan total waktu pengerjaan.
+
 
 ## 3. Program untuk Mencetak Deret Bilangan Berdasarkan Algoritma 3n+1
 
+Sklena dan Revilla dalam Programming Challenges mendefinisikan sebuah deret bilangan. Deret dimulai dengan sebuah bilangan bulat n. Jika bilangan n saat itu genap, maka suku berikutnya adalah Van, tetapi jika ganjil maka suku berikutnya bernilal 3n+-1. Rumus yang sama digunakan terus menerus untuk mencari suku berikutnya. Deret berakhir ketika suku terakhir bernilal 1. Sebagai contoh Jika dimulai dengan n=22, maka deret bilangan yang diperoleh adalah
+
+22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1 
+
+Untuk suku awal sampal dengan 1000000, diketahui deret selalu mencapal suku dengan nilal 1 Buat program sklena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat da dalam prosedur cetak Deret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal.
+
+prosedure cetakDeret (in n : integer )
+Masukan : berupa satu bilangan integer positif yang lebih kecil dari 1000000
+
+Keluaran : terdiri dari satu baris saja. Setiap suku dari deret tersebut dicetak dalam baris yang dan dipisahkan oleh sebuah spasi
+
+
 #### Source Code
 ```go
+//Aditya Ssulistiawannn
+
 package main
 
 import (
@@ -496,69 +516,80 @@ import (
 )
 
 func cetakDeret(n int) {
-	// Selama n bukan 1, teruskan cetak deret
+	// Mencetak nilai awal
+	fmt.Print(n)
+
+	// Menghitung dan mencetak deret
 	for n != 1 {
-		fmt.Print(n, " ")
 		if n%2 == 0 {
-			n = n / 2 // Jika n genap
+			n = n / 2 // Jika genap, bagi dua
 		} else {
-			n = 3*n + 1 // Jika n ganjil
+			n = 3*n + 1 // Jika ganjil, 3n + 1
 		}
+		fmt.Print(" ", n) // Mencetak suku berikutnya dengan spasi
 	}
-	// Cetak 1 sebagai elemen terakhir
-	fmt.Print(1)
 }
 
 func main() {
-	var n int
-	fmt.Print("Masukkan nilai awal: ")
-	fmt.Scan(&n)
+	var nilaiAwal int
+	fmt.Print("Masukkan bilangan bulat positif (kurang dari 1000000): ")
+	fmt.Scan(&nilaiAwal)
 
-	// Panggil fungsi untuk mencetak deret
-	cetakDeret(n)
+	if nilaiAwal > 0 && nilaiAwal < 1000000 {
+		cetakDeret(nilaiAwal)
+		fmt.Println() // Mencetak newline setelah deret
+	} else {
+		fmt.Println("Masukkan bilangan bulat positif yang valid.")
+	}
 }
-
 
 ```
 #### Screenshoot Source Code
-![Screenshot 2024-10-18 172458](https://github.com/user-attachments/assets/f282917e-7d64-4018-943e-9a4602510e13)
+![SC](https://github.com/user-attachments/assets/6049ced0-586f-4b98-b0f0-17ca95154383)
+
 
 #### Screenshoot Output
-![Screenshot 2024-10-18 172502](https://github.com/user-attachments/assets/5b631b76-0a99-4608-898f-6cae76bec825)
+![Ungui3](https://github.com/user-attachments/assets/bd2149ca-939b-4c87-bfa2-8ad5f81c28d6)
+
 
 #### Deskripsi Program
-Program ini dirancang untuk mencetak deret bilangan berdasarkan aturan algoritma 3n+1, yang juga dikenal sebagai Collatz Conjecture. Program dimulai dengan sebuah bilangan bulat positif sebagai input. Jika bilangan tersebut genap, maka akan dibagi dua; namun jika ganjil, akan dihitung menggunakan rumus tiga kali bilangan ditambah satu. Proses ini terus berulang hingga bilangan mencapai satu, yang menjadi bilangan terakhir dalam deret. Program ini menggunakan sebuah prosedur untuk melakukan perhitungan dan mencetak hasilnya dalam satu baris dengan setiap elemen dipisahkan oleh spasi.
+Program ini mengimplementasikan algoritma Collatz Conjecture (juga dikenal sebagai problema 3n + 1). Program menerima input bilangan bulat positif dari pengguna dan menghasilkan deret bilangan berdasarkan aturan Collatz sampai mencapai nilai 1.
 
 #### Algoritma Program
+Fungsi main:
 1. Mulai
-2. Minta pengguna untuk memasukkan bilangan bulat positif n.
-3. Cetak nilai n.
-4. Lakukan perulangan selama nilai n belum sama dengan satu:
-- Jika n adalah bilangan genap, bagi nilai n dengan dua.
-- Jika n adalah bilangan ganjil, ubah nilai n menjadi tiga kali n ditambah satu.
-- Cetak nilai n setelah dilakukan perhitungan.
-5. Akhiri perulangan ketika nilai n menjadi satu.
-6. Cetak nilai satu sebagai elemen terakhir deret.
+2. Deklarasi variabel nilaiAwal sebagai integer
+3. Tampilkan "Masukkan bilangan bulat positif (kurang dari 1000000): "
+4. Baca input ke nilaiAwal
+5. Jika nilaiAwal > 0 DAN nilaiAwal < 1000000, maka:
+   a. Panggil fungsi cetakDeret(nilaiAwal)
+   b. Cetak baris baru
+6. Jika tidak, tampilkan "Masukkan bilangan bulat positif yang valid."
 7. Selesai
 
+Fungsi cetakDeret(n int):
+1. Cetak n (nilai awal)
+2. Selama n ≠ 1, lakukan:
+   a. Jika n mod 2 = 0, maka:
+      n = n / 2
+   b. Jika tidak, maka:
+      n = 3 * n + 1
+   c. Cetak " " (spasi) diikuti nilai n
+3. Kembali ke fungsi pemanggil
 #### Cara Kerja
-1. Input Pengguna:
-- Program dimulai dengan meminta pengguna memasukkan sebuah bilangan bulat positif. Nilai ini disimpan dalam variabel n, yang akan menjadi titik awal deret.
-2. Fungsi Perhitungan Deret:
-- Program menggunakan fungsi cetakDeret(n) untuk melakukan perhitungan deret. Setiap kali fungsi ini dipanggil, ia akan mencetak bilangan awal, kemudian menghitung elemen-elemen berikutnya dalam deret sesuai aturan berikut:
-  - Jika bilangan genap, maka bilangan tersebut dibagi dua.
-  - Jika bilangan ganjil, maka dihitung dengan rumus tiga kali bilangan ditambah satu.
-- Hasil perhitungan dicetak pada layar, dengan elemen-elemen deret dipisahkan oleh spasi.
-3. Pengulangan Sampai Nilai Satu:
-- Perhitungan berulang terus menerus hingga nilai n mencapai satu. Ini sesuai dengan aturan Collatz Conjecture, di mana setiap bilangan pada akhirnya akan turun menjadi satu.
-- Setiap nilai yang dihasilkan dari perhitungan (baik hasil pembagian atau penambahan) dicetak dalam satu baris hingga deret selesai.
-4. Akhir Program:
-- Ketika nilai n sudah menjadi satu, program mencetak "1" sebagai elemen terakhir dan berhenti.
+1. Program meminta pengguna memasukkan bilangan bulat positif kurang dari 1.000.000.
+2. Program memeriksa apakah input valid (positif dan kurang dari 1.000.000).
+3. Jika input valid, program memanggil fungsi cetakDeret untuk menghasilkan dan mencetak deret Collatz.
+4. Fungsi cetakDeret mencetak nilai awal, kemudian menerapkan aturan Collatz:
+   - Jika bilangan genap, bagi dengan 2.
+   - Jika bilangan ganjil, kalikan dengan 3 dan tambah 1.
+5. Proses berlanjut sampai nilai mencapai 1.
+6. Setiap nilai dalam deret dicetak dengan spasi sebagai pemisah.
 
 ### Kesimpulan
-Penggunaan prosedur dalam pemrograman adalah alat yang sangat berguna untuk menyusun kode secara terstruktur dan efisien. Dengan memahami cara mendeklarasikan dan menggunakan prosedur, programmer dapat meningkatkan keterbacaan dan keorganisasian kode mereka, serta memudahkan proses debugging dan pengembangan di masa mendatang. Prosedur memberikan cara untuk membagi program menjadi bagian yang lebih kecil dan lebih mudah dikelola, menjadikannya komponen penting dalam pemrograman modern.
+Dalam pemrograman, prosedur adalah alat yang sangat bermanfaat untuk menyusun kode secara terstruktur dan efisien. Dengan memahami cara mendeklarasikan dan menggunakan prosedur, programmer dapat meningkatkan keterbacaan dan keorganisasian kode mereka, serta memudahkan proses debugging dan pengembangan di masa mendatang. Ini menjadikannya komponen penting dalam pemrograman.
 
 ## Referensi 
-[1] Go.dev. (n.d.). Introduction to Go functions. Go Documentation.
+[1] Muhaz,  DEKLARASI PROSEDUR (PROCEDURE DECLARATION)
 
-[2] Zakhour, M., et al. (2010). The Java programming language. Addison-Wesley.
+[2] olang Official Documentation. (n.d.). A Tour of Go.
