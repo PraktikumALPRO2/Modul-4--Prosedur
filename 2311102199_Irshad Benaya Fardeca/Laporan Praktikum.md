@@ -20,9 +20,34 @@
 
 #### I. DASAR TEORI
 #### Procedure
+Prosedure dalam Golang adalah blok kode yang dapat dipanggil berulang kali untuk melakukan tugas tertentu. 
+Ciri-ciri procedure:
+-Membentuk suatu instruksi baru
+-Nama fungsi membentuk kata kerja
+-Tidak memiliki tipe data Tidak terdapat "return"
+-Tidak dapat menggunakan parameter secara langsung
+
+Perbedaan parameter aktual dengan parameter formal
+1. Parameter aktual Merupakan variabel atau eskpresi dalam parameter yang digunakan untuk memanggil sebuah sub program
+Contoh:
+```go
+func volumeTabung(jari_jari, tinggi int){
+...
+}
+```
+jari_jari pada deklarasi func volume tabung merupakan parameter formal
+
+2. Parameter formal Merupakan variabel yang ada didalam parameter list pada sebuah program
+Contoh:
+```go
+func main(){
+...
+volumeTabung(14, 100)
+}
+```
+14 dan 100 adalah parameter aktual
 
 <br></br>
-
 
 #### II. GUIDED
 ##### 1. Buatlah sebuah program beserta fungsi yang digunakan untuk menghitung nilai faktorial dan permutasi. Masukan terdiri dari dua buah bilangan positif a dan b. Keluaran berupa sebuah bilangan bulat yang menyatakan nilai a permutasi b apabila a≥ b atau b pemutasi a untuk kemungkinan yang lain.
@@ -268,6 +293,6 @@ Program ini digunakan untuk menghasilkan deret bilangan yang mengikuti aturan kh
 
 
 ### Referensi
-
-[2] Agung, Noval (2024, 30 Agustus). Dasar Pemrograman Golang. Diakses pada 13 Oktober 2024, dari https://dasarpemrogramangolang.novalagung.com/
-
+[1] MODUL 4 PROSEDUR
+[2] Perbedaan function dengan procedure pada golang. Diakses pada 20 Oktober 2024, dari https://www.studocu.com/id/document/universitas-telkom/algorithm-and-programming/perbedaan-function-dengan-procedure-pada-golang/31410467
+[3] Doxsey, C. (2016). Introducing Go: Build Reliable, Scalable Programs. United States: O'Reilly Media.
