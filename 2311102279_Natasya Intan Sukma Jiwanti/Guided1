@@ -1,1 +1,30 @@
+package main
+import "fmt"
+
+func faktorial(n int, hasil *int) {
+	*hasil = 1
+	for i := 1; i <= n; i++ {
+		*hasil *= i
+	}
+}
+
+func permutasi(n, r int) {
+	var hasiln, hasiln_r int
+	faktorial(n, &hasiln)
+	faktorial(n-r, &hasiln_r)
+	fmt.Println("Hasil permutasi:", hasiln/hasiln_r)
+}
+
+func main() {
+	var a, b int
+	fmt.Print("Masukkan Bilangan Pertama: ")
+	fmt.Scan(&a)
+	fmt.Print("Masukkan Bilangan Kedua: ")
+	fmt.Scan(&b)
+	if a >= b {
+		permutasi(a, b)
+	} else {
+		permutasi(b, a)
+	}
+}
 
