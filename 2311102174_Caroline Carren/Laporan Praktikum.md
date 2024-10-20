@@ -743,30 +743,30 @@ Program ini menghitung skor peserta berdasarkan jumlah soal yang diselesaikan (m
 
 ### Cara Kerja Program :
 1. Memulai Program:
-   Program dimulai dengan meminta pengguna memasukkan jumlah peserta (n).
-   Setelah itu, untuk setiap peserta, program meminta nama dan waktu pengerjaan untuk 8 soal.
+   - Program dimulai dengan meminta pengguna memasukkan jumlah peserta (n).
+   - Setelah itu, untuk setiap peserta, program meminta nama dan waktu pengerjaan untuk 8 soal.
    
 2. Memvalidasi Input:
-   Program memvalidasi setiap input waktu pengerjaan yang dimasukkan oleh pengguna.
-   Program memastikan bahwa waktu pengerjaan setiap soal adalah bilangan positif.
-   Jika input tidak valid (misalnya waktu negatif atau bukan angka), program menampilkan pesan kesalahan dan meminta input ulang untuk soal tersebut.
+   - Program memvalidasi setiap input waktu pengerjaan yang dimasukkan oleh pengguna.
+   - Program memastikan bahwa waktu pengerjaan setiap soal adalah bilangan positif.
+   - Jika input tidak valid (misalnya waktu negatif atau bukan angka), program menampilkan pesan kesalahan dan meminta input ulang untuk soal tersebut.
 
 3. Menghitung Jumlah Soal yang Selesai dan Total Waktu:
-   Program menggunakan fungsi hitungSkor() untuk menghitung jumlah soal yang selesai (dengan syarat waktu pengerjaan ≤ 300 menit) dan total waktu pengerjaan untuk soal-soal yang selesai.
-   Fungsi ini mengakumulasi jumlah soal yang berhasil diselesaikan dan total waktu untuk soal-soal yang memenuhi kriteria.
+   - Program menggunakan fungsi hitungSkor() untuk menghitung jumlah soal yang selesai (dengan syarat waktu pengerjaan ≤ 300 menit) dan total waktu pengerjaan untuk soal-soal yang selesai.
+   - Fungsi ini mengakumulasi jumlah soal yang berhasil diselesaikan dan total waktu untuk soal-soal yang memenuhi kriteria.
 
 4. Menentukan Pemenang:
-   Program membandingkan hasil setiap peserta berdasarkan jumlah soal yang diselesaikan.
-   Jika seorang peserta menyelesaikan lebih banyak soal, peserta tersebut sementara dinyatakan sebagai pemenang.
-   Jika ada peserta yang menyelesaikan jumlah soal yang sama, program membandingkan total waktu pengerjaan, dan peserta dengan waktu tersingkat menjadi pemenang.
+   - Program membandingkan hasil setiap peserta berdasarkan jumlah soal yang diselesaikan.
+   - Jika seorang peserta menyelesaikan lebih banyak soal, peserta tersebut sementara dinyatakan sebagai pemenang.
+   - Jika ada peserta yang menyelesaikan jumlah soal yang sama, program membandingkan total waktu pengerjaan, dan peserta dengan waktu tersingkat menjadi pemenang.
 
 5. Menampilkan Hasil:
-   Setelah semua peserta selesai diproses, program menampilkan hasil dalam format tabel menggunakan tabwriter.
-   Tabel ini berisi nama peserta, jumlah soal yang diselesaikan, dan total waktu pengerjaan.
-   Program juga menampilkan nama pemenang beserta jumlah soal yang diselesaikan dan total waktu yang dihabiskan oleh pemenang.
+   - Setelah semua peserta selesai diproses, program menampilkan hasil dalam format tabel menggunakan tabwriter.
+   - Tabel ini berisi nama peserta, jumlah soal yang diselesaikan, dan total waktu pengerjaan.
+   - Program juga menampilkan nama pemenang beserta jumlah soal yang diselesaikan dan total waktu yang dihabiskan oleh pemenang.
 
 6. Mengakhiri Program:
-   Program selesai dan keluar setelah hasil akhir ditampilkan, memberi tahu pengguna bahwa program telah selesai menjalankan prosesnya.
+   - Program selesai dan keluar setelah hasil akhir ditampilkan, memberi tahu pengguna bahwa program telah selesai menjalankan prosesnya.
 
 ### 3. Skiena dan Revilla dalam Programming Challenges mendefinisikan sebuah deret bilangan. Deret dimulai dengan sebuah bilangan bulat n. Jika bilangan n saat itu genap, maka suku berikutnya adalah ½n, tetapi jika ganjil maka suku berikutnya bernilai 3n+1. Rumus yang sama digunakan terus menerus untuk mencari suku berikutnya. Deret berakhir ketika suku terakhir bernilai 1. Sebagai contoh jika dimulai dengan n=22, maka deret bilangan yang diperoleh adalah:
 
