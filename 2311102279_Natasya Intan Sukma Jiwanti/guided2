@@ -1,0 +1,22 @@
+package main
+import "fmt"
+
+func luasPersegi(s int) {
+	hasil := s * s
+	fmt.Println("Luas Persegi: ", hasil)
+}
+
+func kelilingPersegi(s int) {
+	hasil := 4 * s
+	fmt.Print("Keliling Persegi: ", hasil)
+}
+
+func main() {
+	var s int
+	fmt.Print("Input Nilai Sisi: ")
+	fmt.Scan(&s)
+
+	luasPersegi(s)
+	kelilingPersegi(s)
+
+}
