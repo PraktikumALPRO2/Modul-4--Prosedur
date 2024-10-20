@@ -25,15 +25,20 @@ Tidak menggunakan kata kunci return dalam isinya.
 Prosedur mirip dengan instruksi dasar seperti penugasan (assignment) atau instruksi dari paket seperti fmt.Scan atau fmt.Print. Oleh karena itu, nama prosedur sebaiknya menggunakan kata kerja atau sesuatu yang menggambarkan suatu tindakan, misalnya cetak, hitungRerata, cariNilai, belok, mulai, dll.
 
 Deklarasi Prosedur
+![378071821-6d1c5b52-393a-4886-842e-2dd1b8eb2f2d](https://github.com/user-attachments/assets/6dac9162-285c-46f4-b28b-a1ccb340a6f6)
+
 
 ### >br/> Penulisan deklarasi ini berada di luar blok yang dari program utama atau fungsi main() pada suatu program C, dan bisa ditulis sebelum atau setelah dari blok program utama tersebut.
 Contoh deklarasi prosedur mencetak n nilai pertama dari deret Fibonacci
+![378072245-af00ed5f-67b8-46aa-a0bf-1b51097fa66f](https://github.com/user-attachments/assets/1e6dae58-bb19-4a01-a5b5-e5f9923e4733)
 
 
 Cara Pemanggilan Prosedur
 Seperti yang telah dijelaskan, prosedur hanya akan dijalankan jika dipanggil, baik secara langsung maupun tidak langsung oleh program utama. Pemanggilan tidak langsung berarti prosedur tersebut dipanggil melalui subprogram lain sebagai perantara.
 Cara memanggil prosedur cukup sederhana, yaitu dengan menuliskan nama prosedur dan menyertakan parameter atau argumen yang diperlukan. Misalnya, prosedur cetakNFibo dipanggil dengan menuliskan namanya dan memberikan sebuah variabel atau nilai integer tertentu sebagai argumen untuk parameter n.
 Contohnya:
+![378072614-bd95646f-17c7-4e16-9b2e-b3dfc1c8e892](https://github.com/user-attachments/assets/5f4a314e-785b-47bc-b3b3-57ee380d0672)
+![378072650-74830e5c-c03f-46a1-b2de-182201893a22](https://github.com/user-attachments/assets/8ab6302f-c2e5-4182-8a39-bae209d5b5a9)
 
 
 
@@ -41,11 +46,13 @@ Contoh Program dengan Prosedur
 Berikut ini adalah contoh penulisan prosedur pada suatu program lengkap. Buatlah sebuah program beserta prosedur yang digunakan untuk menampilkan suatu pesan error, warning atau informasi berdasarkan masukan dari user.
 Masukan: terdiri dari sebuah bilangan bulat flag (0 s.d. 2) dan sebuah string M.
 Keluaran: berupa string pesan M beserta jenis pesannya, yaitu error, warning atau informasi berdasarkan nilai flag 0, 1 dan 2 secara berturut-turut. 
+![378072775-57ce1970-8232-4a64-8ab5-979580a393c4](https://github.com/user-attachments/assets/b30f1785-676b-4b94-9504-7b248d757ef2)
 
 Penulisan argumen pada parameter cetakPesan(pesan, bilangan) harus sesuai tipe data pada func cetakPesan (M string, flag int), yaitu string kemudian integer.
 
 Parameter
 Subprogram yang dipanggil dapat berinteraksi dengan pemanggilnya melalui argumen yang diberikan ke parameter yang dideklarasikan dalam subprogram. Terdapat dua jenis parameter berdasarkan posisinya dalam program, yaitu parameter formal dan parameter aktual.
+![378073541-801d26f8-a078-4d3b-8c86-52cc28f19c77](https://github.com/user-attachments/assets/d052061d-e739-4842-a297-7fc97222727a)
 
 Parameter Fromal
 Parameter formal adalah parameter yang ditulis pada saat deklarasi suatu subprogram, parameter ini berfungsi sebagai petunjuk bahwa argumen apa saja yang diperlukan pada saat pemanggilan subprogram. Sebagai contoh parameter jari_jari, tinggi pada deklarasi fungsi volumeTabung adalah parameter formal (teks berwarna merah). Artinya ketika memanggil volumeTabung maka kita harus mempersiapkan dua integer (berapapun nilainya) sebagai jari_jari dan tinggi.
@@ -95,6 +102,8 @@ func hitungPermutasi(n, r int) {
 }
 ```
 ## Output: 
+![Screenshot 2024-10-20 152502](https://github.com/user-attachments/assets/777e47e2-0f44-40ca-ad38-9b7dab2f5790)
+
 
 
 
@@ -131,6 +140,7 @@ func main() {
 }
 ```
 ### Output: 
+![Screenshot 2024-10-20 152539](https://github.com/user-attachments/assets/46b03559-0264-4c9b-ace7-f91c175c7b60)
 
 
 program ini melakukan:
@@ -144,9 +154,11 @@ Kode program ini menunjukkan penggunaan fungsi dan pemisahan tugas dalam pemrogr
 ### UNGUIDED ###
 
 ### 1. Minggu ini, mahasiswa Fakultas Informatika mendapatkan tugas dari mata kuliah matematika diskrit untuk mempelajari kombinasi dan permutasi. Jonas salah seorang mahasiswa, iseng untuk mengimplementasikannya ke dalam suatu program. Oleh karena itu bersediakah kalian membantu Jonas? (tidak tentunya ya :p) Masukan terdiri dari empat buah bilangan asli a, b, c, dan d yang dipisahkan oleh spasi, dengan syarat a ≥ c dan b ≥ d. Keluaran terdiri dari dua baris. Baris pertama adalah hasil permutasi dan kombinasi a terhadap c, sedangkan baris kedua adalah hasil permutasi dan kombinasi b terhadap d. Catatan: permutasi (P) dan kombinasi (C) dari n terhadap r (n ≥ r) dapat dihitung dengan menggunakan persamaan berikut!
+![376601327-5b90c7e3-9f76-45eb-bf14-8f1bca637918](https://github.com/user-attachments/assets/57ba291c-cc79-49f2-b20c-a76048d561ff)
 
 
 ### Selesaikan program tersebut dengan memanfaatkan procedure yang diberikan berikut ini!
+![376602393-d7a28bc4-25bd-4c1d-9091-e058e26a1407](https://github.com/user-attachments/assets/4019120c-3525-41f2-babd-cfe4cb2af086)
 
 
 
@@ -207,6 +219,7 @@ func main() {
 ```
 ### Output: 
 
+![Screenshot 2024-10-20 152655](https://github.com/user-attachments/assets/5ea388a9-3ca9-48c1-8ce5-02af7afcd2d3)
 
 Program ini menghitung permutasi dan kombinasi dari dua pasang bilangan bulat positif. Program ini dimulai dengan meminta pengguna untuk memasukkan empat bilangan bulat positif. Kemudian program menghitung permutasi dan kombinasi dari bilangan pertama terhadap bilangan ketiga, dan permutasi dan kombinasi dari bilangan kedua terhadap bilangan keempat. Hasilnya dicetak ke layar dalam dua baris, dengan permutasi di kolom pertama dan kombinasi di kolom kedua. Program ini menggunakan tiga prosedur: faktorial, permutasi, dan kombinasi.
 
@@ -215,8 +228,10 @@ Prosedur permutasi menghitung permutasi dari n terhadap r, dengan n >= r. Permut
 Prosedur kombinasi menghitung kombinasi dari n terhadap r, dengan n >= r. Kombinasi dari n terhadap r adalah jumlah
 
 ### 2. Kompetisi pemrograman tingkat nasional berlangsung ketat. Setiap peserta diberikan 8 soal yang harus dapat diselesaikan dalam waktu 5 jam saja. Peserta yang berhasil menyelesaikan soal paling banyak dalam waktu paling singkat adalah pemenangnya. Buat program gema yang mencari pemenang dari daftar peserta yang diberikan. Program harus dibuat modular, yaitu dengan membuat prosedur hitungSkor yang mengembalikan total soal dan total skor yang dikerjakan oleh seorang peserta, melalui parameter formal. Pembacaan nama peserta dilakukan di program utama, sedangkan waktu pengerjaan dibaca di dalam prosedur.
+![376603702-b8f89dce-7575-4a33-ad7a-61ece8188938](https://github.com/user-attachments/assets/5c6c3e52-bb11-4d37-947b-263e10f83284)
 
 ### Setiap baris masukan dimulai dengan satu string nama peserta tersebut diikuti dengan adalah 8 integer yang menyatakan berapa lama (dalam menit) peserta tersebut menyelesaikan soal. Jika tidak berhasil atau tidak mengirimkan jawaban, maka otomatis dianggap menyelesaikan dalam waktu 5 jam 1 menit (301 menit). Satu baris keluaran berisi nama pemenang, jumlah soal yang diselesaikan, dan nilai yang diperoleh. Nilai adalah total waktu yang dibutuhkan untuk menyelesaikan soal yang berhasil diselesaikan. 
+![376605063-3117bbb6-fc8f-45e5-9027-890dea0cb6dc](https://github.com/user-attachments/assets/ef577a35-3b78-447c-a6e6-2b711f95764d)
 
 
 ### Keterangan:
@@ -283,14 +298,17 @@ func main() {
 
 ```
 ## Output:
+![Screenshot 2024-10-20 130943](https://github.com/user-attachments/assets/7a221c9c-1f25-4cea-bf37-4ef21ce81713)
 
 
 
 PProgram di atas menentukan pemenang dari sekumpulan peserta berdasarkan jumlah soal yang diselesaikan dalam waktu yang valid (kurang dari 301 detik per soal). Setiap peserta mengerjakan 8 soal, dan program mencatat waktu pengerjaannya. Setelah semua peserta memasukkan datanya, program membandingkan siapa yang menyelesaikan soal terbanyak dalam waktu tercepat. Peserta yang menyelesaikan paling banyak soal dengan waktu terkecil dinyatakan sebagai pemenang.
 
 ### 3. Skiena dan Revilla dalam Programming Challenges mendefinisikan sebuah deret bilangan. Deret dimulai dengan sebuah bilangan bulat n. Jika bilangan n saat itu genap, maka suku berikutnya adalah ½n, tetapi jika ganjil maka suku berikutnya bernilai 3n+1. Rumus yang sama digunakan terus menerus untuk mencari suku berikutnya. Deret berakhir ketika suku terakhir bernilai 1. Sebagai contoh, jika dimulai dengan n = 22, maka deret bilangan yang diperoleh adalah:
+![376842218-eb8656b7-5bd8-4bc3-8e9e-ac2e315c7cff](https://github.com/user-attachments/assets/bf6a0c95-ab5d-4ccc-a0c7-81d4f9ce8d5c)
 
 ### Untuk suku awal sampai dengan 1000000, diketahui deret selalu mencapai suku dengan nilai 1. Buat program skiena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat dalam prosedur cetakDeret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal.
+![376843491-3abb1b23-463e-4877-918c-5e045d2a246e](https://github.com/user-attachments/assets/4859967e-6de3-43fc-8570-7b7b54b9d9c6)
 
 ### Masukan berupa satu bilangan integer positif yang lebih kecil dari 1000000. Keluaran terdiri dari satu baris saja. Setiap suku dari deret tersebut dicetak dalam baris yang sama dan dipisahkan oleh sebuah spasi.
 
@@ -324,6 +342,7 @@ func main() {
 }
 ```
 ### Output: 
+![Screenshot 2024-10-20 153003](https://github.com/user-attachments/assets/ffa6bc68-5922-4174-902c-bb6cbf821607)
 
 Program ini mencetak deret angka berdasarkan Collatz conjecture. Pengguna memasukkan bilangan bulat positif, lalu program menghasilkan deret berdasarkan aturan:
 Jika angka genap, dibagi 2.
