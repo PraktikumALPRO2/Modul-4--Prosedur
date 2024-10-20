@@ -19,7 +19,7 @@
 <br></br>
 
 #### I. DASAR TEORI
-
+#### Procedure
 
 <br></br>
 
@@ -268,6 +268,6 @@ Program ini digunakan untuk menghasilkan deret bilangan yang mengikuti aturan kh
 
 
 ### Referensi
-[1] Donovan, A., Kernighan, B. (2015). The Go Programming Language. United Kingdom: Pearson Education.
+
 [2] Agung, Noval (2024, 30 Agustus). Dasar Pemrograman Golang. Diakses pada 13 Oktober 2024, dari https://dasarpemrogramangolang.novalagung.com/
 
