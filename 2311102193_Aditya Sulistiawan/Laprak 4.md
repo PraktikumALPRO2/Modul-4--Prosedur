@@ -232,104 +232,129 @@ Program ini ditulis dalam bahasa Go dan bertujuan untuk menghitung luas dan keli
 
 ## III. UNGUIDED
 ## 1. Program Penghitung Permutasi dan Kombinasi
+1. Minggu Ini, mahasiswa Fakultas Informatika mendapatkan tugas dari mata kullah matematika diskrit untuk mempelajari kombinasi dan permutasi. Jonas salah seorang mahasiswa, Iseng untuk mengimplementasikannya ke dalam suatu program. Oleh karena itu bersediakan kaltan membantu Jonas? (tidak tentunya ya :p)
 
+Masukan : Terdiri dari empat buah bilangan asli a, b, c, dan d yang dipisahkan oleh spasi, dengan syarat a >= c dan b >= d
+
+Keluaran : Terdiri dari dua baris. Baris pertama adalah hasil permutasi dan kombinasi a terhadap c, sedangkan baris kedua adalah hasil permutasi dan kombinasi b terhadap d.
 #### Source Code
 ```go
+// Aditya Sulistiawan
+// 2311102193
+// S1IF11-05
+
 package main
 
-import (
-	"fmt"
-)
-
-// Prosedur untuk menghitung dan menampilkan faktorial
-func factorial(n int) {
-	if n == 0 {
-		fmt.Printf("Faktorial dari %d adalah: 1\n", n)
-		return
-	}
-	result := 1
-	for i := 1; i <= n; i++ {
-		result *= i
-	}
-	fmt.Printf("Faktorial dari %d adalah: %d\n", n, result)
-}
-
-// Prosedur untuk menghitung dan menampilkan permutasi P(n, r)
-func permutation(n, r int) {
-	factN := 1
-	for i := 1; i <= n; i++ {
-		factN *= i
-	}
-	factNR := 1
-	for i := 1; i <= (n - r); i++ {
-		factNR *= i
-	}
-	p := factN / factNR
-	fmt.Printf("Permutasi P(%d, %d) adalah: %d\n", n, r, p)
-}
-
-// Prosedur untuk menghitung dan menampilkan kombinasi C(n, r)
-func combination(n, r int) {
-	factN := 1
-	for i := 1; i <= n; i++ {
-		factN *= i
-	}
-	factR := 1
-	for i := 1; i <= r; i++ {
-		factR *= i
-	}
-	factNR := 1
-	for i := 1; i <= (n - r); i++ {
-		factNR *= i
-	}
-	c := factN / (factR * factNR)
-	fmt.Printf("Kombinasi C(%d, %d) adalah: %d\n", n, r, c)
-}
+import "fmt"
 
 func main() {
-	// Input
 	var a, b, c, d int
-	fmt.Print("Masukkan 4 bilangan a, b, c, d: ")
-	fmt.Scanf("%d %d %d %d", &a, &b, &c, &d)
 
-	// Hasil permutasi dan kombinasi untuk a dan c
-	permutation(a, c)
-	combination(a, c)
+	// fungsi untuk menginput bilangan a, b, c, dan d
+	fmt.Print("Bilangan a: ")
+	fmt.Scan(&a)
 
-	// Hasil permutasi dan kombinasi untuk b dan d
-	permutation(b, d)
-	combination(b, d)
+	fmt.Print("Bilangan b: ")
+	fmt.Scan(&b)
+
+	fmt.Print("Bilangan c: ")
+	fmt.Scan(&c)
+
+	fmt.Print("Bilangan d: ")
+	fmt.Scan(&d)
+
+	// Untuk menjelaskan syarat bahwa a>= c dan b>=d
+	if a >= c && b >= d {
+		var permutasiAC, kombinasiAC, permutasiBD, kombinasiBD int
+
+		// Untuk menampilkan hasil permutasi dan kombinasi dari bilangan a dan c
+		permutasi(a, c, &permutasiAC)
+		kombinasi(a, c, &kombinasiAC)
+		fmt.Printf("\nPermutasi (a, c): %d\n", permutasiAC)
+		fmt.Printf("Kombinasi (a, c): %d\n", kombinasiAC)
+
+		// Untuk menampilkan hasil permutasi dan kombinasi dari bilangan b dan d
+		permutasi(b, d, &permutasiBD)
+		kombinasi(b, d, &kombinasiBD)
+		fmt.Printf("\nPermutasi (b, d): %d\n", permutasiBD)
+		fmt.Printf("Kombinasi (b, d): %d\n", kombinasiBD)
+
+	} else {
+		// Untuk yang tidak memenuhi syarat
+		fmt.Println("Input tidak sesuai dengan syarat yang ada")
+	}
 }
 
+// Prosedur untuk menghitung faktorial
+func faktorial(n int, hasil *int) {
+	*hasil = 1
+	for i := 1; i <= n; i++ {
+		*hasil *= i
+	}
+}
+
+// Prosedur untuk menghitung permutasi
+func permutasi(n, r int, hasil *int) {
+	var faktorialN, faktorialNR int
+	faktorial(n, &faktorialN)
+	faktorial(n-r, &faktorialNR)
+	*hasil = faktorialN / faktorialNR
+}
+
+// Prosedur untuk menghitung kombinasi
+func kombinasi(n, r int, hasil *int) {
+	var faktorialN, faktR, faktorialNR int
+	faktorial(n, &faktorialN)
+	faktorial(r, &faktR)
+	faktorial(n-r, &faktorialNR)
+	*hasil = faktorialN / (faktR * faktorialNR)
+}
 ```
 #### Screenshoot Source Code
-![Screenshot 2024-10-18 162708](https://github.com/user-attachments/assets/da362146-d0da-4304-8a43-c62990bdb543)
+![SC](https://github.com/user-attachments/assets/1cbfe556-e0ac-4c60-989b-f8103159a2d5)
+
 
 #### Screenshoot Output
-![Screenshot 2024-10-18 162714](https://github.com/user-attachments/assets/8746109d-b1bc-4fa0-86b9-d3668edae206)
+![Ungui1](https://github.com/user-attachments/assets/d6c9a071-d91f-42c4-89b6-182a7bfd1cee)
+
 
 #### Deskripsi Program
-Program ini menghitung dan menampilkan faktorial, permutasi, dan kombinasi berdasarkan input empat bilangan bulat yang dimasukkan oleh pengguna. Setelah meminta pengguna untuk memasukkan bilangan a, b, c, dan d, program memanggil prosedur untuk menghitung permutasi P(a, c) dan C(a, c), serta P(b, d) dan C(b, d). Hasil dari setiap perhitungan ditampilkan langsung ke layar. Program ini dirancang untuk memberikan informasi yang jelas dan cepat tentang faktorial, permutasi, dan kombinasi dari bilangan yang diberikan.
+Program ini ditulis dalam bahasa Go dan bertujuan untuk menghitung permutasi dan kombinasi dari empat bilangan bulat yang dimasukkan oleh pengguna: ( a ), ( b ), ( c ), dan ( d ). Program ini juga memeriksa syarat bahwa ( a ) harus lebih besar atau sama dengan ( c ) dan ( b ) harus lebih besar atau sama dengan ( d ) sebelum melakukan perhitungan. Jika syarat tidak terpenuhi, program akan memberikan pesan kesalahan.
 
 #### Algoritma Program
-1. Input:
-- Minta pengguna untuk memasukkan empat bilangan bulat: a, b, c, dan d.
-2. Hitung dan Tampilkan Permutasi dan Kombinasi:
-- Panggil prosedur permutation dengan argumen a dan c untuk menghitung permutasi P(a, c) dan tampilkan hasilnya.
-- Panggil prosedur combination dengan argumen a dan c untuk menghitung kombinasi C(a, c) dan tampilkan hasilnya.
-- Panggil prosedur permutation dengan argumen b dan d untuk menghitung permutasi P(b, d) dan tampilkan hasilnya.
-- Panggil prosedur combination dengan argumen b dan d untuk menghitung kombinasi C(b, d) dan tampilkan hasilnya.
-3. Selesai:
-- Program selesai setelah semua hasil perhitungan ditampilkan.
+1. Mulai
+2. Deklarasi Variabel: Deklarasikan variabel integer ( a, b, c, d ).
+3. Input: Minta pengguna untuk memasukkan bilangan ( a, b, c, d ).
+4. Pemeriksaan Syarat:
+	-Jika ( a \geq c ) dan ( b \geq d ):
+	-Deklarasikan variabel untuk menyimpan hasil permutasi dan kombinasi.
+	-Panggil fungsi permutasi(a, c, &permutasiAC) dan kombinasi(a, c, &kombinasiAC).
+	-Cetak hasil permutasi dan kombinasi untuk ( (a, c) ).
+	-Panggil fungsi permutasi(b, d, &permutasiBD) dan kombinasi(b, d, &kombinasiBD).
+	-Cetak hasil permutasi dan kombinasi untuk ( (b, d) ).
+	Jika tidak:
+	-Cetak "Input tidak sesuai dengan syarat yang ada".
+5. Fungsi faktorial(n, hasil):
+	Inisialisasi hasil dengan 1.
+	Untuk setiap ( i ) dari 1 hingga ( n ):
+	Kalikan hasil dengan ( i ).
+6. Fungsi permutasi(n, r, hasil):
+	Hitung faktorial ( n ) dan ( n-r ).
+	Hitung hasil permutasi dengan rumus ( nPr ) dan simpan di hasil.
+7. Fungsi kombinasi(n, r, hasil):
+	Hitung faktorial ( n ), ( r ), dan ( n-r ).
+	Hitung hasil kombinasi dengan rumus ( nCr ) dan simpan di hasil.
+8. Selesai
 
 #### Cara Kerja
-1. Input: Pengguna diminta memasukkan empat bilangan bulat: a, b, c, dan d.
-2. Hitung: Program menghitung dan menampilkan:
-- Permutasi P(a, c)
-- Kombinasi C(a, c)
-- Permutasi P(b, d)
-- Kombinasi C(b, d)
-3. Output: Semua hasil perhitungan ditampilkan di layar.
+1. Input Pengguna: Program meminta pengguna untuk memasukkan empat bilangan bulat: ( a ), ( b ), ( c ), dan ( d ).
+2. Pemeriksaan Syarat: Program memeriksa apakah ( a \geq c ) dan ( b \geq d ):
+	-Jika syarat terpenuhi, program akan menghitung permutasi dan kombinasi untuk pasangan ( (a, c) ) dan ( (b, d) ).
+	-Jika syarat tidak terpenuhi, program akan mencetak pesan kesalahan.
+3. Menghitung Faktorial: Fungsi faktorial digunakan untuk menghitung faktorial dari bilangan yang diberikan.
+4. Menghitung Permutasi: Fungsi permutasi menghitung permutasi menggunakan rumus: [ nPr = \frac{n!}{(n-r)!} ]
+5. Menghitung Kombinasi: Fungsi kombinasi menghitung kombinasi menggunakan rumus: [ nCr = \frac{n!}{r!(n-r)!} ]
+6. Menampilkan Hasil: Hasil dari permutasi dan kombinasi dicetak ke layar.
 
 ## 2. Program Penentuan Pemenang Kompetisi Pemrograman Berdasarkan Skor dan Waktu Penyelesaian
 
