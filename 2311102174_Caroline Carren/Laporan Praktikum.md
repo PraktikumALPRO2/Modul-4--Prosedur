@@ -857,9 +857,9 @@ Deret ini dimulai dengan bilangan bulat positif yang diberikan oleh pengguna dan
     - Selama n tidak sama dengan 1:
     
     - Jika n genap:
-      - Hitung n = n / 2.
-      - Jika n ganjil:
-      - Hitung n = 3 * n + 1.
+      - Hitung `n = n / 2.`
+    - Jika n ganjil:
+      - Hitung `n = 3 * n + 1.`
       - Tampilkan nilai n yang baru dengan spasi.
 
 - Mengakhiri Program:
@@ -878,15 +878,15 @@ Deret ini dimulai dengan bilangan bulat positif yang diberikan oleh pengguna dan
      - Harus lebih besar dari 0.
      - Harus kurang dari 1.000.000.
      - Jika input memenuhi syarat tersebut, program akan melanjutkan ke langkah berikutnya.
-     - Jika input tidak valid (misalnya negatif atau lebih dari 1.000.000), program menampilkan pesan kesalahan "Masukkan bilangan bulat positif yang valid." dan kemudian keluar dari program.
+     - Jika input tidak valid (misalnya negatif atau lebih dari 1.000.000), program menampilkan pesan kesalahan `"Masukkan bilangan bulat positif yang valid."` dan kemudian keluar dari program.
 
 4. Mencetak Deret Collatz:
    - Jika input valid, program memanggil fungsi cetakDeret(n) dengan n sebagai nilaiAwal.
    - Di dalam Fungsi cetakDeret(n):
      - Fungsi ini pertama-tama mencetak nilai awal n.
      - Selanjutnya, program masuk ke dalam loop yang berfungsi untuk menghitung deret Collatz. Loop ini terus berjalan selama n tidak sama dengan 1:
-       - Jika n adalah bilangan genap (n % 2 == 0), program membagi n dengan 2 (n = n / 2).
-       - Jika n adalah bilangan ganjil (n % 2 != 0), program menghitung nilai baru n menggunakan rumus 3 * n + 1.
+       - Jika n adalah bilangan genap `(n % 2 == 0)`, program membagi n dengan `2 (n = n / 2).`
+       - Jika n adalah bilangan ganjil `(n % 2 != 0)`, program menghitung nilai baru n menggunakan rumus `3 * n + 1.`
        - Setiap kali nilai n diperbarui, program mencetak nilai tersebut di konsol, dipisahkan dengan spasi.
 
 5. Menampilkan Hasil Akhir:
@@ -894,7 +894,7 @@ Deret ini dimulai dengan bilangan bulat positif yang diberikan oleh pengguna dan
    - Setelah deret Collatz dicetak, program menampilkan newline (baris baru) untuk merapikan output.
 
 6. Mengakhiri Program:
-   Program selesai setelah semua nilai dalam deret Collatz dicetak, dan keluar dengan bersih dari konsol.
+   - Program selesai setelah semua nilai dalam deret Collatz dicetak, dan keluar dengan bersih dari konsol.
 
 ## Kesimpulan 
 1. Praktikum ini memberikan pemahaman yang lebih baik tentang bagaimana prosedur (atau fungsi) bekerja dalam bahasa Go. Prosedur memungkinkan kita untuk membagi program menjadi bagian-bagian yang lebih kecil dan lebih mudah dikelola, yang meningkatkan keterbacaan dan pemeliharaan kode.
