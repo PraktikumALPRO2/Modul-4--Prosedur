@@ -1,0 +1,62 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type Peserta struct {
+	Nama  string
+	Nilai [8]int
+}
+
+func hitungSkor(nilai [8]int, totalskor *int, totalsoal *int) {
+	*totalskor = 0
+	*totalsoal = 0
+
+	for _, n := range nilai {
+		if n < 301 {
+			*totalsoal++
+			*totalskor += n
+		}
+	}
+}
+
+func cariPemenang(peserta []Peserta) Peserta {
+	var pemenang Peserta
+	maxsoal := -1
+	minnilai := math.MaxInt32
+	for _, m := range peserta {
+		var totalNilai, soalDikerjakan int
+		hitungSkor(m.Nilai, &totalNilai, &soalDikerjakan)
+
+		if soalDikerjakan > maxsoal || (soalDikerjakan == maxsoal && totalNilai < minnilai) {
+			maxsoal = soalDikerjakan
+			minnilai = totalNilai
+			pemenang = m
+		}
+	}
+	return pemenang
+}
+
+func main() {
+	var jumlahpeserta int
+	fmt.Print("Masukkan jumlah peserta: ")
+	fmt.Scan(&jumlahpeserta)
+	Peserta := make([]Peserta, jumlahpeserta)
+	for i := 0; i < jumlahpeserta; i++ {
+		fmt.Printf("Masukkan nama peserta ke-%d: ", i+1)
+		fmt.Scan(&Peserta[i].Nama)
+		for j := 0; j < 8; j++ {
+			fmt.Printf("Masukkan waktu pengerjaan soal ke-%d untuk %s: ", j+1, Peserta[i].Nama)
+			fmt.Scan(&Peserta[i].Nilai[j])
+		}
+	}
+	pemenang := cariPemenang(Peserta)
+	var totalNilai, totalSoalDikerjakan int
+	hitungSkor(pemenang.Nilai, &totalNilai, &totalSoalDikerjakan)
+	
+	fmt.Printf("\nPemenang: %s\n", pemenang.Nama)
+	fmt.Printf("Total Nilai: %d\n", totalNilai)
+	fmt.Printf("Total Soal Dikerjakan: %d\n", totalSoalDikerjakan)
+}
