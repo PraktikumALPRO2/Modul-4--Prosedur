@@ -20,15 +20,15 @@
 
 #### I. DASAR TEORI
 #### Procedure
-Prosedure dalam Golang adalah blok kode yang dapat dipanggil berulang kali untuk melakukan tugas tertentu. 
+Prosedure dalam Golang adalah blok kode yang dapat dipanggil berulang kali untuk melakukan tugas tertentu. Prosedur dibuat untuk mengurangi kerumitan dari kode program yang kompleks pada suatu program yang besar.
 Ciri-ciri procedure:
 -Membentuk suatu instruksi baru
 -Nama fungsi membentuk kata kerja
 -Tidak memiliki tipe data Tidak terdapat "return"
 -Tidak dapat menggunakan parameter secara langsung
 
-Perbedaan parameter aktual dengan parameter formal
-1. Parameter aktual Merupakan variabel atau eskpresi dalam parameter yang digunakan untuk memanggil sebuah sub program
+#### Parameter
+1. Parameter formal adalah parameter yang ditulis pada saat deklarasi suatu subprogram, parameter ini berfungsi sebagai petunjuk bahwa argumen apa saja yang diperlukan pada saat pemanggilan subprogram.
 Contoh:
 ```go
 func volumeTabung(jari_jari, tinggi int){
@@ -37,7 +37,7 @@ func volumeTabung(jari_jari, tinggi int){
 ```
 jari_jari pada deklarasi func volume tabung merupakan parameter formal
 
-2. Parameter formal Merupakan variabel yang ada didalam parameter list pada sebuah program
+2. Sedangkan parameter aktual adalah argumen yang digunakan pada bagian parameter saat pemanggilan suatu subprogram, Banyaknya argumen dan tipe data yang terdapat pada paramter aktual harus mengikuti parameter formal.
 Contoh:
 ```go
 func main(){
@@ -46,6 +46,15 @@ volumeTabung(14, 100)
 }
 ```
 14 dan 100 adalah parameter aktual
+
+#### Alokasi memori
+1. Pass by Value
+Nilai pada parameter aktual akan disalin ke variabel lokal (parameter formal) pada subprogram. Artinya parameter aktual dan formal dialokasikan di dalam memori komputer dengan alamat memori yang berbeda. Subprogram dapat menggunakan nilai pada parameter formal tersebut untuk proses apapun, tetapi tidak dapat mengembalikan informasinya ke pemanggil melalui parameter aktual karena pemanggil tidak dapat mengakses memori yang digunakan oleh subprogram. Pass by value bisa digunakan baik oleh fungsi ataupun prosedur.
+Pada notasi pseudocode, secara semua parameter formal pada fungsi adalah pass by value, sedangkan pada prosedur diberi kata kunci in pada saat penulisan parameter formal. Sedangkan pada bahasa pemrograman Go sama seperti fungsi pada pseudocode, tidak terdapat kata kunci khusus untuk parameter formal fungsi dan prosedur.
+
+2. Pass by Reference
+Ketika parameter didefinisikan sebagai pass by reference, maka pada saat pemanggilan parameter formal akan berperan sebagai pointer yang menyimpan alamat memori dari parameter aktual. Sehingga perubahan nilai yang terjadi pada paramter formal tersebut akan berdampak pada parameter aktual. Artinya nilai terakhirnya akan dapat diketahui oleh si pemanggil setelah subprogram tersebut selesai dieksekusi. Pass by reference sebaiknya digunakan hanya untuk prosedur.
+Penulisan parameter pass by reference pada prosedur baik pseudocode dan Go menggunakan kata kunci atau identifier khusus. Pada pseudocode menggunakan kata kunci in/out, sedangkan pada bahasa Go diberi identifier asterik (*) sebelum tipe data di parameter formal yang menjadi pass by reference.
 
 <br></br>
 
@@ -291,6 +300,8 @@ func main() {
 ##### Deskripsi Program
 Program ini digunakan untuk menghasilkan deret bilangan yang mengikuti aturan khusus, pertama user akan diminta untuk menginputkan bilangan bulat. Jika bilangan tersebut genap, maka bilangan tersebut dibagi dua. Sebaliknya, jika bilangan tersebut ganjil, maka bilangan tersebut dikalikan tiga dan ditambah satu. Proses ini berulang terus hingga nilai bilangan mencapai 1. Setiap bilangan yang dihasilkan dalam proses ini akan ditampilkan. Program ini juga memiliki batasan input: bilangan yang dimasukkan harus kurang dari 1.000.000. Batasan ini berfungsi untuk menghindari hasil yang tidak terduga atau waktu eksekusi yang terlalu lama.
 
+### Kesimpulan
+Prosedur memiliki keududukan yang sama dengan fungsi. Prosedur tidak ada deklarasi tipe nilai yang dikembalikan dan tidak terdapat kata return dalam badan subprogram. Prosedur dapat dipanggil dalam program utama maupun subprogram yang lain
 
 ### Referensi
 [1] MODUL 4 PROSEDUR
