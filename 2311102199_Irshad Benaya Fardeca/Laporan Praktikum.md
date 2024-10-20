@@ -164,14 +164,65 @@ Setiap baris masukan dimulai dengan satu string nama peserta tersebut diikuti de
 Keterangan:
 Astuti menyelesaikan 6 soal dalam waktu 287 menit, sedangkan Bertha 7 soal dalam waktu 294 menit. Karena Bertha menyelesaikan lebih banyak, maka Bertha menang. Jika keduanya menyelesaikan sama banyak, maka pemenang adalah yang menyelesaikan dengan total waktu paling kecil.
 ```go
+package main
 
+import (
+	"fmt"
+)
 
+func hitungSkor(waktu []int, soal *int, skor *int) {
+	*soal = 0
+	*skor = 0
+
+	for _, t := range waktu {
+		if t <= 300 {
+			*soal++
+			*skor += t
+		}
+	}
+}
+
+func main() {
+
+	var namaPemenang string
+	maxSoal := -1
+	minWaktu := 301 * 8
+
+	for i := 0; i < 100; i++ {
+		var nama string
+		var waktu [8]int
+		var soal, skor int
+
+		fmt.Print("Masukkan nama peserta: ")
+		fmt.Scan(&nama)
+
+		if nama == "selesai" {
+			break
+		}
+
+		fmt.Print("Masukkan waktu pengerjaan 8 soal: ")
+		for j := 0; j < 8; j++ {
+			fmt.Scan(&waktu[j])
+		}
+
+		hitungSkor(waktu[:], &soal, &skor)
+
+		if soal > maxSoal || (soal == maxSoal && skor < minWaktu) {
+			maxSoal = soal
+			minWaktu = skor
+			namaPemenang = nama
+		}
+	}
+
+	fmt.Printf("Pemenang: %s, Soal Diselesaikan: %d, Total Waktu: %d menit\n",
+		namaPemenang, maxSoal, minWaktu)
+}
 ```
 ##### Screenshoot Output
-
+![Screenshot 2024-10-20 222647](https://github.com/user-attachments/assets/778918c0-a9f8-412a-9bca-b38cf1b00dd9)
 
 ##### Deskripsi Program
-
+Program ini digunakan untuk menentukan pemenang dalam sebuah kompetisi yang berbasis waktu. Program akan terus meminta pengguna memasukkan nama peserta dan waktu pengerjaan untuk setiap soal hingga pengguna memasukkan kata "selesai". Setiap peserta akan dinilai berdasarkan jumlah soal yang dikerjakan dalam waktu kurang dari 5 menit dan total waktu pengerjaan. Peserta dengan jumlah soal terbanyak dan waktu tercepat akan dinyatakan sebagai pemenang.
 
 ##### 3. Skiena dan Revilla dalam Programming Challenges mendefinisikan sebuah deret bilangan. Deret dimulai dengan sebuah bilangan bulat n. Jika bilangan n saat itu genap, maka suku berikutnya adalah 1/2n, tetapi jika ganjil maka suku berikutnya bernilai 3n+1. Rumus yang sama digunakan terus menerus untuk mencari suku berikutnya. Deret berakhir ketika suku terakhir bernilai 1. Sebagai contoh jika dimulai dengan n=22, maka deret bilangan yang diperoleh adalah: 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1
 Untuk suku awal sampal dengan 1000000, diketahui deret selalu mencapai suku dengan nilai 1. Buat program sklena yang akan mencetak setiap suku dari deret yang dijelaskan di atas untuk nilai suku awal yang diberikan. Pencetakan deret harus dibuat dalam prosedur cetak Deret yang mempunyai 1 parameter formal, yaitu nilai dari suku awal. 
